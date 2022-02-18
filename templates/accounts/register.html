@@ -1,0 +1,237 @@
+{% extends "base.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+{% block content %}
+<main class=" mx-auto max-w-7xl h-full px-6">
+    <!-- <div class="absolute inset-0 main-gradient min-h-screen z-[-1]"></div> -->
+   
+    {% include "partials/_alert.html" %}
+    
+<div class=" sm:flex sm:justify-between block h-full w-full">
+
+    <div class=" md:w-3/5  flex justify-center  flex-col relative z-30     h-full min-h-[80vh] w-full   ">
+       <div class="">
+                    <h2 class="text-white md:text-4xl sm:text-3xl text-3xl  mb-6 font-semibold text-center sm:text-left ">Create a account </h2>
+        <form class="flex flex-col justify-between gap-6 md:w-9/12 h-full sm:w-full" autocomplete="off" action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <div class="sm:flex-row  flex flex-col w-full sm:gap-4 gap-6  items-center justify-between">
+
+                <!-- FIRSTNAME -->
+                <div class=" w-full input-gradient relative  rounded-lg pt-4 ">
+                  
+                    <input class="input w-full"  type='text' name='firstname' id='reg-firstname' onchange="checkRegisterInputVal()" required>
+                    <span  class="label">Firstname</span>
+                    <i data-feather="user" class="opacity-40 text-white absolute top-1/2 -translate-y-1/2 right-2 inputfield_icon"></i>
+
+                </div>
+                <!-- LASTNAME  -->
+                <div class="input-gradient relative  rounded-lg pt-4 w-full">
+                  
+                    <input class="input"  type='text' name='lastname' id='reg-lastname' onchange="checkRegisterInputVal()" required>
+                    <span  class="label">Lastname</span>
+                <i data-feather="user" class="opacity-40 text-white absolute top-1/2 -translate-y-1/2 right-2 inputfield_icon"></i>
+
+                </div>
+            </div>
+
+<!-- EMAIL -->
+            <div class=" input-gradient relative  rounded-lg pt-4">
+             
+                <input class=" input"  type='text' name='email' id="registerEmailInput" onchange="checkRegisterInputVal()" required>
+                <span  class="label">Email</span>
+                <i data-feather="mail" class="opacity-40 text-white absolute top-1/2 -translate-y-1/2 right-2 inputfield_icon"></i>
+
+            </div>
+            <!-- PASSWORD -->
+            <div class=" input-gradient relative  rounded-lg pt-4 ">
+
+                <input class="input registerPassInput"  type='password' name='password'     id='registerPassInput' onchange="checkRegisterInputVal()" required>
+                <span  class="label">Password</span>
+                <i data-feather="lock" class="opacity-40 text-white absolute top-1/2 -translate-y-1/2 right-2 inputfield_icon regshowkey cursor-pointer " onclick="showRegPassword()"></i>
+
+
+            </div>
+            <!-- C--PASSWORD -->
+
+            <div class=" input-gradient relative  rounded-lg pt-4 ">
+
+                <input class="input registerPassInput"  type='password' name='cpassword' onchange="checkRegisterInputVal()"    id='registerPassConfirmInput' required>
+                <span  class="label">Confirm Password</span>
+                <i data-feather="lock" id="regshowkey" class="opacity-40 text-white absolute top-1/2 -translate-y-1/2 right-2 inputfield_icon  cursor-pointer " onclick="showRegPassword()"></i>
+
+
+            </div>
+<div>
+    <button disabled class=" rounded-lg px-10 py-3 w-full block sm:w-auto sm:inline-block disabled-btn  text-white" id="reg-btn" >Register</button>
+
+   
+</div>
+<!-- <p class=" text-white text-sm text-center sm:text-left ">Already signup yet ? <a href='{% url "login" %}' class="text-[#F154FF]">Sign in </a></p> -->
+       </form>
+           
+        </div>
+    </div>
+    <div class="sm:w-2/5 hidden md:block relative z-[1] ">
+
+        <div class="">
+           
+
+
+
+         
+          
+                
+                <svg width="639" height="400" class="absolute right-0 top-[15%] " viewBox="0 0 639 647" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse class="ellipse-1" cx="79.5" cy="228.5" rx="67.5" ry="70.5" fill="url(#paint0_linear_181_493)"/>
+                    <circle class="ellipse-1" cx="78.5" cy="225.5" r="12.5" fill="#5E0066"/>
+                    <ellipse class="ellipse-1" cx="109.5" cy="194.5" rx="17.5" ry="18.5" fill="url(#paint1_linear_181_493)"/>
+                    <ellipse class="ellipse-1" cx="118.5" cy="237.5" rx="17.5" ry="18.5" fill="url(#paint2_linear_181_493)"/>
+                    <ellipse class="ellipse-1" cx="78.5" cy="268.5" rx="17.5" ry="18.5" fill="url(#paint3_linear_181_493)"/>
+                    <ellipse class="ellipse-1" cx="39.5" cy="231.5" rx="17.5" ry="18.5" fill="url(#paint4_linear_181_493)"/>
+                    <ellipse class="ellipse-1" cx="62.5" cy="189.5" rx="17.5" ry="18.5" fill="url(#paint5_linear_181_493)"/>
+                    <circle class="ellipse-1" cx="71.5" cy="562.5" r="38.5" fill="url(#paint6_linear_181_493)"/>
+                    <circle class="ellipse-1" cx="381" cy="601" r="46" fill="url(#paint7_linear_181_493)"/>
+                    <circle class="ellipse-1" cx="46" cy="413" r="46" fill="url(#paint8_linear_181_493)"/>
+                    <circle class="ellipse-1" cx="263.5" cy="482.5" r="41.5" fill="url(#paint9_linear_181_493)"/>
+                    <ellipse class="ellipse-1" cx="159" cy="62" rx="59" ry="62" fill="url(#paint10_linear_181_493)"/>
+                    <rect class="ellipse-1" x="80" y="222.526" width="197.018" height="109.454" rx="10" fill="url(#paint11_linear_181_493)"/>
+                    <circle class="ellipse-1" cx="131.079" cy="213.145" r="28.1454" fill="url(#paint12_linear_181_493)"/>
+                    <circle class="ellipse-1" cx="130.557" cy="212.625" r="20.3273" fill="url(#paint13_linear_181_493)"/>
+                    <circle class="ellipse-1" cx="223.854" cy="213.145" r="28.1454" fill="url(#paint14_linear_181_493)"/>
+                    <path class="ellipse-1" d="M276.232 277.752L335.377 241.706L337.021 310.951L276.232 277.752Z" fill="url(#paint15_linear_181_493)"/>
+                    <rect class="ellipse-1" x="177.054" y="326.562" width="11.4667" height="199.103" transform="rotate(15.5252 177.054 326.562)" fill="url(#paint16_linear_181_493)"/>
+                    <rect class="ellipse-1" x="175.903" y="329.897" width="11.4667" height="199.103" fill="url(#paint17_linear_181_493)"/>
+                    <rect class="ellipse-1" x="176.945" y="331.77" width="11.4667" height="199.103" transform="rotate(-14.7327 176.945 331.77)" fill="url(#paint18_linear_181_493)"/>
+                    <circle class="ellipse-1" cx="223.333" cy="212.625" r="20.3273" fill="url(#paint19_linear_181_493)"/>
+                    <rect class="ellipse-1" x="102.933" y="254.842" width="45.8666" height="45.8666" rx="4" fill="url(#paint20_linear_181_493)"/>
+                    <rect class="ellipse-1" x="110.23" y="262.139" width="31.2727" height="31.2727" rx="5" fill="url(#paint21_linear_181_493)"/>
+                    <ellipse class="ellipse-1" cx="315.5" cy="135" rx="31.5" ry="33" fill="url(#paint22_linear_181_493)"/>
+                    <line class="ellipse-1" x1="341.825" y1="246.532" x2="531.825" y2="175.532" stroke="#F154FF"/>
+                    <line class="ellipse-1" x1="341.891" y1="261.512" x2="534.891" y2="218.512" stroke="#9E00FF"/>
+                    <path class="ellipse-1" d="M342 278H535" stroke="#C573F8"/>
+                    <path class="ellipse-1" d="M342 292L535 330" stroke="#12A5C6" stroke-opacity="0.99"/>
+                    <path class="ellipse-1" d="M342 308L532 376" stroke="#2A66FF"/>
+                    <path class="ellipse-1" d="M532 129.742L639 0V416.154L532 541V129.742Z" fill="url(#paint23_linear_181_493)"/>
+                    <defs>
+                    <linearGradient id="paint0_linear_181_493" x1="79.5" y1="158" x2="79.5" y2="299" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#C4C4C4"/>
+                    <stop offset="1" stop-color="#C4C4C4" stop-opacity="0"/>
+                    </linearGradient>
+                    <linearGradient id="paint1_linear_181_493" x1="109.5" y1="176" x2="109.5" y2="213" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#929292"/>
+                    <stop offset="1"/>
+                    </linearGradient>
+                    <linearGradient id="paint2_linear_181_493" x1="118.5" y1="219" x2="118.5" y2="256" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#929292"/>
+                    <stop offset="1"/>
+                    </linearGradient>
+                    <linearGradient id="paint3_linear_181_493" x1="78.5" y1="250" x2="78.5" y2="287" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#929292"/>
+                    <stop offset="1"/>
+                    </linearGradient>
+                    <linearGradient id="paint4_linear_181_493" x1="39.5" y1="213" x2="39.5" y2="250" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#929292"/>
+                    <stop offset="1"/>
+                    </linearGradient>
+                    <linearGradient id="paint5_linear_181_493" x1="62.5" y1="171" x2="62.5" y2="208" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#929292"/>
+                    <stop offset="1"/>
+                    </linearGradient>
+                    <linearGradient id="paint6_linear_181_493" x1="71.5" y1="524" x2="71.5" y2="601" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#B73D3D"/>
+                    <stop offset="1" stop-color="#B73D3D" stop-opacity="0"/>
+                    </linearGradient>
+                    <linearGradient id="paint7_linear_181_493" x1="381" y1="555" x2="381" y2="647" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#12C665"/>
+                    <stop offset="1" stop-color="#12A5C6" stop-opacity="0"/>
+                    </linearGradient>
+                    <linearGradient id="paint8_linear_181_493" x1="46" y1="367" x2="46" y2="459" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#580D5F"/>
+                    <stop offset="1" stop-color="#F154FF" stop-opacity="0"/>
+                    </linearGradient>
+                    <linearGradient id="paint9_linear_181_493" x1="263.5" y1="441" x2="263.5" y2="524" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#F9FE10"/>
+                    <stop offset="1" stop-color="#F9FE10" stop-opacity="0"/>
+                    </linearGradient>
+                    <linearGradient id="paint10_linear_181_493" x1="159" y1="0" x2="159" y2="124" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#07BFFA"/>
+                    <stop offset="1" stop-color="#07BFFA" stop-opacity="0"/>
+                    </linearGradient>
+                    <linearGradient id="paint11_linear_181_493" x1="178.509" y1="222.526" x2="178.509" y2="331.981" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#154CD8"/>
+                    <stop offset="0.503125" stop-color="#C815D8"/>
+                    <stop offset="1" stop-color="#F154FF"/>
+                    </linearGradient>
+                    <linearGradient id="paint12_linear_181_493" x1="131.079" y1="185" x2="131.079" y2="241.291" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#154CD8"/>
+                    <stop offset="0.503125" stop-color="#C815D8"/>
+                    <stop offset="1" stop-color="#F154FF"/>
+                    </linearGradient>
+                    <linearGradient id="paint13_linear_181_493" x1="130.557" y1="192.297" x2="130.557" y2="232.952" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#154CD8"/>
+                    <stop offset="0.503125" stop-color="#C815D8"/>
+                    <stop offset="1" stop-color="#F154FF"/>
+                    </linearGradient>
+                    <linearGradient id="paint14_linear_181_493" x1="223.854" y1="185" x2="223.854" y2="241.291" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#154CD8"/>
+                    <stop offset="0.503125" stop-color="#C815D8"/>
+                    <stop offset="1" stop-color="#F154FF"/>
+                    </linearGradient>
+                    <linearGradient id="paint15_linear_181_493" x1="276.232" y1="277.752" x2="356.188" y2="275.854" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#154CD8"/>
+                    <stop offset="0.503125" stop-color="#C815D8"/>
+                    <stop offset="1" stop-color="#F154FF"/>
+                    </linearGradient>
+                    <linearGradient id="paint16_linear_181_493" x1="182.787" y1="326.562" x2="182.787" y2="525.665" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#154CD8"/>
+                    <stop offset="0.503125" stop-color="#C815D8"/>
+                    <stop offset="1" stop-color="#F154FF"/>
+                    </linearGradient>
+                    <linearGradient id="paint17_linear_181_493" x1="181.637" y1="329.897" x2="181.637" y2="529" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#154CD8"/>
+                    <stop offset="0.503125" stop-color="#C815D8"/>
+                    <stop offset="1" stop-color="#F154FF"/>
+                    </linearGradient>
+                    <linearGradient id="paint18_linear_181_493" x1="182.679" y1="331.77" x2="182.679" y2="530.872" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#154CD8"/>
+                    <stop offset="0.503125" stop-color="#C815D8"/>
+                    <stop offset="1" stop-color="#F154FF"/>
+                    </linearGradient>
+                    <linearGradient id="paint19_linear_181_493" x1="223.333" y1="192.297" x2="223.333" y2="232.952" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#154CD8"/>
+                    <stop offset="0.503125" stop-color="#C815D8"/>
+                    <stop offset="1" stop-color="#F154FF"/>
+                    </linearGradient>
+                    <linearGradient id="paint20_linear_181_493" x1="125.866" y1="254.842" x2="125.866" y2="300.709" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#154CD8"/>
+                    <stop offset="0.503125" stop-color="#C815D8"/>
+                    <stop offset="1" stop-color="#F154FF"/>
+                    </linearGradient>
+                    <linearGradient id="paint21_linear_181_493" x1="125.866" y1="262.139" x2="125.866" y2="293.412" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#154CD8"/>
+                    <stop offset="0.503125" stop-color="#C815D8"/>
+                    <stop offset="1" stop-color="#F154FF"/>
+                    </linearGradient>
+                    <linearGradient id="paint22_linear_181_493" x1="315.5" y1="102" x2="315.5" y2="168" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FF00C7"/>
+                    <stop offset="1" stop-color="#FF6B00" stop-opacity="0"/>
+                    </linearGradient>
+                    <linearGradient id="paint23_linear_181_493" x1="585.5" y1="0" x2="585.5" y2="541" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#43006B"/>
+                    <stop offset="1" stop-color="#00526B"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+                    
+        
+        </div>
+      
+            
+    </div>
+</div>
+  
+   
+  </main>
+{% endblock %}

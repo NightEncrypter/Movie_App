@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+  {% include "partials/_alert.html" %}  
+<form action="{% url 'reg2' %}" method="post">
+    {% csrf_token %}
+        <div class="text-[aqua] my-4">
+        <label for=''>Firstname</label>
+        <div>
+            <input type='text' name='firstname' id=''>
+    
+        </div>
+        </div>
+        <div class="text-[aqua] my-4 ">
+        <label for=''>lastname</label>
+        <div>
+    
+            <input type='text' name='lastname' id=''>
+        </div>
+        </div>
+        <div class="text-[aqua] my-4">
+        <label for=''>User</label>
+        <div>
+            <input type='text' name='username' id=''>
+    
+        </div>
+        </div>
+        <div class="text-[aqua] my-4">
+        <label for=''>Email</label>
+        <div>
+    
+            <input type='text' name='email' id=''>
+        </div>
+    
+        </div>
+        <div class="text-[aqua] my-4">
+        <label for=''>Password</label>
+        <div>
+    
+            <input type='text' name='password' id=''>
+        </div>
+        </div>
+        <div class="text-[aqua] my-4">
+        <label for=''>C-Password</label>
+        <div>
+    
+            <input type='text' name='cpassword' id=''>
+        </div>
+        </div>
+    <button type="submit" class="bg-[aqua] text-white text-sm block">
+        Submit
+    </button>
+    </form>
+</div>
+
+
+{% endblock %}
+

@@ -1,0 +1,45 @@
+{% if messages %}
+
+{% for message in messages %}
+<div id="alert-container"
+
+
+{% if message.tags == "danger" %}
+class=" absolute top-20  flex items-center justify-center   text-sm   w-max danger  -translate-x-1/2 left-1/2  py-2 transition duration-300 rounded-2xl  px-6 shadow-xl "
+{% else %}
+class=" absolute top-20  flex items-center justify-center   text-sm   w-max success  -translate-x-1/2 left-1/2  py-2 transition duration-300 rounded-2xl  px-6 shadow-xl "
+{% endif %}
+>
+<div class=" " >
+
+    <p class="flex gap-3 items-center text-white text-sm">
+
+        <strong class="flex items-center gap-2" >
+{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+<!-- <span> -->
+    <span class="flex items-center gap-3">
+<i data-feather="alert-circle" class="text-white"></i></span>
+{% else %}
+<i data-feather="check-circle" class="text-white"></i>
+{% endif %}
+
+<span>{{message}}
+</span>
+
+<!-- {{message.tags}} -->
+</strong>
+ 
+<button onclick="discardedAlert()" >
+    <i data-feather="x" class=" cursor-pointer alert-discard text-red-200" ></i>
+</button>
+
+    </p>
+
+
+</div>
+</div>
+{% endfor %}
+{% endif %}
+
+
+<!-- <span class="text-sm">{{message.tags|title}}</span> -->

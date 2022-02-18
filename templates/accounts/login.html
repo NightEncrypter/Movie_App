@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+{% block content %}
+<main class=" mx-auto max-w-7xl h-full px-6">
+    <!-- <div class="absolute inset-0 main-gradient min-h-screen z-[-1]"></div> -->
+   
+    {% include "partials/_alert.html" %}
+    
+<div class=" min-h-[80vh] flex justify-between md:items-stretch items-center  w-full">
+
+
+    <div class="md:w-3/5 w-full  md:flex    flex-col justify-center  ">
+       <div class="">
+        <h2 class="text-white text-4xl  font-semibold mb-6 ">Login</h2>
+        <form method="post" class="flex flex-col justify-between gap-6 md:w-9/12 w-full sm:w-4/5 h-full" autocomplete="off" action="{% url 'login' %}">
+{% csrf_token %}
+            <!-- EMAIL -->
+            <div class="input-gradient relative  rounded-lg pt-4  ">
+                
+                <input class="input" required  type='text' name='email' id='loginEmailInput' onchange="checkInputVal()">
+                <span  class="label">Email</span>
+                <i data-feather="mail" class="opacity-40 inputfield_icon text-white absolute top-1/2 -translate-y-1/2 right-2"></i>
+            </div>
+
+            <!-- Password -->
+            <div class=" input-gradient relative  rounded-lg pt-4  ">
+
+                <input class="input" required 
+                id='loginPassInput'
+                type='password' name='password'  autocomplete="off"  id='' onchange="checkLoginInputVal()">
+                <span  class="label">Password</span>
+                <!-- <button class="inline-block"> -->
+                    <i data-feather="lock" class="opacity-40 text-white inputfield_icon absolute top-1/2 -translate-y-1/2 right-2 cursor-pointer" id="showkey"  onclick="showPassword()"></i>
+                <!-- </button> -->
+
+            </div>
+
+            <!-- Button -->
+<div>
+    <button disabled class=" rounded-lg px-10 py-3  text-white disabled-btn w-full block sm:w-auto sm:inline-block" id="loginButton" >Login</button>
+</div>
+
+<!-- Sign up  -->
+<!-- <p class=" text-white text-center text-sm font-light sm:text-left">SignUp not yet ? <a href="{% url 'register' %}" class="text-[#F154FF]">Create a new account </a></p> -->
+       </form>
+           
+        </div>
+    </div>
+    <div class="w-2/5 md:block hidden">
+
+        <div class="relative">
+            <svg width="553" height="400" class="absolute top-[4rem] -right-[3rem]" viewBox="0 0 553 652" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="461.5" cy="153.5" rx="44.5" ry="46.5" class="ellipse-1" fill="url(#paint0_linear_183_495)"/>
+                <ellipse class="ellipse-1" cx="402" cy="377.5" class="ellipse-2" rx="78" ry="81.5" fill="url(#paint1_radial_183_495)"/>
+                <ellipse class="" cx="402.5" cy="377.5" rx="67.5" ry="70.5" fill="url(#paint2_linear_183_495)"/>
+                <circle  cx="401.5" cy="374.5" r="12.5" fill="#5E0066"/>
+                <ellipse class="ellipse-1" cx="432.5" cy="343.5" rx="17.5" ry="18.5" fill="url(#paint3_linear_183_495)"/>
+                <ellipse class="ellipse-1" cx="441.5" cy="386.5" rx="17.5" ry="18.5" fill="url(#paint4_linear_183_495)"/>
+                <ellipse  class="ellipse-1" cx="401.5" cy="415.5" rx="17.5" ry="18.5" fill="url(#paint5_linear_183_495)"/>
+                <ellipse class="ellipse-1" cx="362.5" cy="380.5" rx="17.5" ry="18.5" fill="url(#paint6_linear_183_495)"/>
+                <ellipse  class="ellipse-1" cx="385.5" cy="338.5" rx="17.5" ry="18.5" fill="url(#paint7_linear_183_495)"/>
+                <path class="ellipse-1"  d="M472.594 362.5L467.5 351C469.646 351 464.5 328.5 464.5 328.5C464.5 328.5 478.807 346.165 481.5 362.5C484.193 378.835 487.5 387.835 487.5 387.835C487.5 387.835 491.5 405.861 494 412C496.5 418.139 500.495 422.624 500.495 422.624C500.495 422.624 509.237 440.269 532.69 426.717C552.112 415.494 537.379 389.065 529.303 377.697C524.773 379.242 520.5 382.195 520.5 387.835C520.5 399.835 526.966 422.624 526.966 422.624C508.365 429.786 525.597 429.311 516.5 407C507.403 384.689 520.716 374.347 525.5 372.835C532.69 368 539.239 375.471 539.844 376C544.353 379.939 565.58 398.544 539.844 430.298C516.592 458.989 495.586 439.513 491.286 434.231C490.931 434.606 490.949 434.535 491.225 434.157C490.405 433.137 490.243 432.686 490.853 433.291C489.123 431.221 484.33 424.329 481.5 408.811C478 389.622 476.886 378.5 476.886 378.5L472.594 362.5Z" fill="#515151"/>
+                <circle  class="ellipse-1" cx="133.5" cy="309.5" r="52.5" fill="url(#paint8_linear_183_495)"/>
+                <ellipse class="ellipse-1" cx="385.5" cy="33" rx="31.5" ry="33" fill="url(#paint9_linear_183_495)"/>
+                <circle class="ellipse-m" cx="127" cy="494" r="46" fill="url(#paint10_linear_183_495)"/>
+                <circle class="ellipse-m" cx="337.5" cy="487.5" r="38.5" fill="url(#paint11_linear_183_495)"/>
+                <rect class="ellipse-1" x="156.961" y="232.647" width="241.555" height="176.563" rx="4" fill="#300034"/>
+                <rect  class="ellipse-1" x="157.04" y="227.496" width="241.555" height="41.98" rx="4" transform="rotate(0.106357 157.04 227.496)" fill="url(#paint12_linear_183_495)"/>
+                <path class="ellipse-1" d="M316.516 338.368L244.744 379.155L245.308 296.605L316.516 338.368Z" fill="url(#paint13_linear_183_495)"/>
+                <path  class="ellipse-1" d="M172.937 269.538C172.659 269.705 172.379 269.325 172.621 269.109L218.134 228.515C218.866 227.861 219.814 227.5 220.796 227.5L228.236 227.5V227.5C227.764 227.5 227.309 227.679 226.964 228.002L183.654 268.424C182.913 269.115 181.938 269.5 180.924 269.5L173.075 269.5C173.026 269.5 172.979 269.513 172.937 269.538V269.538Z" fill="#C4C4C4"/>
+                <path class="ellipse-1" d="M216.202 269.538C215.923 269.705 215.644 269.325 215.886 269.109L261.398 228.515C262.131 227.861 263.079 227.5 264.061 227.5L271.501 227.5V227.5C271.028 227.5 270.574 227.679 270.228 228.002L226.918 268.424C226.178 269.115 225.202 269.5 224.189 269.5L216.339 269.5C216.291 269.5 216.243 269.513 216.202 269.538V269.538Z" fill="#C4C4C4"/>
+                <path class="ellipse-1" d="M261.202 269.538C260.923 269.705 260.644 269.325 260.886 269.109L306.398 228.515C307.131 227.861 308.079 227.5 309.061 227.5L316.501 227.5V227.5C316.029 227.5 315.574 227.679 315.228 228.002L271.918 268.424C271.178 269.115 270.202 269.5 269.189 269.5L261.339 269.5C261.291 269.5 261.243 269.513 261.202 269.538V269.538Z" fill="#C4C4C4"/>
+                <path class="ellipse-1" d="M307.667 269.538C307.388 269.705 307.109 269.325 307.351 269.109L352.863 228.515C353.596 227.861 354.544 227.5 355.526 227.5L362.966 227.5V227.5C362.493 227.5 362.039 227.679 361.693 228.002L318.383 268.424C317.643 269.115 316.667 269.5 315.654 269.5L307.804 269.5C307.756 269.5 307.708 269.513 307.667 269.538V269.538Z" fill="#C4C4C4"/>
+                <path class="ellipse-1" d="M348.053 269.539C347.769 269.709 347.484 269.323 347.73 269.102L392.492 228.856C393.43 228.012 394.736 227.71 395.95 228.057V228.057C396.937 228.339 397.764 229.028 398.223 229.947V229.947C398.973 231.447 398.625 233.273 397.368 234.383L358.753 268.498C358.022 269.143 357.08 269.5 356.104 269.5L348.193 269.5C348.144 269.5 348.095 269.513 348.053 269.539V269.539Z" fill="#C4C4C4"/>
+                <path  class="ellipse-1" d="M156.5 250.1C156.5 249.073 156.895 248.085 157.603 247.341L175.318 228.741C176.073 227.949 177.119 227.5 178.214 227.5L184.5 227.5V227.5C184.689 227.5 184.786 227.726 184.656 227.862L157.189 256.775C156.94 257.036 156.5 256.861 156.5 256.5V256.5L156.5 250.1Z" fill="#C4C4C4"/>
+                <circle class="ellipse-1" cx="52.5" cy="97.5" r="52.5" fill="url(#paint14_linear_183_495)"/>
+                <ellipse class="ellipse-1"  class="theatre" cx="242.5" cy="99" rx="31.5" ry="33" fill="url(#paint15_linear_183_495)"/>
+                <circle class="ellipse-1" cx="420.5" cy="599.5" r="52.5" fill="url(#paint16_linear_183_495)"/>
+                <rect class="ellipse-1" x="145.036" y="189.647" width="241.555" height="41.5349" rx="4" transform="rotate(-20.043 145.036 189.647)" fill="url(#paint17_linear_183_495)"/>
+                <path class="ellipse-1" d="M368.036 107.86C368.036 107.86 370.036 107.36 371.536 107.86C373.036 108.36 374.036 111.86 374.036 111.86L337.536 163.86L326.036 167.86L368.036 107.86Z" fill="#C4C4C4"/>
+                <path class="ellipse-1" d="M325.035 123.86C325.035 123.86 323.535 123.86 329.035 122.36C334.535 120.86 335.535 119.86 335.535 119.86L294.785 179.173L283.285 183.173L325.035 123.86Z" fill="#C4C4C4"/>
+                <path class="ellipse-1" d="M285.785 137.859C285.785 137.859 284.285 137.86 289.785 136.36C295.285 134.86 296.285 133.859 296.285 133.859L255.536 193.172L244.036 197.172L285.785 137.859Z" fill="#C4C4C4"/>
+                <path class="ellipse-1" d="M244.036 153.359C244.036 153.359 242.536 153.36 248.036 151.86C253.536 150.36 254.536 149.359 254.536 149.359L213.787 208.672L202.287 212.672L244.036 153.359Z" fill="#C4C4C4"/>
+                <path class="ellipse-1" d="M203.287 167.859C203.287 167.859 201.787 167.86 207.287 166.36C212.787 164.86 213.787 163.859 213.787 163.859L173.038 223.172L161.538 227.172L203.287 167.859Z" fill="#C4C4C4"/>
+                <path class="ellipse-1" d="M161.538 183.36C161.538 183.36 163.036 183.673 168.536 181.36C174.036 179.046 173.038 179.36 173.038 179.36L152.536 208.672L149.036 201.86L161.538 183.36Z" fill="#C4C4C4"/>
+                <defs>
+                <linearGradient id="paint0_linear_183_495" x1="461.5" y1="107" x2="461.5" y2="200" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#18CC1F"/>
+                <stop offset="1"/>
+                </linearGradient>
+                <radialGradient id="paint1_radial_183_495" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(402 377.5) rotate(90) scale(81.5 78)">
+                <stop offset="0.659375" stop-color="#DDDDDD" stop-opacity="0.68"/>
+                <stop offset="0.867708" stop-color="#515151" stop-opacity="0.99"/>
+                </radialGradient>
+                <linearGradient id="paint2_linear_183_495" x1="402.5" y1="307" x2="402.5" y2="448" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#C4C4C4"/>
+                <stop offset="1" stop-color="#C4C4C4" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="paint3_linear_183_495" x1="432.5" y1="325" x2="432.5" y2="362" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#929292"/>
+                <stop offset="1"/>
+                </linearGradient>
+                <linearGradient id="paint4_linear_183_495" x1="441.5" y1="368" x2="441.5" y2="405" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#929292"/>
+                <stop offset="1"/>
+                </linearGradient>
+                <linearGradient id="paint5_linear_183_495" x1="401.5" y1="397" x2="401.5" y2="434" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#929292"/>
+                <stop offset="1"/>
+                </linearGradient>
+                <linearGradient id="paint6_linear_183_495" x1="362.5" y1="362" x2="362.5" y2="399" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#929292"/>
+                <stop offset="1"/>
+                </linearGradient>
+                <linearGradient id="paint7_linear_183_495" x1="385.5" y1="320" x2="385.5" y2="357" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#929292"/>
+                <stop offset="1"/>
+                </linearGradient>
+                <linearGradient id="paint8_linear_183_495" x1="133.5" y1="257" x2="133.5" y2="362" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FF00C7"/>
+                <stop offset="1" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="paint9_linear_183_495" x1="385.5" y1="0" x2="385.5" y2="66" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FFF500"/>
+                <stop offset="1" stop-color="#FFF500" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="paint10_linear_183_495" x1="127" y1="448" x2="127" y2="540" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#00D0FF"/>
+                <stop offset="1" stop-color="#00D0FF" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="paint11_linear_183_495" x1="337.5" y1="449" x2="337.5" y2="526" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FF6565" stop-opacity="0.93"/>
+                <stop offset="1"/>
+                </linearGradient>
+                <linearGradient id="paint12_linear_183_495" x1="277.818" y1="227.496" x2="277.818" y2="269.476" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#154CD8"/>
+                <stop offset="0.534375" stop-color="#9E00FF"/>
+                <stop offset="1" stop-color="#EB00FF"/>
+                </linearGradient>
+                <linearGradient id="paint13_linear_183_495" x1="316.516" y1="338.368" x2="221.196" y2="337.717" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#154CD8"/>
+                <stop offset="1" stop-color="#FF00F5"/>
+                </linearGradient>
+                <linearGradient id="paint14_linear_183_495" x1="52.5" y1="45" x2="52.5" y2="150" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#0066FF"/>
+                <stop offset="1" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="paint15_linear_183_495" x1="242.5" y1="66" x2="242.5" y2="132" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FF6B00"/>
+                <stop offset="1"/>
+                </linearGradient>
+                <linearGradient id="paint16_linear_183_495" x1="420.5" y1="547" x2="420.5" y2="652" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#F154FF"/>
+                <stop offset="1" stop-color="#C4C4C4" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="paint17_linear_183_495" x1="265.814" y1="189.647" x2="265.814" y2="231.182" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#154CD8"/>
+                <stop offset="0.523958" stop-color="#AD00FF"/>
+                <stop offset="1" stop-color="#DB00FF"/>
+                </linearGradient>
+                </defs>
+                </svg>
+                
+                     
+        </div>
+      
+            
+    </div>
+</div>
+  
+   
+  </main>
+{% endblock %}

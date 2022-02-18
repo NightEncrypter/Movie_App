@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' href="{% static 'output.css' %}" >
+    <script src='{% static "dist/feather.min.js" %}'></script>
+ 
+ 
+
+    <title>MovieManiac |{% block title %} {% endblock %}</title>
+  </head>
+  <body class="main-gradient min-h-screen">
+
+    <!-- SIDEBAR -->
+    {% include "partials/_sidebar.html" %}
+    <!-- NAVBAR -->
+    {% include 'partials/_nav.html' %}
+
+
+    <!-- MAIN BODY -->
+    <div class="content-shift">
+
+      {% block content %}
+       {% endblock %}
+    </div>  
+
+    <!-- JAVASCRIPT -->
+     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js' ></script>
+     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js'></script>
+     <script src='{% static "feather-icons/dist/feather.min.js" %}'></script>
+     <script src="{% static 'main.js' %}" ></script>
+
+    <script>
+    
+
+      
+      let sl1=gsap.timeline({
+        scrollTrigger:{
+          trigger:".main-card-1",
+          start:"center bottom"
+        }
+      })
+      let sl2=gsap.timeline({
+        scrollTrigger:{
+          trigger:".main-card-2",
+          start:"center bottom"
+        }
+      })
+      let casts=gsap.timeline({
+        scrollTrigger:{
+          trigger:".top-casts-animation",
+          start:"center bottom"
+        }
+      })
+      let thumbnails=gsap.timeline({
+        scrollTrigger:{
+          trigger:".thumbnails-animation",
+          start:"center bottom"
+        }
+      })
+      let reviews_collect=gsap.timeline({
+        scrollTrigger:{
+          trigger:".reviews-collection",
+          start:"center bottom"
+        }
+      })
+     let related_movie_animation=gsap.timeline({
+       scrollTrigger:{
+        trigger:".related-movie-animation",
+       start:"center bottom"
+     }
+      })
+      let sl3=gsap.timeline({
+        scrollTrigger:{
+          trigger:".tv",
+          start:"center bottom"
+        }
+      })
+      sl1.from(".gradient-cat1",{backgroundX:200,  opacity:0, y:-100,duration:1,stagger:0.3})
+      sl2.from(".gradient-cat2",{backgroundY:200,  opacity:0,duration:1,stagger:0.3})
+      thumbnails.from(".thumbnail",{backgroundY:200,  opacity:0,duration:1,stagger:0.2})
+      casts.from(".topcast-card",{backgroundY:200,  opacity:0,duration:1,stagger:0.2})
+     // reviews.from(".review",{backgroundY:200,  opacity:0,duration:1,stagger:0.2})
+      gsap.from(".related-movie",{backgroundY:200, scale:0.7, opacity:0,duration:1,})
+      related_movie_animation.from(".related-movie-sec",{backgroundY:200, scale:0.7, opacity:0,duration:1,})
+      gsap.from(".tv-anim",{ scale:1.2, opacity:0,duration:1})
+      gsap.from(".movie-data",{backgroundY:200, x:200, opacity:0,duration:1})
+      gsap.from(".bubble",{backgroundY:200,scale:1.3,yoyo:true, opacity:0,duration:1,delay:1,stagger:0.3})
+      gsap.from(".director",{backgroundY:200, x:200, opacity:0,duration:1,stagger:0.2})
+      gsap.from(".writer",{backgroundY:200, x:200, opacity:0,duration:1,stagger:0.2})
+      gsap.from(".heading",{backgroundY:200, scaleY:0, opacity:0,duration:1,delay:1})
+      gsap.from(".description",{backgroundY:200, scaleY:0, opacity:0,duration:0.5,delay:1})
+      //gsap.from('.ellipse-m', { opacity: 0, duration: 2, y: -500 ,repeat:-1})
+
+const add_review=document.querySelector(".add-review")
+const review_overlay=document.querySelector(".review-overlay")
+const disable_model=document.querySelector(".disable_model")
+
+add_review.addEventListener("click",()=>{
+ review_overlay.classList.add("active")
+ review_overlay.classList.add("disable_model")
+ document.body.style.overflowY="hidden"
+
+ //const newElement=document.createElement("div")
+
+
+ // const review_overlay=document.querySelector(".review-overlay")
+ //newElement.className=" bg-white text-base text-black p-4 top-1/2"
+/* newElement.innerHTML=`
+<div >
+
+
+  <div class="flex justify-between items-center"> 
+
+    <h2>Modals</h2>
+    <button class="bg-red-500 add-review">
+      <i data-feather="plus" class="text-red-500"></i>
+  
+  
+    </button>
+
+
+  </div>
+  
+
+<p>
+hey this the theghdhjjg
+
+</p>
+</div>
+`*/
+
+//review_overlay.append(newElement)
+
+//review_overlay.
+
+ //newElement.className=
+
+
+})
+
+
+disable_model.addEventListener("click",()=>{
+  review_overlay.classList.remove("active")
+  review_overlay.classList.remove("disable_model")
+
+ document.body.style.overflowY="auto"
+
+
+})
+
+
+
+ //const search_btn = document.querySelector('.search-btn');
+ //const drop_down=document.querySelector('.dropdown')
+ //const cancel_search=document.querySelector('.cancel-search')
+
+ //search_btn.addEventListener('click',()=>{
+  //drop_down.classList.toggle('search-dropdown')
+//})
+//cancel_search.addEventListener('click',()=>{
+//drop_down.classList.remove('search-dropdown')
+//}); 
+
+
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

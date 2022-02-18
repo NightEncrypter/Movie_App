@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='./static/output.css'>
+
+    <title>Document</title>
+    <style>
+        .percentage{
+            position: relative;
+         
+        }
+
+        .per{
+            position: absolute;
+        top: 5rem;
+        
+        }
+
+        
+    </style>
+</head>
+<body>
+    <p class="p-5 bg-purple-400 text-white text-xs">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis quos natus doloremque velit, libero animi ad sunt earum eligendi eos cum nam quis reprehenderit culpa ut autem sequi repellendus veritatis.</p>
+
+    <div class="percentage">
+
+        <svg width="403" height="403" viewBox="0 0 403 403" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="201.5" cy="201.5" r="202" fill="#00D0FF"/>
+            <circle cx="202" cy="202" r="174" fill="white"/>
+            </svg>
+            <h2 class="per">34 <span>%</span></h2>
+    </div>
+        
+</body>
+</html>
+
+<!-- 
+from django.db import models
+# from pages.models import Movie
+# Create your models here.
+class Cast(models.Model):
+    cast_name=models.CharField(max_length=100)
+    cast_age=models.IntegerField()
+    cast_movie_name=models.CharField(max_length=150)
+    movie_id=models.ForeignKey('Movie',  on_delete=models.CASCADE)
+    
+    
+    def __str__(self) -> str:
+        return "cast" -->
+
+
+        <!-- from django.urls import path
+
+from . import views
+
+urlpatterns=[
+    
+    path("<str:cast_id>",views.index,name="cast")
+] -->
