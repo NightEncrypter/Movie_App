@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from django.contrib import messages
+from pages.models import Movie
 
 from reviews.models import Review
 # from django.contrib.auth import authenticate, login
@@ -11,6 +12,26 @@ def index(request,review_id):
     
     print(review_id)
     return render(request,"review/index.html")
+
+
+def deleteReview(request):
+    
+    if request.method=="GET":
+        movie_id=request.GET['movie_id']
+        review_id=request.GET['review_id']
+        
+        print(request.GET,"get data")
+        
+        Review.objects.filter(id=review_id).delete()
+      
+        messages.success(request,"Your review is successfully deleted")
+                
+        return redirect("movie",movie_id)
+        
+        
+        # return 
+    
+
 
 
 
@@ -25,6 +46,7 @@ def reviewForm(request):
         
         review=Review.objects.create(message=message,rating=4,movie_id=movie_id,user_id=request.user.id)
         review.save()
+        messages.success(request,"Your review is successfully added")
         
         return redirect("movie",movie_id)
 

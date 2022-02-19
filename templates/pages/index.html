@@ -36,12 +36,17 @@ Home
   
 
       <div class="img-container z-20  ">
+
+        <form action='{% url "addwatchlist" %}' method="post" class="addwatchlist">
+{% csrf_token %}
+          <input type='hidden' name='movie_id' value="{{movie.id}}">
+        </form>
         <img src='{{movie.main_img.url}}' alt='' class="img" srcset=''>
         <div class='overlay'>
 
         </div>
 
-        <a href='http://' class="add-in-watchlist   ">
+        <a href='javascript:{document.querySelector(".addwatchlist").submit()}' class="add-in-watchlist   ">
          
           <i data-feather="plus"></i>
     

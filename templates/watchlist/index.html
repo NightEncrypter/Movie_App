@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class='container-7'>
+
+    <div>
+        <h2 class="mt-5 text-3xl font-medium text-white ">Your Watchlist</h2>
+
+
+        {% if watchlist %}
+        <div class="grid grid-cols-4 gap-5 text-white mt-6">
+
+
+          {% for movie in watchlist %}  
+            <a href="{% url 'movie' movie.movie.id %}" class="p-4 gradient-cat1 rounded-lg block ">
+
+                
+                <h3 class="text-white font-light">{{movie.movie.title}}</h3>
+
+                <div class="w-full h-36 my-2 thumbnail relative overflow-hidden ">
+                    <img src='{{movie.movie.main_img.url}}' alt='' srcset='' class="rounded-lg block w-full object-fill thumbnail-img">
+
+                    <div class=" thumbnail-overlay"></div>
+                </div>
+
+                <!-- <p class="text-xs my-2"> {{movie.movie.overview}}</p> -->
+                <div class="my-2">
+                    <p  class="text-white font-sans font-thin">
+                        {{movie.movie.movie_time}}
+                    </p>
+                    <h5 class="my-2 flex items-center gap-4 text-sm"><span>Rating</span>
+                        <div class="flex items-center gap-1">
+                            <i data-feather="star" class="w-4 h-4 text-pink-500"></i>
+                            <i data-feather="star" class="w-4 h-4 text-pink-500"></i>
+                            <i data-feather="star" class="w-4 h-4 text-pink-500"></i>
+                            <i data-feather="star" class="w-4 h-4 text-pink-500"></i>
+                            <i data-feather="star" class="w-4 h-4 text-pink-500"></i>
+                          
+                        </div>
+                 
+                    </h5>
+                </div>
+            </a>
+     
+{% endfor %}
+        </div>
+        {% endif %}
+       
+    </div>
+</div>
+
+{% endblock content %}

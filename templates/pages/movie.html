@@ -8,6 +8,7 @@
 {% block content %}
 
 <div class="py-6">
+
     <div class="absolute   bg inset-0 z-[-1]" style="background-image: url({{movie_data.main_img.url}}) ;filter: blur(4px);
     background-attachment: fixed;
     ;">
@@ -15,6 +16,8 @@
     </div>
 
     <div class="bg-[rgba(11,2,19,0.9)] absolute   bg inset-0 -bottom-2  z-[1]"></div>
+
+    {% include "partials/_alert.html" %}
     <div class="  relative  h-[88vh] block  sm:grid md:grid-cols-5  gap-0 md:gap-6 p-4   ">
 <!-- <div class="absolute   bg inset-[0.19rem] z-[-1]" style="background-image: url('https://images.unsplash.com/photo-1469521669194-babb45599def?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8d2FsbHBhcGVyLGxhbmRzY2FwZXx8fHx8fDE2NDQ1MTM1Njc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920');">
 
@@ -304,7 +307,7 @@
                     <i data-feather="plus"></i>
 
 
-                </span>
+                <!-- </span> -->
                      <!-- <span class="block relative bg-[#18061aea] py-[0.5rem] px-[1.5rem] text-xs   rounded-md   z-[2]">
                         </span> -->
             </button>
@@ -367,7 +370,7 @@
     Message
 </label>
    <div class="input-gradient relative  rounded-lg pt-1  w-full flex justify-between gap-3 items-center px-2 py-0 ">
-       <textarea class="input w-full" required  type='text' name='message' id='loginEmailInput' rows="5" onchange="checkInputVal()"></textarea>
+       <textarea class="input w-full" required  type='text' name='message' id='loginEmailInput' rows="5" value=""   onchange="checkInputVal()"></textarea>
              
 
     <input type='hidden' name="m_id" value="{{movie_data.id}}">
@@ -385,14 +388,19 @@
 <!-- </div> -->
             </div>
         </div>
+
+
     <div class="grid  lg:grid-cols-4 md:grid-cols-3 grid-cols-2  gap-3 md:gap-5 reviews-collection ">
 
-<!-- User Review Card  -->
+
 
 
 {% for review in reviews %}
-        <a class="movie-card review shadow-xl block " href="/">
+        <div class="movie-card review shadow-xl block " href="/">
 
+
+
+         
             <div class="flex items-center gap-2">
 
                 <div class="w-10 h-10 ">
@@ -400,43 +408,120 @@
 
                 </div>
 
-
                 <div class="flex flex-col gap-[3px]">
                     <h6 class="text-xs text-[#F8F8F8]">{{review.user.first_name}}</h6>
                     <p class="text-xs font-sans font-thin flex gap-1 text-[#F8F8F8]"> <i data-feather="mail" class="w-4 h-4 inline"></i> {{review.user.email}}</p>
 
                 </div>
 
+              
+                
+               
+            </div> 
 
-            </div>
+            <p class="text-xs my-2 text-white overflow-ellipsis overflow-hidden whitespace-nowrap">
 
-
-            <p class="text-xs mt-4 text-white">
-                {{review.message}}
+              {{review.message}}
+              <div class="mt-2 flex items-center gap-6">
             </p>
-     <!-- <div class="">
+                <button  class="text-xs py-1 px-3 text-white bg-sky-600 rounded-full  cursor-pointer inline-block add-review-2">Edit</button>
+                <a href='{% url "delete_review" %}?movie_id={{movie_data.id}}&review_id={{review.id}}' class="text-xs py-1 px-3 text-white bg-red-600 rounded-full">Delete</a>
+                     </div>
 
-        <div class="flex gap-4 items-center my-4">
-            <h3 class="my-2 text-[#F8F8F8]">Rating</h3>
-            <div class="flex gap-2">
-                <i data-feather="star" class="w-4 h-4"></i>
-                <i data-feather="star" class="w-4 h-4"></i>
-                <i data-feather="star" class="w-4 h-4"></i>
-                <i data-feather="star" class="w-4 h-4"></i>
-                <i data-feather="star" class="w-4 h-4"></i>
-            </div>
+                     <div class="review-overlay-2  h-full min-h-0 ">
+
+                        <div class=" bg-[#200724d7]   p-8  mx-auto shadow-xl rounded-md relative z-[140] w-1/2">
+                    <!-- <div class="w-full"> -->
+                    <div class="flex justify-between items-center mb-6">
+                    <h2 class="font-semibold text-xl text-white">
+                     Review
+                    </h2>
+                    
+                    <button  class="disable_model_2">
+                        <i data-feather="x"  class="text-red-500 w-5 h-5"></i>
+                    </button>
+                    
+                    </div>
+                    
+                    <!-- Form -->
+                                 <form action="{% url 'review_submit' %}"  class="w-full" method="post">
+                    {% csrf_token %}
+                    <!-- EMAIL -->
+                    
+                    
+                    <div>
+                    
+                    <h2 class="mb-2 text-white font-medium">Rating</h2>
+                    <div class="flex items-center gap-1">
+                    
+                    <button>
+                    
+                        <i data-feather="star" class="text-purple-500 w-4 h-4"></i>
+                    </button>
+                    <button>
+                    
+                        <i data-feather="star" class="text-purple-500 w-4 h-4"></i>
+                    </button>
+                    <button>
+                    
+                        <i data-feather="star" class="text-purple-500 w-4 h-4"></i>
+                    </button>
+                    <button>
+                    
+                        <i data-feather="star" class="text-purple-500 w-4 h-4"></i>
+                    </button>
+                    <button>
+                    
+                        <i data-feather="star" class="text-purple-500 w-4 h-4"></i>
+                    </button>
+                    </div>
+                    </div>
+                    
+                    
+                    <label for='' class="my-3 block text-white font-medium">
+                    Message
+                    </label>
+                    <div class="input-gradient relative  rounded-lg pt-1  w-full flex justify-between gap-3 items-center px-2 py-0 ">
+                    <textarea class="input w-full" required  type='text' name='message' id='loginEmailInput' rows="5"
+                    
+                    {% if review.message %}
+                    
+                    value="{{review.message}}" 
+                    {% else %}
+                    value=""  
+                    {% endif %}
+                    ></textarea>
+                         
+                    
+                    <input type='hidden' name="m_id" value="{{movie_data.id}}">
+                    <!-- <input type='hidden' name="" value="{{request.user.email}}"> -->
+                    
+                    <!-- <span  class="label-review">Enter your review</span> -->
+                    <i data-feather="mail" class="opacity-40 text-white inputfield_icon "></i>
+                    
+                    
+                    </div>
+                    <button type='submit' class="mt-[2rem]  block py-3 text-sm text-white px-6 rounded-2xl w-full review-submit-btn ">
+                    Submit
+                    </button>
+                                 </form>
+                    <!-- </div> -->
+                        </div>
+                    </div>
+
+
+                   
         </div>
-         <h3 class="my-2 text-[#F8F8F8]">Description</h3>
-        <p class="text-xs font-thin text-[#F8F8F8]">  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed cupiditate possimus fugit consequatur debitis quod perspiciatis doloribus officia, sit, facere blanditiis magnam error ab non!</p>
-     </div> -->
-        </a>
-{% endfor reviews %}
+{% endfor reviews %} 
+<!-- REVIEW MODEL -->
+
+
 
         
     </div>
 
     <div class="flex justify-end my-6">
-        <!-- <a href='http://' class="text-white py-2 border-gradient px-6 transition rounded-3xl ">See More</a> -->
+       
         <a class="shadow-lg inline-block text-white relative text-sm py-[1.7px] px-[1.7px] hover:scale-105 transition  " href="{% url 'register' %}">
 
             <span class="block absolute inset-0 h-full w-full button-gradient rounded-3xl z-[1]   "></span>

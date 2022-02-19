@@ -204,7 +204,7 @@ if(alertContainer){
 
 
 function discardedAlert() {
-  // setTimeout(()=>{
+ 
      
 
   setTimeout(() => {
@@ -212,7 +212,7 @@ function discardedAlert() {
     alertContainer.style.transform="translateY(70px)";
     alertContainer.remove()
   }
-    , 2000)
-  // },3000)
+    , 3000)
+  
 
 }

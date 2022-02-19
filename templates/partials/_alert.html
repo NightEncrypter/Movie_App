@@ -5,9 +5,9 @@
 
 
 {% if message.tags == "danger" %}
-class=" absolute top-20  flex items-center justify-center   text-sm   w-max danger  -translate-x-1/2 left-1/2  py-2 transition duration-300 rounded-2xl  px-6 shadow-xl "
+class=" absolute top-20  flex items-center justify-center   text-sm   w-max danger  -translate-x-1/2 left-1/2  py-2 transition duration-300 rounded-2xl  px-6 shadow-xl z-50 "
 {% else %}
-class=" absolute top-20  flex items-center justify-center   text-sm   w-max success  -translate-x-1/2 left-1/2  py-2 transition duration-300 rounded-2xl  px-6 shadow-xl "
+class=" absolute top-20  flex items-center justify-center   text-sm   w-max success  -translate-x-1/2 left-1/2  py-2 transition duration-300 rounded-2xl  px-6 shadow-xl z-[50] "
 {% endif %}
 >
 <div class=" " >
@@ -18,9 +18,9 @@ class=" absolute top-20  flex items-center justify-center   text-sm   w-max succ
 {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
 <!-- <span> -->
     <span class="flex items-center gap-3">
-<i data-feather="alert-circle" class="text-white"></i></span>
+<i data-feather="alert-circle" class="text-white w-5 h-5"></i></span>
 {% else %}
-<i data-feather="check-circle" class="text-white"></i>
+<i data-feather="check-circle" class="text-white w-5 h-5"></i>
 {% endif %}
 
 <span>{{message}}
@@ -30,7 +30,7 @@ class=" absolute top-20  flex items-center justify-center   text-sm   w-max succ
 </strong>
  
 <button onclick="discardedAlert()" >
-    <i data-feather="x" class=" cursor-pointer alert-discard text-red-200" ></i>
+    <i data-feather="x" class=" cursor-pointer alert-discard text-red-200 w-4 h-4" ></i>
 </button>
 
     </p>

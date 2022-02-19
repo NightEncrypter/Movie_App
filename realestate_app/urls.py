@@ -22,6 +22,7 @@ urlpatterns = [
 path("cast/",include("casts.urls")),
 path("review/",include("reviews.urls")),
 path("user/",include("accounts.urls")),
+path("watchlist/",include("watchlists.urls")),
     path('admin/', admin.site.urls),
 
 ]

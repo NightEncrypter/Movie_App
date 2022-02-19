@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "reviews.apps.ReviewsConfig",
     "casts.apps.CastsConfig",
     "accounts.apps.AccountsConfig",
+    "watchlists.apps.WatchlistsConfig",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -62,7 +62,7 @@ def about(request):
 
 def movie(request,movie_id):
     
-    
+    login=True
     # print(request.user.is_authenticated,"user-authnticated")
     single_movie=get_object_or_404(Movie,pk=int(movie_id))
     
@@ -84,18 +84,18 @@ def movie(request,movie_id):
     
     # print(single_movie)
     search=True
-    context={"search":search ,"movie_data":single_movie,"casts":casts ,"related_movies":related_movies,"tags":tags,"reviews":reviews}
+    context={"search":search ,"movie_data":single_movie,"casts":casts ,"related_movies":related_movies,"tags":tags,"reviews":reviews,"login":login}
     
     return render(request,"pages/movie.html",context)
 
 def cat(request):
-    
+    login=True
     search=True
     # auth=False
     ham=True
     hollywood=Movie.objects.filter(Q(tags__icontains="hollywood")|Q(movie_type__icontains="hollywood"))
     
     # print(hollywood,"hollywood")
-    context={"ham":ham ,"search":search,"hollywood":hollywood
+    context={"ham":ham ,"search":search,"hollywood":hollywood,"login":login
              }
     return render(request,"pages/categories.html",context)

@@ -209,8 +209,14 @@
     <div class="dropdown absolute top-[9vh] right-0 left-0 bg-transparent w-full md:flex  md:justify-center">
     
     
-      <form  action="/?" class="  bg-white    w-full flex  " >
-        <input type='text' name='q' id='' class=" rounded-md bottom-0 bg-transparent text-lg py-2 px-6 w-full   " placeholder="Search your movie ...">
+      <form  action="/?" class=" bg-white    w-full flex  " >
+
+       
+        <input type='text' name='q'  class=" rounded-md bottom-0 bg-transparent text-lg py-2 px-6 w-full   " id="search-bar" placeholder="search your movie here ...">
+        <button class="mr-6">
+          <i data-feather="search" class=" w-5 h-5 text-[#96009659] "></i>
+        </button>
+   
         <button class="cancel-search  mr-4 bg-transparent "> <i class="text-red-300 inline-block  " data-feather="x"></i> </button>
       </form>
     
@@ -300,35 +306,53 @@
         <!-- setting -->
 
 
-        <div class="logout-dropdown shadow-xl ">
+        <div class="logout-dropdown shadow-2xl  ">
 
 
-          <!-- <ul> -->
-            <!-- <li> -->
+        
 
-              <form action='{% url "logout" %}' class="block" method="post" id="logout-form">
-         
+              <form action='{% url "logout" %}' class="block relative " method="post" id="logout-form">
                 {% csrf_token %}
-                <a  class="text-sm text-white flex justify-between items-center gap-2"  href="javascript:{document.getElementById('logout-form').submit()}">
-             <span class="text-xs">Logout</span>
+         
 
-                  <svg  width="20" height="20" viewBox="0 0 43 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19.943 0.727051C24.9081 0.727051 28.9575 4.70705 28.9575 9.60705V19.187H16.7482C15.8732 19.187 15.1814 19.8671 15.1814 20.7271C15.1814 21.5671 15.8732 22.2671 16.7482 22.2671H28.9575V31.8271C28.9575 36.7271 24.9081 40.7271 19.9023 40.7271H9.9924C5.00694 40.7271 0.95752 36.7471 0.95752 31.8471V9.62705C0.95752 4.70705 5.02729 0.727051 10.0128 0.727051H19.943ZM34.0379 13.8275C34.6379 13.2075 35.6179 13.2075 36.2179 13.8075L42.0579 19.6275C42.3579 19.9275 42.5179 20.3075 42.5179 20.7275C42.5179 21.1275 42.3579 21.5275 42.0579 21.8075L36.2179 27.6275C35.9179 27.9275 35.5179 28.0875 35.1379 28.0875C34.7379 28.0875 34.3379 27.9275 34.0379 27.6275C33.4379 27.0275 33.4379 26.0475 34.0379 25.4475L37.2379 22.2675H28.9579V19.1875H37.2379L34.0379 16.0075C33.4379 15.4075 33.4379 14.4275 34.0379 13.8275Z" fill="url(#paint0_linear_357_324)"/>
-                    <defs>
-                    <linearGradient id="paint0_linear_357_324" x1="-9.5" y1="20" x2="64" y2="20" gradientUnits="userSpaceOnUse">
-                    <stop offset="0.148958" stop-color="#00D0FF"/>
-                    <stop offset="0.419792" stop-color="#9E00FF"/>
-                    <stop offset="0.659375" stop-color="#FA0000"/>
-                    </linearGradient>
-                    </defs>
-                    </svg>
-                    
-              </a>
+<ul  class="flex flex-col gap-2  ">
 
+
+  <li>
+    <a href='{% url "watchlist" %}' class="text-xs text-white  flex justify-between items-center gap-2 font-medium setting-hovered py-1 px-5  relative z-10" >
+
+      <span style="letter-spacing: 1.1px ;" >My Watchlist</span>
+      
+      <i data-feather="list" class=" text-white w-5 h-5"></i>
+                    </a>
+  </li>
+
+  <li>
+    <a  class="text-sm text-white logout flex justify-between items-center gap-2 py-1 px-5 relative z-10 "  href="javascript:{document.getElementById('logout-form').submit()}">
+      <span class="text-xs font-medium logout-text" style="letter-spacing: 1.1px ;">Logout</span>
+
+           <svg  width="20" height="20" viewBox="0 0 43 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M19.943 0.727051C24.9081 0.727051 28.9575 4.70705 28.9575 9.60705V19.187H16.7482C15.8732 19.187 15.1814 19.8671 15.1814 20.7271C15.1814 21.5671 15.8732 22.2671 16.7482 22.2671H28.9575V31.8271C28.9575 36.7271 24.9081 40.7271 19.9023 40.7271H9.9924C5.00694 40.7271 0.95752 36.7471 0.95752 31.8471V9.62705C0.95752 4.70705 5.02729 0.727051 10.0128 0.727051H19.943ZM34.0379 13.8275C34.6379 13.2075 35.6179 13.2075 36.2179 13.8075L42.0579 19.6275C42.3579 19.9275 42.5179 20.3075 42.5179 20.7275C42.5179 21.1275 42.3579 21.5275 42.0579 21.8075L36.2179 27.6275C35.9179 27.9275 35.5179 28.0875 35.1379 28.0875C34.7379 28.0875 34.3379 27.9275 34.0379 27.6275C33.4379 27.0275 33.4379 26.0475 34.0379 25.4475L37.2379 22.2675H28.9579V19.1875H37.2379L34.0379 16.0075C33.4379 15.4075 33.4379 14.4275 34.0379 13.8275Z" fill="url(#paint0_linear_357_324)"/>
+             <defs>
+             <linearGradient id="paint0_linear_357_324" x1="-9.5" y1="20" x2="64" y2="20" gradientUnits="userSpaceOnUse">
+             <stop offset="0.148958" stop-color="#00D0FF"/>
+             <stop offset="0.419792" stop-color="#9E00FF"/>
+             <stop offset="0.659375" stop-color="#FA0000"/>
+             </linearGradient>
+             </defs>
+             </svg>
+             
+       </a>
+  </li>
+</ul><div class=" absolute  w-0 h-0  -right-5 -bottom-4 triangle-2 z-[1]"></div>
               </form>
-            <!-- </li> -->
-          <!-- </ul> -->
+
+              
         </div>
+
+
+
+
       </button>
 
       {% endif %}

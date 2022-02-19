@@ -38,10 +38,45 @@ body{
 }
 
 @layer components {
+    .triangle-2{
+@apply rotate-[90deg] ;
+
+        width: 0; 
+        height: 0; 
+        border-right: 15px solid transparent;
+        border-left: 15px solid transparent; 
+        
+        border-top:15px solid transparent;
+        border-bottom:17px solid #2a0035e5;
+        border-radius:0px 0px 15px 0 ;
+    }
+.setting-hovered{
+    @apply transition;
+}
+
+.setting-hovered:hover{
+@apply bg-purple-700;
+}
+
+.logout{
+    @apply transition;
+}
+
+.logout:hover .logout-text{
+@apply text-red-700;
+}
+
+
+#search-bar::placeholder{
+letter-spacing:1px;
+@apply font-medium   text-[#96009659];
+}
 
 .review-submit-btn{
     @apply transition duration-200;
 background: linear-gradient(90deg, #0338BE 0%, #520085 50.15%, #880094 102.86%);
+
+
 }
 .review-submit-btn:hover{
     @apply transition duration-200;
@@ -50,7 +85,7 @@ background: linear-gradient(90deg, #0338BE 5%, #520085 60.15%, #880094 115.86%);
 
 /* LOGOUT DROPDOWN */
 .logout-dropdown{
-    @apply p-4 absolute hidden top-[69%] left-[-200%]   bg-[#2a0035e5] rounded-md;
+    @apply  absolute hidden top-[69%] left-[-200%] w-[170px] py-3  bg-[#2a0035e5] rounded-md;
 }
 
 .setting-icon{
@@ -70,6 +105,14 @@ background: linear-gradient(90deg, #0338BE 5%, #520085 60.15%, #880094 115.86%);
 .review-overlay{
     @apply transition hidden  items-center  ;
 }
+
+.review-overlay-2:nth-child(n){
+    @apply transition hidden  items-center  ;
+}
+.review-overlay-2.active:nth-child(n){
+@apply fixed inset-0 w-full bg-[rgba(0,0,0,0.8)] z-[100] flex  ;
+}
+
     .danger{
         background: linear-gradient(90deg, #B03939 0%, #560264 99.95%);
     }
@@ -363,7 +406,8 @@ background:transparent;
 .sticky-effect.active{
     
     /* background: linear-gradient(180deg, #BF0296 0%, #007A95 100%); */
-    background:rgb(66 0 106 / 78%);
+    /* background:rgb(66 0 106 / 78%); */
+    background: rgb(64 4 75 / 83%);
     z-index: 40;
     @apply shadow-md ;
 }
