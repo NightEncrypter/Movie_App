@@ -1,7 +1,7 @@
 feather.replace()
 gsap.from('.ellipse-1',{opacity:0,duration:0.5,rotate:360,scale:0.1,stagger:0.1})
 gsap.from('.theatre', { opacity: 0, duration: 2, x: 300 })
-gsap.from('.writer', { opacity: 0, duration: 2, x: 200 ,stagger:0.2})
+// gsap.from('.writer', { opacity: 0, duration: 2, x: 200 ,stagger:0.2})
 
 
 

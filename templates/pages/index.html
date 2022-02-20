@@ -9,17 +9,17 @@ Home
   {% include "partials/_alert.html" %}
 
   <!-- <div class="absolute inset-0 main-gradient min-h-screen z-[-1]"></div> -->
-  <h3 class="text-white text-xl mt-14 my-8 l-spacing">
+  <h3 class="text-white md:text-lg text-sm mt-14 my-8 l-spacing">
     
     {% if total_movies %}
     {{total_movies}}
     {% else %}
-    0
+    No
     {% endif %}
     Result found</h3>
     
     {% if movielist %}
-  <div class=" my-6 grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 grid-cols-2 gap-3 related-movie-animation   md:gap-7 ">
+  <div class=" my-6 grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-2 gap-3 related-movie-animation   md:gap-7 ">
 
 
 
@@ -29,7 +29,7 @@ Home
 
 <!-- <a href='' class="block"> -->
 
-  <div class="rounded-2xl list-card-gradient overflow-hidden pb-20 z-[1] related-movie  shadow-2xl inline-block   " href="{% url 'movie' movie.id %}">
+  <div class="rounded-2xl list-card-gradient overflow-hidden md:pb-20  sm:pb-18 pb-16 z-[1] related-movie  shadow-2xl inline-block   " href="{% url 'movie' movie.id %}">
       
 
     
@@ -54,8 +54,8 @@ Home
         <div class="card-content py-1 ">
           <h3 class=" text-white text-center movie-title  ">{{movie.title}}</h3>
         <div class=" gap-1 items-center justify-between   movieLanguages relative  ">
-          <h3 class="text-xs text-center font-sans font-thin available-in">Available in</h3>
-          <p class="desc text-center">{{movie.movie_languages}}</p>
+          <h3 class="text-xs text-center font-sans available-in">Available in</h3>
+          <p class="desc  text-center">{{movie.movie_languages}}</p>
         </div>
 
  

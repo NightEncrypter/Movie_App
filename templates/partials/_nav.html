@@ -1,6 +1,6 @@
 {% load static %}
 
-<header class="sticky-effect sticky top-0 left-0 right-0 sidebar_shift px-6  h-[10vh]  flex items-center justify-center z-[30]     ">
+<header class="sticky-effect sticky top-0 left-0 right-0 sidebar_shift   h-[10vh]  flex items-center justify-center z-[30]     ">
   <div class=" sidebar-shift-child flex justify-between items-center sm:gap-4 md:gap-0 w-11/12 h-full  ">
 
 
@@ -139,7 +139,7 @@
                
         </a>
         <!-- </h2> -->
-        <nav class="w-[28%] hidden md:block ">
+        <nav class="md:w-[28%]  sm:hidden hidden md:block ">
             <ul class="flex gap-3 items-center w-full justify-between">
                 <li><a href='/'
                   
@@ -187,7 +187,7 @@
         </nav>
 
         {% if search %}
-    <button class="search-btn sm:ml-auto md:ml-0 block ">
+    <button class="search-btn  md:ml-0 block ">
     
         <svg width="20" height="20"  viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="search-icon">
             <path d="M31.2414 31.3086C32.0145 30.5408 33.2537 30.5408 34.0267 31.3086L39.136 35.4328H39.2247C40.2584 36.4776 40.2584 38.1716 39.2247 39.2164C38.1911 40.2612 36.5151 40.2612 35.4814 39.2164L31.2414 34.3569L31.0805 34.1754C30.7808 33.796 30.6153 33.323 30.6153 32.8327C30.6153 32.2608 30.8406 31.7123 31.2414 31.3086ZM17.1553 0C21.7051 0 26.0687 1.82687 29.2859 5.07873C32.5031 8.33058 34.3106 12.741 34.3106 17.3399C34.3106 26.9164 26.6299 34.6797 17.1553 34.6797C7.68068 34.6797 0 26.9164 0 17.3399C0 7.76332 7.68068 0 17.1553 0Z" fill="url(#paint0_linear_131_642)"/>
@@ -260,7 +260,7 @@
 
 {% if request.user.is_authenticated %}
       <!-- <div > -->
-        <div class=" text-white  flex items-center justify-between gap-3">
+        <div class=" text-white  md:flex items-center justify-between gap-3  hidden">
         
 
           <div class="w-9 h-9 ">
@@ -314,12 +314,41 @@
               <form action='{% url "logout" %}' class="block relative " method="post" id="logout-form">
                 {% csrf_token %}
          
+                <!-- PROFILE -->
+  <div class=" text-white  flex items-center  gap-2 md:hidden p-2   ">
+        
 
+                  <div class="w-8 h-8 ">
+        
+        
+                  
+                    <img src='{% static "img/baby.jpg" %}' class="w-full h-full block object-cover rounded-full border-[2px] border-purple-600 hover:scale-110 transition cursor-pointer " alt=''>
+        
+        
+                  </div>
+        
+                <h6 class="text-white text-sm font-medium">
+                  <span class="text-purple-500">Welcome</span>
+        
+                  <span class="uppercase ml-2">
+                   {{request.user.first_name}}
+                  </span>
+                </h6>
+                
+                </div>
+
+
+
+
+
+                <!-- End Profile -->
 <ul  class="flex flex-col gap-2  ">
 
 
+  
+
   <li>
-    <a href='{% url "watchlist" %}' class="text-xs text-white  flex justify-between items-center gap-2 font-medium setting-hovered py-1 px-5  relative z-10" >
+    <a href='{% url "watchlist" %}' class="text-xs text-white  flex justify-between items-center gap-2 font-medium setting-hovered py-1 md:px-5 px-2  relative z-10" >
 
       <span style="letter-spacing: 1.1px ;" >My Watchlist</span>
       
@@ -328,7 +357,7 @@
   </li>
 
   <li>
-    <a  class="text-sm text-white logout flex justify-between items-center gap-2 py-1 px-5 relative z-10 "  href="javascript:{document.getElementById('logout-form').submit()}">
+    <a  class="text-sm text-white logout flex justify-between items-center gap-2 py-1 md:px-5 px-2  relative z-10 "  href="javascript:{document.getElementById('logout-form').submit()}">
       <span class="text-xs font-medium logout-text" style="letter-spacing: 1.1px ;">Logout</span>
 
            <svg  width="20" height="20" viewBox="0 0 43 41" fill="none" xmlns="http://www.w3.org/2000/svg">

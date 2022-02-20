@@ -18,12 +18,81 @@
     <div class="bg-[rgba(11,2,19,0.9)] absolute   bg inset-0 -bottom-2  z-[1]"></div>
 
     {% include "partials/_alert.html" %}
-    <div class="  relative  h-[88vh] block  sm:grid md:grid-cols-5  gap-0 md:gap-6 p-4   ">
+
+    
+    <div class="md:hidden pb-6 px-6 relative z-20 ">
+
+        <video class="  rounded-lg  block w-full object-cover h-[15rem] play-video    "  controls   >
+
+            <source   src="{{movie_data.video_trailer.url}}">
+        </video>
+
+
+<div class="">
+    <h4 class=" text-4xl my-4 text-white heading">{{movie_data.title}} <span>( 2010 )</span></h4>
+    <h6 class="my-2  text-white font-extralight heading">{{movie_data.movie_time}}</h6>
+
+    <div class="">
+        <h6 class="text-white my-1 text-sm font-extralight">Overview</h6>
+        <p class="text-xs text-white font-sans font-thin">
+            {{movie_data.overview}} 
+        </p>
+    </div>
+
+    <div class="my-4">
+        <div class="flex gap-4 main  ">
+           
+            <a class="rounded-full bg-[#0f1c47d3] bubble-effect h-8 w-8 p-2 "> 
+                <i data-feather="bookmark" class="text-white w-full h-full   "></i>
+            </a>
+            <a class="rounded-full bg-[#0f1c47d3] bubble-effect h-8 w-8 p-2 "> 
+                <i data-feather="list" class="text-white w-full h-full   "></i>
+            </a>
+            <a class="rounded-full   bg-[#0f1c47d3] bubble-effect h-8 w-8 p-2 "> 
+                <i data-feather="star" class="text-white w-full h-full  "></i>
+            </a>
+            </div>
+    </div>
+
+    <!-- WRITERS -->
+    <div  class="mb-2">
+        <h6 class="my-1 text-white text-xs  font-extralight mb-2">Writers</h6>
+        <div class="flex items-center flex-wrap gap-2 ">
+
+            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
+            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
+            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
+            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
+            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
+         
+        </div>
+    </div>
+
+    <div class="mb-2">
+        <h6 class="my-1 text-xs font-extralight text-white mb-2 ">Directors</h6>
+        <div class="flex items-center flex-wrap gap-2  ">
+
+            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all">Nick Fury</a>
+            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all">Nick Fury</a>
+            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all">Nick Fury</a>
+            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all">Nick Fury</a>
+           
+        </div>
+    </div>
+</div>
+    </div>
+    <div class="  relative  h-[88vh]  md:grid md:grid-cols-5  gap-0 md:gap-6 p-4   hidden   ">
 <!-- <div class="absolute   bg inset-[0.19rem] z-[-1]" style="background-image: url('https://images.unsplash.com/photo-1469521669194-babb45599def?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8d2FsbHBhcGVyLGxhbmRzY2FwZXx8fHx8fDE2NDQ1MTM1Njc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920');">
 
 </div> -->
      
+
+
+
 <div class=" col-span-2 hidden md:block relative  ">
+
+
+
 
     <div class="relative lg:left-[10%] md:left-0  z-[10]  tv-anim">
         <div class="lg:w-[25rem] lg:h-[22rem] md:w-[20rem] md:h-[18rem] absolute tv-bg rounded-xl top-2 z-10  " >
@@ -55,7 +124,7 @@
     </div> -->
 </div>
         
-<div class="col-span-3 movie-data relative z-[30]">
+<div class="col-span-3 sm:block hidden movie-data relative z-[30]">
 
     <div class="flex items-center gap-4 mb-2">
         <button  class=" play-pause-btn   bg-purple-800 rounded-md  "  onclick="onPlayPause()" >
@@ -133,13 +202,13 @@
 
 
     <!-- OVERVIEW -->
-    <div  class="my-4">
+    <div  class="my-4 md:block hidden">
 
         <h3 class="my-3 text-white  font-medium">Overview</h3>
         <p class="text-sm font-sans font-thin my-3 text-white l-spacing description">{{movie_data.overview}}</p>
     </div>
 <!-- WRITERS -->
-    <div>
+    <div  class="md:block hidden">
         <h6 class="my-1 text-white  font-medium">Writers</h6>
         <div class="flex items-center flex-wrap gap-4 my-4">
 
@@ -150,7 +219,7 @@
         </div>
     </div>
 <!-- DIRECTORS -->
-    <div>
+    <div class="md:block hidden">
         <h6 class="mt-1 text-white font-medium">Directors</h6>
         <div class="flex items-center flex-wrap gap-4 my-4">
 
@@ -183,18 +252,18 @@
   <!-- CARD -->
 
   {% for cast in casts %}
-  <div class ="topcast-card h-[20rem]">
+  <div class ="topcast-card md:h-[19rem] sm:h-[18rem] h-[17rem]">
 
     <div class="relative cast overflow-hidden ">
        <div class=" cast-overlay"></div>
-       <img src='{{cast.cast_img.url}}' class=" block w-full h-[13rem] rounded-md object-cover cast-img movie-overlay" style=" box-shadow: inset 0px 0px 100px rgba(0, 0, 0, 0.49);" alt=''>
+       <img src='{{cast.cast_img.url}}' class=" block w-full sm:h-[12rem] h-[11rem] md:h-[13rem] rounded-md md:object-cover object-fill cast-img movie-overlay" style=" box-shadow: inset 0px 0px 100px rgba(0, 0, 0, 0.49);" alt=''>
     </div>
  
 
     <div class="text-white">
-        <h4 class="my-2">{{cast.cast_name}}</h4>
-        <p class="font-medium font-sans text-xs my-2">{{cast.cast_movie_name}} </p>
-        <h6 class="font-sans font-thin mt-2  ">Age<span class="font-semibold ml-2 inline-block">{{cast.cast_age}}</span></h6>
+        <h4 class="md:my-2 my-1">{{cast.cast_name}}</h4>
+        <p class="font-medium font-sans text-xs md:my-2 my-1">{{cast.cast_movie_name}} </p>
+        <h6 class="font-sans font-thin    ">Age<span class="font-semibold ml-2 inline-block">{{cast.cast_age}}</span></h6>
     </div>
 </div>
 
@@ -271,7 +340,7 @@
 
         </div>
  
-        <a  href="/" class=" relative flex items-center justify-center bg-[#340d38e0]  rounded-lg" style="background-color:#1e0022e0 ;">
+        <a  href="/" class="h-[19rem] relative flex items-center justify-center bg-[#340d38e0]  rounded-lg" style="background-color:#1e0022e0 ;">
 <i data-feather="plus" class="w-[5rem] h-[5rem] text-white opacity-70"  style="opacity: 0.5;"></i>
 <div class="absolute left-1/2  -translate-x-1/2  text-3xl -translate-y-1/2 top-1/2 text-white opacity-20
  font-medium" style="font-size: 110px;opacity: 0.1;">24</div>
@@ -337,31 +406,23 @@
    <!-- EMAIL -->
 
 
-   <div>
+   <div class="flex items-center gap-4 mb-2">
 
-    <h2 class="mb-2 text-white font-medium">Rating</h2>
-    <div class="flex items-center gap-1">
+    <h2 class=" text-white font-medium">Rating</h2>
 
-        <button>
 
-            <i data-feather="star" class="text-purple-500 w-4 h-4"></i>
-        </button>
-        <button>
-
-            <i data-feather="star" class="text-purple-500 w-4 h-4"></i>
-        </button>
-        <button>
-
-            <i data-feather="star" class="text-purple-500 w-4 h-4"></i>
-        </button>
-        <button>
-
-            <i data-feather="star" class="text-purple-500 w-4 h-4"></i>
-        </button>
-        <button>
-
-            <i data-feather="star" class="text-purple-500 w-4 h-4"></i>
-        </button>
+    
+    <div class="rate-2">
+        <input type='radio' name='rate' id='star11' value=1>
+        <label for='star11'></label>
+        <input type='radio' name='rate' id='star22' value=2>
+        <label for='star22'></label>
+        <input type='radio' name='rate' id='star33' value=3>
+        <label for='star33'></label>
+        <input type='radio' name='rate' id='star44' value=4>
+        <label for='star44'></label>
+        <input type='radio' name='rate' id='star55' value=5>
+        <label for='star55'></label>
     </div>
    </div>
 
@@ -419,6 +480,26 @@
                
             </div> 
 
+
+            <div class="flex items-center gap-4 my-4">
+
+                <h6 class=" text-white font-medium">Rating</h6>
+            
+            
+                
+                <div class="rate-2">
+                    <input type='radio' name='rate' id='star1' value=1>
+                    <label for='star1'></label>
+                    <input type='radio' name='rate' id='star2' value=2>
+                    <label for='star2'></label>
+                    <input type='radio' name='rate' id='star3' value=3 checked>
+                    <label for='star3'></label>
+                    <input type='radio' name='rate' id='star4' value=4>
+                    <label for='star4'></label>
+                    <input type='radio' name='rate' id='star5' value=5>
+                    <label for='star5'></label>
+                </div>
+               </div>
             <p class="text-xs my-2 text-white overflow-ellipsis overflow-hidden whitespace-nowrap">
 
               {{review.message}}

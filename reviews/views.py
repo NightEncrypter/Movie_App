@@ -1,7 +1,8 @@
+import imp
 from django.shortcuts import redirect, render
 from django.contrib import messages
 from pages.models import Movie
-
+from django.core.mail import send_mail
 from reviews.models import Review
 # from django.contrib.auth import authenticate, login
 # from django.contrib.auth.models import User 
@@ -40,14 +41,22 @@ def reviewForm(request):
     if request.method=="POST":
         message=request.POST["message"]
         movie_id=request.POST["m_id"]
-        print(request.POST)
-        print(request.user.id,"user-id")
+        
+        rating=6-int(request.POST.get("rate"))
+        print(rating,"rate")
+        # print(request.POST)
+        # print(request.user.id,"user-id")d
         
         
-        review=Review.objects.create(message=message,rating=4,movie_id=movie_id,user_id=request.user.id)
+        review=Review.objects.create(message=message,rating=rating,movie_id=movie_id,user_id=request.user.id)
         review.save()
         messages.success(request,"Your review is successfully added")
-        
+        send_mail(
+            "Movie Review",
+            "Your review is successfully submitted",
+            "manasrathore2342@gmail.com",
+            ["aanshrathore123@gmail.com"],fail_silently=False
+        )
         return redirect("movie",movie_id)
 
 # def loginFunc(request):
