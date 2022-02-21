@@ -53,7 +53,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -99,7 +99,6 @@ WSGI_APPLICATION = 'realestate_app.wsgi.application'
 #     }
 # }
 
-import urllib 
 
 # ! With MongoDb
 DATABASES = {
@@ -163,7 +162,7 @@ USE_TZ = True
 
 # For production purpose
 # ? wehen you deploy your application you run a command ( python manage.py collectstatic ) collectstatic and it will go all of your application takes all stattic file and put into root static folder
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
@@ -176,7 +175,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "realestate_app/static"),
     os.path.join(BASE_DIR, "styles"),
 ]
-
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Media folder setting => to store a image 
 MEDIA_ROOT=os.path.join(BASE_DIR,"media")

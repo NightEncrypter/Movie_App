@@ -378,7 +378,7 @@ z-index: 30;
     .movie-title{
     
     opacity: 1!important;
-        transition: all 0.9s cubic-bezier(0.23, 0.85, 0.32, 0.91)!important;
+        transition: all 0.3s cubic-bezier(0.23, 0.85, 0.32, 0.91)!important;
     }
      
 
