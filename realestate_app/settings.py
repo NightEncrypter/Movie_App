@@ -170,7 +170,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # LOCATION OF STATIC DIR
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "node_modules/feather-icons"),
+    os.path.join(BASE_DIR, "modules_store/feather-icons"),
     
     os.path.join(BASE_DIR, "realestate_app/static"),
     os.path.join(BASE_DIR, "styles"),
