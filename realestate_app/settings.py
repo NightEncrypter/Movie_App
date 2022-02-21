@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+from distutils.debug import DEBUG
 import os
 from pathlib import Path
 
@@ -175,7 +176,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "realestate_app/static"),
     os.path.join(BASE_DIR, "styles"),
 ]
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+DEBUG=False
+
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Media folder setting => to store a image 
 MEDIA_ROOT=os.path.join(BASE_DIR,"media")
