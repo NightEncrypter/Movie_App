@@ -23,14 +23,14 @@ def index(request):
     
     movielist=movielist.filter(Q(title__icontains=q)| Q(tags__icontains=q)| Q(movie_languages__icontains=q))
      
-    print(movielist,"query")
+    # print(movielist[0]._id.toString(),"query")
     # ? - sign refer to descending order and filter method filter the data in specific way
     # movielist=Movie.objects.order_by("-released_date").filter(releassed=True)
     
     paginator=Paginator(movielist,2)
     
     
-    
+    # print(movielist)
     
     
     #? For pagination-BUTTON
@@ -65,7 +65,7 @@ def movie(request,movie_id):
     login=True
     # print(request.user.is_authenticated,"user-authnticated")
     single_movie=get_object_or_404(Movie,pk=int(movie_id))
-    
+    # single_movie=Movie.objects.get(id=movie_id)
     casts=Cast.objects.filter(movie=movie_id)
     
     reviews=Review.objects.filter(movie_id=movie_id)

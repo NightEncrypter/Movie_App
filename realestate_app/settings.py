@@ -29,9 +29,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-r$de+6xn_2ldxtv568qv2+y20(k3+^udj^mt*_^q@numb5^vl#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG =False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["themoviemaniac.herokuapp.com","127.0.0.1"]
 
 
 # Application definition
@@ -52,6 +52,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -84,16 +85,38 @@ WSGI_APPLICATION = 'realestate_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'moviedb',
+
+# #! With Postgres 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'moviedb',
         
-        "USER":"postgres",
-        "PASSWORD":"manas123",
-        "HOST":"localhost"
-    }
+#         "USER":"postgres",
+#         "PASSWORD":"manas123",
+#          "HOST":"localhost"
+#     }
+# }
+
+import urllib 
+
+# ! With MongoDb
+DATABASES = {
+        'default': {
+            'ENGINE': 'djongo',
+            'NAME': 'movie_app',
+            'CLIENT': {
+                # 'host':  "mongodb+srv://manas:manas12345@moviemaniac.icnap.mongodb.net/moviemaniac_app?retryWrites=true&w=majority",
+                "authMechanism":'SCRAM-SHA-1',
+                # "host":'mongodb+srv://Abhishek:'+ urllib.parse.quote('abhi@8223') +'@portfolio-cluster.esifa.mongodb.net/another-db?retryWrites=true&w=majority'
+                "host":"mongodb+srv://manas:manas123@cluster0.ylvco.mongodb.net/movie_app?retryWrites=true&w=majority"
+                
+            }  
+        }
 }
+
+ 
+# mongodb+srv://manasrathore2342:<password>@moviemaniac.icnap.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
 # ? INITIALLY SETUP
 # DATABASES = {

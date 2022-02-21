@@ -42,9 +42,14 @@ def reviewForm(request):
         message=request.POST["message"]
         movie_id=request.POST["m_id"]
         
-        rating=6-int(request.POST.get("rate"))
-        print(rating,"rate")
-        # print(request.POST)
+        rate=request.POST.get("rate")
+        rating=0
+        if rate:
+            rating=6-int(rate) 
+        else:
+            rating=0
+        print(rate,"rate")
+        print(request.POST)
         # print(request.user.id,"user-id")d
         
         

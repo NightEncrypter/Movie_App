@@ -81,7 +81,11 @@
     </div>
 </div>
     </div>
-    <div class="  relative  h-[88vh]  md:grid md:grid-cols-5  gap-0 md:gap-6 p-4   hidden   ">
+    <div 
+    
+class="  relative  h-[88vh]  md:flex  md:grid-cols-6   gap-0     hidden w-full" 
+    
+    >
 <!-- <div class="absolute   bg inset-[0.19rem] z-[-1]" style="background-image: url('https://images.unsplash.com/photo-1469521669194-babb45599def?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8d2FsbHBhcGVyLGxhbmRzY2FwZXx8fHx8fDE2NDQ1MTM1Njc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920');">
 
 </div> -->
@@ -89,15 +93,15 @@
 
 
 
-<div class=" col-span-2 hidden md:block relative  ">
+<div class="  md:col-span-3 px-4 hidden md:block relative  ">
 
 
 
 
-    <div class="relative lg:left-[10%] md:left-0  z-[10]  tv-anim">
-        <div class="lg:w-[25rem] lg:h-[22rem] md:w-[20rem] md:h-[18rem] absolute tv-bg rounded-xl top-2 z-10  " >
+    <div class="relative lg:left-[10%] md:left-[8%]  z-[20]  tv-anim">
+        <div class="lg:w-[28rem] lg:h-[24rem] md:w-[24rem] md:h-[20rem] absolute tv-bg rounded-xl top-2 z-[20]  " >
 
-            <video class="absolute inset-4 -left-0  block w-full object-cover h-[20rem] play-video    "  controls   >
+            <video class="absolute inset-4 -left-0  block w-full object-cover lg:h-[22rem] md:h-[18rem] play-video    "  controls   >
 
                 <source   src="{{movie_data.video_trailer.url}}">
             </video>
@@ -105,8 +109,8 @@
             <button class=" play-pause-btn absolute top-0 right-0 w-8 h-8 bg-purple-600 rounded-md text-[0.7rem]     "  onclick="onPlayPause()" >
                 <i data-feather="play" class="text-gray-200 play-pause-icon  "></i>
             </button> -->
-            <div class="absolute lg:-bottom-[27%] md:-bottom-[47%]  left-1/2 -translate-x-1/2 z-20  h-[6rem] w-5 tv-bg"></div>
-<div class="absolute w-full h-5 tv-bg lg:-bottom-[30%] md:-bottom-[50%] left-0 rounded-md z-[-1]">
+            <div class="absolute lg:-bottom-[30%] md:-bottom-[40%]  left-1/2 -translate-x-1/2  lg:h-[7.5rem]  md:h-[8rem] w-5 tv-bg z-[-1]"></div>
+<div class="absolute w-full h-5 tv-bg lg:-bottom-[30%] md:-bottom-[45%] left-0 rounded-md z-[-1]">
     <div class=" relative left-1/4 top-2 w-[0.3rem] h-[0.3rem] bg-red-700 rounded-full  z-[-1]"></div>
 </div>
         </div>
@@ -124,7 +128,7 @@
     </div> -->
 </div>
         
-<div class="col-span-3 sm:block hidden movie-data relative z-[30]">
+<div class=" md:col-span-3  sm:block hidden movie-data relative z-[30]">
 
     <div class="flex items-center gap-4 mb-2">
         <button  class=" play-pause-btn   bg-purple-800 rounded-md  "  onclick="onPlayPause()" >
@@ -133,7 +137,7 @@
         <h2 class="text-white">Watch Trailer</h2>
         </div>
     <h2 class="mb-2 text-4xl text-white heading">{{movie_data.title}} <span>( 2010 )</span></h2>
-    <h5 class="my-2 text-lg text-white font-extralight heading">{{movie_data.movie_time}}</h5>
+    <h5 class="my-1 text-lg text-white font-extralight heading">{{movie_data.movie_time}}</h5>
 
     <!-- <div class="my-3 flex items-center gap-3 text-white font-thin heading">
      
@@ -145,10 +149,10 @@
     <!--Fav ,rating  -->
     <div>
 
-    <div class="flex gap-6 items-center w-[30%] justify-between ">
+    <div class="flex gap-6 items-center ">
 
 <div>
-    <h3 class="my-3 text-white  font-medium">Rating</h3>
+    <h3 class="my-1 text-white  font-medium">Rating</h3>
     <div class="bubble flex gap-2 items-center"  ><i data-feather="star" class="text-white w-5 h-5 "></i>
         <span class="inline-block text-sm ml-1 text-white">5</span>
     </div>
@@ -158,43 +162,40 @@
 </div>
         
         
-        <div >
-
-            <div class="rounded-full w-[5rem] relative border-[4px] border-[#73268db9] after:rounded-full  after:w-18 after:h-18 after:bg-transparent h-[5rem] after:absolute after:inset-2 after:z-[8] bg-transparent">
-
-        <div class="absolute z-10 left-[20%] top-[12%]   text-white ">
-            <span  class="text-sm" >{{movie_data.user_watched}}</span>
-            <span class="text-[8px] leading-none inline-block">Users watched</span>
-        
-        </div>
-            </div>
-            <!-- <a class="shadow-lg inline-block text-white relative text-sm  hover:scale-105 transition py-4 px-4  " href="{% url 'register' %}">
-    
-                <span class="block absolute inset-0 h-full w-full button-gradient rounded-full z-[1]   "></span>
-                     <span class="overflow-hidden block relative bg-[#130015] py-4 px-4 text-sm rounded-full   z-[2]">
-                        50 %
-                        </span>
-            </a> -->
-        </div>
+      
         </div>
 
        
 </div>
 
 
+<div class="my-2">
 
+
+
+        <div class="rounded-full w-[5rem] relative border-[4px] border-[#73268db9] after:rounded-full  after:w-18 after:h-18 after:bg-transparent h-[5rem] after:absolute after:inset-2 after:z-[8] bg-transparent">
+
+    <div class="absolute z-10 left-[20%] top-[12%]   text-white ">
+        <span  class="text-sm" >{{movie_data.user_watched}}<span class="text-[8px]">%</span></span>
+        <span class="text-[8px] leading-none inline-block">Users watched</span>
+    
+    </div>
+        </div>
+
+
+</div>
 
 <div class="my-3">
     <div class="flex gap-4 main  ">
        
-        <a class="rounded-full bg-[#300034] bubble-effect "> 
+        <a class="rounded-full bg-[#64016d] bubble-effect "> 
             <i data-feather="bookmark" class="text-white w-10 h-10 p-3   "></i>
         </a>
-        <a class="rounded-full bg-[#300034] bubble-effect "> 
+        <a class="rounded-full bg-[#64016d] bubble-effect "> 
             <i data-feather="heart" class="text-white w-10 h-10 p-3  "></i>
         </a>
-        <a class="rounded-full   bg-[#300034] bubble-effect "> 
-            <i data-feather="star" class="text-white w-10 h-10 p-3  "></i>
+        <a class="rounded-full   bg-[#64016d] bubble-effect "> 
+            <i data-feather="list" class="text-white w-10 h-10 p-3  "></i>
         </a>
         </div>
 </div>
@@ -205,17 +206,17 @@
     <div  class="my-4 md:block hidden">
 
         <h3 class="my-3 text-white  font-medium">Overview</h3>
-        <p class="text-sm font-sans font-thin my-3 text-white l-spacing description">{{movie_data.overview}}</p>
+        <p class="text-sm font-sans font-thin my-3 text-white l-spacing description ">{{movie_data.overview}}</p>
     </div>
 <!-- WRITERS -->
     <div  class="md:block hidden">
         <h6 class="my-1 text-white  font-medium">Writers</h6>
         <div class="flex items-center flex-wrap gap-4 my-4">
 
-            <a href='' class="px-4 py-2 bg-[#300034] text-white text-xs rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
-            <a href='' class="px-4 py-2 bg-[#300034] text-white text-xs rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
-            <a href='' class="px-4 py-2 bg-[#300034] text-white text-xs rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
-            <a href='' class="px-4 py-2 bg-[#300034] text-white text-xs rounded-md writer border-[1.5px] border-transparent ">Nick Fury</a>
+            <a href='' class="px-4 py-2 bg-[#5c0081b7] text-white text-xs rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
+            <a href='' class="px-4 py-2 bg-[#5c0081b7] text-white text-xs rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
+            <a href='' class="px-4 py-2 bg-[#5c0081b7] text-white text-xs rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
+            <a href='' class="px-4 py-2 bg-[#5c0081b7] text-white text-xs rounded-md writer border-[1.5px] border-transparent ">Nick Fury</a>
         </div>
     </div>
 <!-- DIRECTORS -->
@@ -261,9 +262,9 @@
  
 
     <div class="text-white">
-        <h4 class="md:my-2 my-1">{{cast.cast_name}}</h4>
-        <p class="font-medium font-sans text-xs md:my-2 my-1">{{cast.cast_movie_name}} </p>
-        <h6 class="font-sans font-thin    ">Age<span class="font-semibold ml-2 inline-block">{{cast.cast_age}}</span></h6>
+        <h4 class=" my-1">{{cast.cast_name}}</h4>
+        <p class="font-medium font-sans text-xs mb-1">{{cast.cast_movie_name}} </p>
+        <h6 class="font-sans font-thin text-xs    ">Age<span class="font-semibold ml-2 inline-block">{{cast.cast_age}}</span></h6>
     </div>
 </div>
 

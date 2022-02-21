@@ -298,7 +298,7 @@ z-index: 30;
    
 
     .img-container:hover .overlay{
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(0, 0, 0, 0.5);
         /* background: radial-gradient(58.93% 58.93% at 50% 50.16%, #8A8A8A 0%, #000000 100%); */
         /* background: radial-gradient(58.93% 58.93% at 50% 50.16%, rgba(39, 39, 39, 0.2) 0%, #131212 100%); */
 
@@ -549,14 +549,14 @@ background: linear-gradient(93.48deg, #012B34 5.17%, #410146 116.63%, #3B015F 12
 
 
 .side-link{ 
-@apply   opacity-100 duration-300 block -translate-x-0 text-[12px] py-2 px-4 mt-4 rounded-2xl  ; 
+@apply   opacity-100 duration-300 block -translate-x-0 text-[12px] py-2 px-4 mt-4 md:rounded-2xl  ; 
 
 transition: all 0.3s cubic-bezier(0.23, 0.85, 0.32, 0.91);
 
 }
 .side-link:hover{ 
     /* background: linear-gradient(45deg, #154CD8 0%, #9E00FF 48.31%, #F154FF 88.68%); */
-    background: linear-gradient(90deg, #154CD8 0%, #9E00FF 48.31%, #F154FF 88.68%);
+    background: linear-gradient(90deg, #154CD8 0%, #9E00FF 48.31%, #F154FF 99.68%);
 /* @apply scale-105 ;  */
 }
 
