@@ -163,7 +163,7 @@ USE_TZ = True
 
 # For production purpose
 # ? wehen you deploy your application you run a command ( python manage.py collectstatic ) collectstatic and it will go all of your application takes all stattic file and put into root static folder
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
