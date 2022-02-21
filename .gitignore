@@ -1,5 +1,5 @@
 /node_modules
-
+/static/admin
 /media
 its_venv_file
 # Created by https://www.toptal.com/developers/gitignore/api/django

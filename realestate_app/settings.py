@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-r$de+6xn_2ldxtv568qv2+y20(k3+^udj^mt*_^q@numb5^vl#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =False
+# DEBUG =True
 
 ALLOWED_HOSTS = ["themoviemaniac.herokuapp.com","127.0.0.1"]
 # ALLOWED_HOSTS = []
@@ -159,19 +159,19 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = '/static/'
 
 # For production purpose
 # ? wehen you deploy your application you run a command ( python manage.py collectstatic ) collectstatic and it will go all of your application takes all stattic file and put into root static folder
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.0/howto/static-files/
+STATIC_URL = '/static/'
 
 # LOCATION OF STATIC DIR
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "modules_store/feather-icons"),
+    os.path.join(BASE_DIR, "modules_store"),
     
     os.path.join(BASE_DIR, "realestate_app/static"),
     os.path.join(BASE_DIR, "styles"),
