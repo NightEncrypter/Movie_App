@@ -164,7 +164,7 @@ USE_TZ = True
 
 
 # For production purpose
-# ? wehen you deploy your application you run a command ( python manage.py collectstatic ) collectstatic and it will go all of your application takes all stattic file and put into root static folder
+# ? when you deploy your application you run a command ( python manage.py collectstatic ) collectstatic and it will go all of your application takes all stattic file and put into root static folder
 # STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_ROOT = BASE_DIR / "static"
 
@@ -186,15 +186,15 @@ STATICFILES_DIRS = [
     BASE_DIR / "styles", 
 ]
 
-DEBUG=False
+DEBUG=True
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Media folder setting => to store a image 
 # MEDIA_ROOT=os.path.join(BASE_DIR,"media")
-MEDIA_ROOT=BASE_DIR / "media"
+MEDIA_ROOT = BASE_DIR / "media"
 
-MEDIA_URL="/media/"
+MEDIA_URL = "/media/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
