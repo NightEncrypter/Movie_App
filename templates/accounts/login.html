@@ -9,12 +9,12 @@ Login
    
     {% include "partials/_alert.html" %}
     
-<div class=" min-h-[80vh] flex justify-between md:items-stretch items-center  w-full">
+<div class=" min-h-[90vh] flex justify-between md:items-stretch items-center  w-full">
 
 
     <div class="md:w-3/5 w-full  md:flex    flex-col justify-center  ">
        <div class="">
-        <h2 class="text-white text-4xl  font-semibold mb-6 ">Login</h2>
+        <h2 class="text-white md:text-4xl sm:text-3xl text-3xl  mb-6 font-semibold  sm:text-left">Login</h2>
         <form method="post" class="flex flex-col justify-between gap-6 md:w-9/12 w-full sm:w-4/5 h-full" autocomplete="off" action="{% url 'login' %}">
 {% csrf_token %}
             <!-- EMAIL -->

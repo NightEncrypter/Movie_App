@@ -1874,6 +1874,10 @@ input:-webkit-autofill:focus {
   margin-bottom: 1.5rem;
 }
 
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
 .mt-\[3rem\] {
   margin-top: 3rem;
 }
@@ -1932,6 +1936,22 @@ input:-webkit-autofill:focus {
 
 .mt-5 {
   margin-top: 1.25rem;
+}
+
+.ml-0 {
+  margin-left: 0px;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-8 {
+  margin-right: 2rem;
+}
+
+.mr-auto {
+  margin-right: auto;
 }
 
 .block {
@@ -2026,8 +2046,12 @@ input:-webkit-autofill:focus {
   min-height: 100vh;
 }
 
-.min-h-\[80vh\] {
-  min-height: 80vh;
+.min-h-\[90vh\] {
+  min-height: 90vh;
+}
+
+.min-h-\[85vh\] {
+  min-height: 85vh;
 }
 
 .min-h-\[17rem\] {
@@ -2106,6 +2130,10 @@ input:-webkit-autofill:focus {
 
 .max-w-7xl {
   max-width: 80rem;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
 }
 
 .-translate-y-1\/2 {
@@ -2547,26 +2575,6 @@ input:-webkit-autofill:focus {
   padding-right: 1.6px;
 }
 
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.py-\[1\.2px\] {
-  padding-top: 1.2px;
-  padding-bottom: 1.2px;
-}
-
-.px-\[1px\] {
-  padding-left: 1px;
-  padding-right: 1px;
-}
-
-.px-\[1\.3px\] {
-  padding-left: 1.3px;
-  padding-right: 1.3px;
-}
-
 .py-\[0\.2rem\] {
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
@@ -2577,16 +2585,6 @@ input:-webkit-autofill:focus {
   padding-right: 1rem;
 }
 
-.py-\[0\.1rem\] {
-  padding-top: 0.1rem;
-  padding-bottom: 0.1rem;
-}
-
-.px-\[0\.8rem\] {
-  padding-left: 0.8rem;
-  padding-right: 0.8rem;
-}
-
 .py-\[0\.18rem\] {
   padding-top: 0.18rem;
   padding-bottom: 0.18rem;
@@ -2595,6 +2593,11 @@ input:-webkit-autofill:focus {
 .px-\[0\.5rem\] {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .pt-4 {
@@ -2629,9 +2632,9 @@ input:-webkit-autofill:focus {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-sm {
@@ -2639,9 +2642,9 @@ input:-webkit-autofill:focus {
   line-height: 1.25rem;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-xl {
@@ -2939,8 +2942,16 @@ display: block; */
 }
 
 @media (min-width: 640px) {
+  .sm\:m-0 {
+    margin: 0px;
+  }
+
   .sm\:mt-0 {
     margin-top: 0px;
+  }
+
+  .sm\:mr-0 {
+    margin-right: 0px;
   }
 
   .sm\:block {
