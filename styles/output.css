@@ -2128,6 +2128,14 @@ input:-webkit-autofill:focus {
   width: 1.5rem;
 }
 
+.w-\[80\%\] {
+  width: 80%;
+}
+
+.w-\[100\%\] {
+  width: 100%;
+}
+
 .max-w-7xl {
   max-width: 80rem;
 }

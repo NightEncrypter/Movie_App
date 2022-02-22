@@ -8,7 +8,7 @@
     <!-- <h2 class="text-xl logo-side">   -->
         <!-- <a href='/' class="text-white font-semibold">LOGO</a> -->
 
-        <a href='/' class=" logo-side text-white  block text-x mr-auto sm:mr-0">
+        <a href='/' class=" logo-side text-white  block text-x ">
 
           <!-- <svg class="w-10 sm:hidden block" height="40" viewBox="0 0 73 61" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M49.2277 41.9257C52.12 37.6359 53.8084 32.4672 53.8084 26.9042C53.8084 12.0454 41.763 0 26.9042 0C12.0454 0 0 12.0454 0 26.9042C0 41.763 12.0454 53.8084 26.9042 53.8084C29.8466 53.8084 32.6786 53.336 35.3287 52.4631C41.3502 52.1763 52.4352 46.1953 55.2996 44.3512C59.4706 41.6659 63.4784 49.5358 65.6757 54.4706L70.9247 60.086L73 56.4072C71.6818 54.8207 70.2989 52.7224 68.8473 50.5197C64.038 43.222 58.4737 34.7787 52.0037 40.0069C51.1803 40.6723 50.2436 41.3173 49.2277 41.9257Z" fill="url(#paint0_linear_260_264)"/>
@@ -211,7 +211,7 @@
                
         </a>
         <!-- </h2> -->
-        <nav class="md:w-[28%]  sm:hidden hidden md:block ">
+        <nav class="md:w-[28%]  sm:hidden hidden  md:block ">
             <ul class="flex gap-3 items-center w-full justify-between">
                 <li><a href='/'
                   
@@ -226,7 +226,7 @@
                 {% endif %}  
                   
                   >Home</a></li>
-                <li><a href='{% url "about" %}'
+                <li class="hidden sm:block"><a href='{% url "about" %}'
                   
                   {% if request.path == "/about" %}
                   class="text-white text-sm nav-link active "
@@ -259,7 +259,7 @@
         </nav>
 
         {% if search %}
-    <button class="search-btn  md:ml-0 block sm:mr-0 mr-8 ">
+    <button class="search-btn  md:ml-0 block  ">
     
         <svg width="20" height="20"  viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="search-icon">
             <path d="M31.2414 31.3086C32.0145 30.5408 33.2537 30.5408 34.0267 31.3086L39.136 35.4328H39.2247C40.2584 36.4776 40.2584 38.1716 39.2247 39.2164C38.1911 40.2612 36.5151 40.2612 35.4814 39.2164L31.2414 34.3569L31.0805 34.1754C30.7808 33.796 30.6153 33.323 30.6153 32.8327C30.6153 32.2608 30.8406 31.7123 31.2414 31.3086ZM17.1553 0C21.7051 0 26.0687 1.82687 29.2859 5.07873C32.5031 8.33058 34.3106 12.741 34.3106 17.3399C34.3106 26.9164 26.6299 34.6797 17.1553 34.6797C7.68068 34.6797 0 26.9164 0 17.3399C0 7.76332 7.68068 0 17.1553 0Z" fill="url(#paint0_linear_131_642)"/>
@@ -307,7 +307,7 @@
 
       {% if login %}
       <!-- <a href="{% url 'login' %}" class="text-white text-sm">Login</a> -->
-      <a class="md:inline-block hidden sm:block  text-white relative text-sm py-[1.7px] px-[1.6px]  rounded-md " href="{% url 'login' %}">
+      <a class="md:inline-block  sm:block  text-white relative text-sm py-[1.7px] px-[1.6px]  rounded-md " href="{% url 'login' %}">
        
         <span class="block absolute inset-0 h-full w-full button-gradient rounded-md z-[1]   "></span>
              <span class="block relative bg-[#18061aea] sm:py-[0.5rem] sm:px-[1.5rem] py-[0.2rem] px-[1rem] sm:text-xs text-[0.65rem]   rounded-md   z-[2]">

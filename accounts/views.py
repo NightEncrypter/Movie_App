@@ -55,7 +55,7 @@ def login(request):
 def register(request):
     search=False
     # ham=False
-    login=True
+    
     register=False
     context={"search":search,"login":login,"register":register}
     
