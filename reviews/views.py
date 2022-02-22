@@ -1,4 +1,3 @@
-import imp
 from django.shortcuts import redirect, render
 from django.contrib import messages
 from pages.models import Movie
