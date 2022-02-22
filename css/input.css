@@ -101,8 +101,7 @@ body{
 
 
 #search-bar::placeholder{
-letter-spacing:1px;
-@apply font-medium   text-[#96009659];
+@apply   text-[#2c012c44];
 }
 
 .review-submit-btn{
