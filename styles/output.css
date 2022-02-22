@@ -2552,6 +2552,51 @@ input:-webkit-autofill:focus {
   padding-bottom: 1rem;
 }
 
+.py-\[1\.2px\] {
+  padding-top: 1.2px;
+  padding-bottom: 1.2px;
+}
+
+.px-\[1px\] {
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+.px-\[1\.3px\] {
+  padding-left: 1.3px;
+  padding-right: 1.3px;
+}
+
+.py-\[0\.2rem\] {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
+.px-\[1rem\] {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-\[0\.1rem\] {
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+}
+
+.px-\[0\.8rem\] {
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+
+.py-\[0\.18rem\] {
+  padding-top: 0.18rem;
+  padding-bottom: 0.18rem;
+}
+
+.px-\[0\.5rem\] {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .pt-4 {
   padding-top: 1rem;
 }
@@ -2633,6 +2678,10 @@ input:-webkit-autofill:focus {
 
 .text-\[12px\] {
   font-size: 12px;
+}
+
+.text-\[0\.65rem\] {
+  font-size: 0.65rem;
 }
 
 .font-medium {
@@ -2958,6 +3007,16 @@ display: block; */
     gap: 1rem;
   }
 
+  .sm\:py-\[0\.5rem\] {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .sm\:px-\[1\.5rem\] {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
   .sm\:text-left {
     text-align: left;
   }
@@ -2965,6 +3024,11 @@ display: block; */
   .sm\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+
+  .sm\:text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
 }
 
