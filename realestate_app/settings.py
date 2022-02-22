@@ -15,9 +15,9 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-#? BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # #Authentication backends
@@ -165,26 +165,34 @@ USE_TZ = True
 
 # For production purpose
 # ? wehen you deploy your application you run a command ( python manage.py collectstatic ) collectstatic and it will go all of your application takes all stattic file and put into root static folder
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = BASE_DIR / "static"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 STATIC_URL = 'static/'
 
 # LOCATION OF STATIC DIR
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "modules_store"),
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, "modules_store"),
     
-    os.path.join(BASE_DIR, "realestate_app/static"),
-    os.path.join(BASE_DIR, "styles"),
-)
+#     os.path.join(BASE_DIR, "realestate_app/static"),
+#     os.path.join(BASE_DIR, "styles"),
+    
+# )
+STATICFILES_DIRS = [
+    BASE_DIR / "modules_store",
+    BASE_DIR / "realestate_app/static",
+    BASE_DIR / "styles", 
+]
 
 DEBUG=False
 
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Media folder setting => to store a image 
-MEDIA_ROOT=os.path.join(BASE_DIR,"media")
+# MEDIA_ROOT=os.path.join(BASE_DIR,"media")
+MEDIA_ROOT=BASE_DIR / "media"
 
 MEDIA_URL="/media/"
 # Default primary key field type
