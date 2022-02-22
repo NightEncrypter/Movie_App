@@ -29,12 +29,12 @@
 
 
 <div class="">
-    <h4 class=" text-4xl my-4 text-white heading">{{movie_data.title}} <span>( 2010 )</span></h4>
+    <h4 class=" text-2xl my-2 text-white heading">{{movie_data.title}} <span>( 2010 )</span></h4>
     <h6 class="my-2  text-white font-extralight heading">{{movie_data.movie_time}}</h6>
 
     <div class="">
         <h6 class="text-white my-1 text-sm font-extralight">Overview</h6>
-        <p class="text-xs text-white font-sans font-thin">
+        <p class="text-xs text-white  font-thin">
             {{movie_data.overview}} 
         </p>
     </div>
@@ -206,7 +206,7 @@ class="  relative  h-[88vh]  md:grid  md:grid-cols-6   gap-0     hidden w-full"
     <div  class="my-4 md:block hidden">
 
         <h3 class="my-3 text-white  font-medium">Overview</h3>
-        <p class="text-sm font-sans font-thin my-3 text-white l-spacing description ">{{movie_data.overview}}</p>
+        <p class="text-sm  font-thin my-3 text-white l-spacing description ">{{movie_data.overview}}</p>
     </div>
 <!-- WRITERS -->
     <div  class="md:block hidden">
@@ -247,22 +247,22 @@ class="  relative  h-[88vh]  md:grid  md:grid-cols-6   gap-0     hidden w-full"
 <div class="md:flex justify-between  items-start gap-6  ">
 
 
-    <div class="md:w-3/4 w-full grid lg:grid-cols-4 md:grid-cols-4 top-casts-animation sm:grid-cols-3   gap-4 overflow-x-auto h-[25rem]   pr-6 ">
+    <div class="md:w-3/4 w-full grid lg:grid-cols-4 md:grid-cols-4 top-casts-animation sm:grid-cols-3 grid-cols-3   gap-4 overflow-x-auto md:h-[25rem] sm:h-[20rem] md:min-h-0 min-h-[17rem]   md:pr-6 ">
 
 
   <!-- CARD -->
 
   {% for cast in casts %}
-  <div class ="topcast-card md:h-[19rem] sm:h-[18rem] h-[17rem]">
+  <div class ="topcast-card md:h-[19rem] sm:h-[18rem] h-[15rem]">
 
     <div class="relative cast overflow-hidden ">
        <div class=" cast-overlay"></div>
-       <img src='{{cast.cast_img.url}}' class=" block w-full sm:h-[12rem] h-[11rem] md:h-[13rem] rounded-md md:object-cover object-fill cast-img movie-overlay" style=" box-shadow: inset 0px 0px 100px rgba(0, 0, 0, 0.49);" alt=''>
+       <img src='{{cast.cast_img.url}}' class=" block w-full sm:h-[12rem] h-[9rem] md:h-[13rem] rounded-md md:object-cover object-fill cast-img movie-overlay" style=" box-shadow: inset 0px 0px 100px rgba(0, 0, 0, 0.49);" alt=''>
     </div>
  
 
     <div class="text-white">
-        <h4 class=" my-1">{{cast.cast_name}}</h4>
+        <h4 class=" my-1 text-xs">{{cast.cast_name}}</h4>
         <p class="font-medium font-sans text-xs mb-1">{{cast.cast_movie_name}} </p>
         <h6 class="font-sans font-thin text-xs    ">Age<span class="font-semibold ml-2 inline-block">{{cast.cast_age}}</span></h6>
     </div>
@@ -314,38 +314,58 @@ class="  relative  h-[88vh]  md:grid  md:grid-cols-6   gap-0     hidden w-full"
     <h3 class="text-2xl  text-[#F8F8F8] my-8  ">Movie Thumbnails</h3>
 
 
-    <div class='grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-6 thumbnails-animation  '>
+    <div class='grid lg:grid-cols-5 md:grid-cols-4 grid-cols-3 md:gap-6  gap-4 thumbnails-animation  '>
+        {% if  movie_data.main_img.url %}
 
-        <a class="h-[18rem] block overflow-hidden rounded-[15px] shadow-lg thumbnail relative " href="/" >
+        <a class=" h-auto  block overflow-hidden rounded-[15px] shadow-lg thumbnail relative " href="/" >
        <img src='{{movie_data.main_img.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
 
        <div class=" thumbnail-overlay"></div>
 
         </a>
-        <div class="h-[18rem] overflow-hidden rounded-[15px] shadow-lg thumbnail relative ">
+        {% endif %}
+
+        {% if  movie_data.img2.url %}
+        <div class=" h-auto overflow-hidden rounded-[15px] shadow-lg thumbnail relative ">
        <img src='{{movie_data.img2.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
 
        <div class=" thumbnail-overlay"></div>
 
         </div>
-        <div class="h-[18rem] overflow-hidden rounded-[15px] shadow-lg thumbnail relative ">
+        {% endif %}
+        {% if  movie_data.img3.url %}
+
+        <div class=" h-auto overflow-hidden rounded-[15px] shadow-lg thumbnail relative ">
        <img src='{{movie_data.img3.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
 
        <div class=" thumbnail-overlay"></div>
 
-        </div>
-        <div class="h-[18rem] overflow-hidden rounded-[15px] shadow-lg thumbnail relative ">
+    </div>
+    {% endif %}
+        {% if  movie_data.img4.url %}
+
+        <div class=" h-auto overflow-hidden rounded-[15px] shadow-lg thumbnail relative ">
+       <img src='{{movie_data.img4.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
+
+       <div class=" thumbnail-overlay"></div>
+
+    </div>
+    {% endif %}
+    <!-- {% if  movie_data.img1.url %}
+
+        <div class=" h-auto overflow-hidden rounded-[15px] shadow-lg thumbnail relative ">
        <img src='{{movie_data.img1.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
 
        <div class=" thumbnail-overlay"></div>
 
         </div>
+        {% endif %} -->
  
-        <a  href="/" class="h-[19rem] relative flex items-center justify-center bg-[#340d38e0]  rounded-lg" style="background-color:#1e0022e0 ;">
+        <!-- <a  href="/" class=" h-auto relative flex items-center justify-center bg-[#340d38e0]  rounded-lg" style="background-color:#1e0022e0 ;">
 <i data-feather="plus" class="w-[5rem] h-[5rem] text-white opacity-70"  style="opacity: 0.5;"></i>
 <div class="absolute left-1/2  -translate-x-1/2  text-3xl -translate-y-1/2 top-1/2 text-white opacity-20
  font-medium" style="font-size: 110px;opacity: 0.1;">24</div>
-        </a>
+        </a> -->
        
     </div>
 

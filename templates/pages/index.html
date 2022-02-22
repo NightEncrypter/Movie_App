@@ -48,13 +48,13 @@ Home
 
         <a href='javascript:{document.querySelector(".addwatchlist").submit()}' class="add-in-watchlist   ">
          
-          <i data-feather="plus"></i>
+          <i data-feather="plus" class="w-full h-full"></i>
     
         </a>
         <div class="card-content py-1 ">
           <h3 class=" text-white text-center movie-title  ">{{movie.title}}</h3>
         <div class=" gap-1 items-center justify-between   movieLanguages relative  ">
-          <h3 class="text-xs text-center font-sans available-in">Available in</h3>
+          <h3 class="text-xs text-center font-thin available-in">Available in</h3>
           <p class="desc  text-center">{{movie.movie_languages}}</p>
         </div>
 
@@ -83,7 +83,7 @@ Home
 <div class=" mt-4 flex justify-between items-center ">
 
     
-    <h6 class=" text-right font-sans font-thin text-sm">{{movie.released_date}}</h6>
+    <h6 class=" text-right  font-extralight text-sm">{{movie.released_date}}</h6>
        
   <a href='{% url "movie" movie.id %}' class=""><i data-feather="info"  class="w-5 h-5" ></i></a>
 </div>
