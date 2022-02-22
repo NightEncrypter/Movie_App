@@ -536,7 +536,7 @@ border:2px solid #02758E;
 }
 
 .sidebar.active{
-@apply md:w-[250px] w-[100px] opacity-100 z-20 transition-all duration-300 pointer-events-auto ;
+@apply md:w-[250px] w-[100px] opacity-100 z-[999] transition-all duration-300 pointer-events-auto ;
 /* background: linear-gradient(265.39deg, #C334DA -42.8%, #9520DC 37.44%, #23B3D3 116.69%); */
 /* background: linear-gradient(169.49deg, #5C0B63 0.57%, #45036D 43.28%, #288296 97.49%); */
 /* background: linear-gradient(95.47deg, #03718A -4.62%, #540485 96.03%, #5B0363 101.07%); */
