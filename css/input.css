@@ -119,6 +119,13 @@ background: linear-gradient(90deg, #0338BE 5%, #520085 60.15%, #880094 115.86%);
 .logout-dropdown{
     @apply  absolute hidden top-[69%] md:left-[-200%] sm:left-[-160%] left-[-400%]  w-[200px] md:w-[170px] md:py-3 py-2  bg-[#2a0035e5] rounded-md;
 }
+.logout-dropdown-small{
+    @apply  absolute hidden top-[69%] md:left-[-200%] sm:left-[-160%] left-[-320%]  w-[190px] md:w-[170px] md:py-3 py-2  bg-[#2a0035e5] rounded-md;
+}
+
+.setting:hover .logout-dropdown-small{
+    @apply block 
+    }
 
 .setting-icon{
     @apply transition duration-300;

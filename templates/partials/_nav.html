@@ -375,7 +375,7 @@
         <!-- setting -->
 
 
-        <div class="logout-dropdown shadow-2xl  ">
+        <div class="logout-dropdown-small shadow-2xl  ">
 
 
         
@@ -384,7 +384,7 @@
                 {% csrf_token %}
          
                 <!-- PROFILE -->
-  <div class=" text-white  flex items-center  gap-2 md:hidden p-2   ">
+  <div class=" text-white  flex flex-col items-center  gap-2 md:hidden p-2   ">
         
 
                   <div class="w-8 h-8 ">
@@ -396,10 +396,10 @@
         
                   </div>
         
-                <h6 class="text-white text-sm font-medium">
+                <h6 class="text-white text-sm font-medium flex flex-col gap-1">
                   <span class="text-purple-500">Welcome</span>
         
-                  <span class="uppercase ml-2">
+                  <span class="uppercase">
                    {{request.user.first_name}}
                   </span>
                 </h6>

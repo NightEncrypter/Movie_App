@@ -582,12 +582,12 @@ html{
 
 /* LOGOUT DROPDOWN */
 
-.logout-dropdown {
+.logout-dropdown-small {
   position: absolute;
   top: 69%;
-  left: -400%;
+  left: -320%;
   display: none;
-  width: 200px;
+  width: 190px;
   border-radius: 0.375rem;
   background-color: #2a0035e5;
   padding-top: 0.5rem;
@@ -595,24 +595,28 @@ html{
 }
 
 @media (min-width: 640px) {
-  .logout-dropdown {
+  .logout-dropdown-small {
     left: -160%;
   }
 }
 
 @media (min-width: 768px) {
-  .logout-dropdown {
+  .logout-dropdown-small {
     left: -200%;
   }
 
-  .logout-dropdown {
+  .logout-dropdown-small {
     width: 170px;
   }
 
-  .logout-dropdown {
+  .logout-dropdown-small {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
   }
+}
+
+.setting:hover .logout-dropdown-small {
+  display: block;
 }
 
 .setting-icon {
@@ -1938,22 +1942,6 @@ input:-webkit-autofill:focus {
   margin-top: 1.25rem;
 }
 
-.ml-0 {
-  margin-left: 0px;
-}
-
-.ml-auto {
-  margin-left: auto;
-}
-
-.mr-8 {
-  margin-right: 2rem;
-}
-
-.mr-auto {
-  margin-right: auto;
-}
-
 .block {
   display: block;
 }
@@ -2128,20 +2116,8 @@ input:-webkit-autofill:focus {
   width: 1.5rem;
 }
 
-.w-\[80\%\] {
-  width: 80%;
-}
-
-.w-\[100\%\] {
-  width: 100%;
-}
-
 .max-w-7xl {
   max-width: 80rem;
-}
-
-.flex-1 {
-  flex: 1 1 0%;
 }
 
 .-translate-y-1\/2 {
@@ -2950,16 +2926,8 @@ display: block; */
 }
 
 @media (min-width: 640px) {
-  .sm\:m-0 {
-    margin: 0px;
-  }
-
   .sm\:mt-0 {
     margin-top: 0px;
-  }
-
-  .sm\:mr-0 {
-    margin-right: 0px;
   }
 
   .sm\:block {
