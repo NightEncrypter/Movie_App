@@ -29,7 +29,7 @@
 
 
 <div class="">
-    <h4 class=" text-2xl my-2 text-white heading">{{movie_data.title}} <span>( 2010 )</span></h4>
+    <h4 class=" text-2xl my-2 text-white heading uppercase">{{movie_data.title}} <span>( 2010 )</span></h4>
     <h6 class="my-2  text-white font-extralight heading">{{movie_data.movie_time}}</h6>
 
     <div class="">
@@ -107,7 +107,7 @@ class="  relative  h-[88vh]  md:grid  md:grid-cols-6   gap-0     hidden w-full"
             </video> -->
 
             <!-- <iframe class="absolute inset-4 -left-0  block w-full lg:h-[22rem] md:h-[18rem] play-video object-fill    "  src="https://www.youtube.com/embed/KAE5ymVLmZg?controls=0" allowfullscreen ></iframe> -->
-            <iframe class="absolute inset-4 -left-0  block w-full lg:h-[22rem] md:h-[18rem] play-video object-fill    "   src="https://www.youtube.com/embed/KAE5ymVLmZg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="absolute inset-4 -left-0  block w-full lg:h-[22rem] md:h-[18rem] play-video object-fill    "   src={{movie_data.video_trailer}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <button class=" play-pause-btn absolute top-0 right-0 w-8 h-8 bg-purple-600 rounded-md text-[0.7rem]     "  onclick="onPlayPause()" >
                 <i data-feather="play" class="text-gray-200 play-pause-icon  "></i>
             </button> -->
@@ -138,7 +138,7 @@ class="  relative  h-[88vh]  md:grid  md:grid-cols-6   gap-0     hidden w-full"
         </button>
         <h2 class="text-white">Watch Trailer</h2>
         </div>
-    <h2 class="mb-2 text-4xl text-white heading">{{movie_data.title}} <span>( 2010 )</span></h2>
+    <h2 class="mb-2 text-4xl text-white heading uppercase">{{movie_data.title}} <span>( 2010 )</span></h2>
     <h5 class="my-1 text-lg text-white font-extralight heading">{{movie_data.movie_time}}</h5>
 
     <!-- <div class="my-3 flex items-center gap-3 text-white font-thin heading">
@@ -317,9 +317,9 @@ class="  relative  h-[88vh]  md:grid  md:grid-cols-6   gap-0     hidden w-full"
 
 
     <div class='grid lg:grid-cols-5 md:grid-cols-4 grid-cols-3 md:gap-6  gap-4 thumbnails-animation  '>
-        {% if  movie_data.main_img.url %}
+        {% if  movie_data.main_img %}
 
-        <a class=" h-auto  block overflow-hidden rounded-[15px] shadow-lg thumbnail relative " href="/" >
+        <a class=" md:h-[17rem]  h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative " href="/" >
        <img src='{{movie_data.main_img.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
 
        <div class=" thumbnail-overlay"></div>
@@ -327,41 +327,44 @@ class="  relative  h-[88vh]  md:grid  md:grid-cols-6   gap-0     hidden w-full"
         </a>
         {% endif %}
 
-        {% if  movie_data.img2.url %}
-        <div class=" h-auto overflow-hidden rounded-[15px] shadow-lg thumbnail relative ">
+        {% if  movie_data.img2 %}
+        <a class="  md:h-[17rem]  h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative  ">
        <img src='{{movie_data.img2.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
 
        <div class=" thumbnail-overlay"></div>
 
-        </div>
+        </a>
         {% endif %}
-        {% if  movie_data.img3.url %}
 
-        <div class=" h-auto overflow-hidden rounded-[15px] shadow-lg thumbnail relative ">
-       <img src='{{movie_data.img3.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
+      
+    {% if  movie_data.img1 %}
 
-       <div class=" thumbnail-overlay"></div>
-
-    </div>
-    {% endif %}
-        {% if  movie_data.img4.url %}
-
-        <div class=" h-auto overflow-hidden rounded-[15px] shadow-lg thumbnail relative ">
-       <img src='{{movie_data.img4.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
-
-       <div class=" thumbnail-overlay"></div>
-
-    </div>
-    {% endif %}
-    <!-- {% if  movie_data.img1.url %}
-
-        <div class=" h-auto overflow-hidden rounded-[15px] shadow-lg thumbnail relative ">
+        <a class="  md:h-[17rem]  h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative   ">
        <img src='{{movie_data.img1.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
 
        <div class=" thumbnail-overlay"></div>
 
-        </div>
-        {% endif %} -->
+        </a>
+        {% endif %}
+    {% if  movie_data.img3 %}
+
+        <a class="  md:h-[17rem]  h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative   ">
+       <img src='{{movie_data.img3.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
+
+       <div class=" thumbnail-overlay"></div>
+
+        </a>
+        {% endif %}
+    {% if  movie_data.img4 %}
+
+        <a class="  md:h-[17rem]  h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative   ">
+       <img src='{{movie_data.img3.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
+
+       <div class=" thumbnail-overlay"></div>
+
+        </a>
+        {% endif %}
+   
  
         <!-- <a  href="/" class=" h-auto relative flex items-center justify-center bg-[#340d38e0]  rounded-lg" style="background-color:#1e0022e0 ;">
 <i data-feather="plus" class="w-[5rem] h-[5rem] text-white opacity-70"  style="opacity: 0.5;"></i>

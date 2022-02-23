@@ -3084,6 +3084,18 @@ display: block; */
     height: 13rem;
   }
 
+  .md\:h-\[17rem\] {
+    height: 17rem;
+  }
+
+  .md\:h-\[16rem\] {
+    height: 16rem;
+  }
+
+  .md\:h-\[15rem\] {
+    height: 15rem;
+  }
+
   .md\:min-h-0 {
     min-height: 0px;
   }
