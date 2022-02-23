@@ -395,7 +395,7 @@ z-index: 30;
 
 
     .director{
-        @apply text-sm transition duration-200;
+        @apply text-sm transition duration-200 font-light;
     }
 
     .director:hover{
@@ -403,7 +403,7 @@ z-index: 30;
     }
 
     .writer{
-        @apply text-sm transition duration-200;
+        @apply text-sm transition duration-200 font-light;
     }
 
     .writer:hover{
