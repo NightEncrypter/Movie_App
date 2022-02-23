@@ -101,11 +101,13 @@ class="  relative  h-[88vh]  md:grid  md:grid-cols-6   gap-0     hidden w-full"
     <div class="relative lg:left-[10%] md:left-[8%]  z-[20]  tv-anim">
         <div class="lg:w-[28rem] lg:h-[24rem] md:w-[24rem] md:h-[20rem] absolute tv-bg rounded-xl top-2 z-[20]  " >
 
-            <video class="absolute inset-4 -left-0  block w-full object-cover lg:h-[22rem] md:h-[18rem] play-video    "  controls   >
+            <!-- <video class="absolute inset-4 -left-0  block w-full object-cover lg:h-[22rem] md:h-[18rem] play-video    "  controls   >
 
                 <source   src="{{movie_data.video_trailer.url}}">
-            </video>
-<!-- 
+            </video> -->
+
+            <!-- <iframe class="absolute inset-4 -left-0  block w-full lg:h-[22rem] md:h-[18rem] play-video object-fill    "  src="https://www.youtube.com/embed/KAE5ymVLmZg?controls=0" allowfullscreen ></iframe> -->
+            <iframe class="absolute inset-4 -left-0  block w-full lg:h-[22rem] md:h-[18rem] play-video object-fill    "   src="https://www.youtube.com/embed/KAE5ymVLmZg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <button class=" play-pause-btn absolute top-0 right-0 w-8 h-8 bg-purple-600 rounded-md text-[0.7rem]     "  onclick="onPlayPause()" >
                 <i data-feather="play" class="text-gray-200 play-pause-icon  "></i>
             </button> -->
