@@ -22,10 +22,12 @@
     
     <div class="md:hidden pb-6 px-6 relative z-20 ">
 
-        <video class="  rounded-lg  block w-full object-cover h-[15rem] play-video    "  controls   >
+        <!-- <video class="  rounded-lg  block w-full object-cover h-[15rem] play-video    "  controls   >
 
             <source   src="{{movie_data.video_trailer.url}}">
-        </video>
+        </video> -->
+
+        <iframe class="  rounded-lg  block w-full object-cover h-[15rem] play-video    "   src={{movie_data.video_trailer}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 <div class="">
@@ -83,7 +85,7 @@
     </div>
     <div 
     
-class="  relative  h-[88vh]  md:grid  md:grid-cols-6   gap-0     hidden w-full" 
+class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[85%] justify-between " 
     
     >
 <!-- <div class="absolute   bg inset-[0.19rem] z-[-1]" style="background-image: url('https://images.unsplash.com/photo-1469521669194-babb45599def?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8d2FsbHBhcGVyLGxhbmRzY2FwZXx8fHx8fDE2NDQ1MTM1Njc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920');">
@@ -93,7 +95,7 @@ class="  relative  h-[88vh]  md:grid  md:grid-cols-6   gap-0     hidden w-full"
 
 
 
-<div class="  md:col-span-3 px-4 hidden md:block relative  ">
+<div class="  md:col-span-3  hidden md:block relative w-full    ">
 
 
 
@@ -108,9 +110,7 @@ class="  relative  h-[88vh]  md:grid  md:grid-cols-6   gap-0     hidden w-full"
 
             <!-- <iframe class="absolute inset-4 -left-0  block w-full lg:h-[22rem] md:h-[18rem] play-video object-fill    "  src="https://www.youtube.com/embed/KAE5ymVLmZg?controls=0" allowfullscreen ></iframe> -->
             <iframe class="absolute inset-4 -left-0  block w-full lg:h-[22rem] md:h-[18rem] play-video object-fill    "   src={{movie_data.video_trailer}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <button class=" play-pause-btn absolute top-0 right-0 w-8 h-8 bg-purple-600 rounded-md text-[0.7rem]     "  onclick="onPlayPause()" >
-                <i data-feather="play" class="text-gray-200 play-pause-icon  "></i>
-            </button> -->
+         
             <div class="absolute lg:-bottom-[30%] md:-bottom-[40%]  left-1/2 -translate-x-1/2  lg:h-[7.5rem]  md:h-[8rem] w-5 tv-bg z-[-1]"></div>
 <div class="absolute w-full h-5 tv-bg lg:-bottom-[30%] md:-bottom-[45%] left-0 rounded-md z-[-1]">
     <div class=" relative left-1/4 top-2 w-[0.3rem] h-[0.3rem] bg-red-700 rounded-full  z-[-1]"></div>
@@ -130,12 +130,12 @@ class="  relative  h-[88vh]  md:grid  md:grid-cols-6   gap-0     hidden w-full"
     </div> -->
 </div>
         
-<div class=" md:col-span-3  sm:block hidden movie-data relative z-[30]">
+<div class=" md:col-span-3  w-full  sm:block hidden movie-data relative z-[30]">
 
     <div class="flex items-center gap-4 mb-2">
-        <button  class=" play-pause-btn   bg-purple-800 rounded-md  "  onclick="onPlayPause()" >
+        <!-- <button  class=" play-pause-btn   bg-purple-800 rounded-md  "  onclick="onPlayPause()" >
             <i data-feather="play" class="text-xs text-white"></i>
-        </button>
+        </button> -->
         <h2 class="text-white">Watch Trailer</h2>
         </div>
     <h2 class="mb-2 text-4xl text-white heading uppercase">{{movie_data.title}} <span>( 2010 )</span></h2>
@@ -208,7 +208,7 @@ class="  relative  h-[88vh]  md:grid  md:grid-cols-6   gap-0     hidden w-full"
     <div  class="my-4 md:block hidden">
 
         <h3 class="my-3 text-white  font-medium">Overview</h3>
-        <p class="text-sm  font-thin my-3 text-white l-spacing description ">{{movie_data.overview}}</p>
+        <p class="text-xs  font-thin my-3 text-white l-spacing description ">{{movie_data.overview}}</p>
     </div>
 <!-- WRITERS -->
     <div  class="md:block hidden">

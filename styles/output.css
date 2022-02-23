@@ -2116,8 +2116,40 @@ input:-webkit-autofill:focus {
   width: 1.5rem;
 }
 
+.w-\[80\%\] {
+  width: 80%;
+}
+
+.w-\[60\%\] {
+  width: 60%;
+}
+
+.w-\[70\%\] {
+  width: 70%;
+}
+
+.w-\[90\%\] {
+  width: 90%;
+}
+
+.w-\[95\%\] {
+  width: 95%;
+}
+
+.w-\[85\%\] {
+  width: 85%;
+}
+
 .max-w-7xl {
   max-width: 80rem;
+}
+
+.max-w-md {
+  max-width: 28rem;
+}
+
+.max-w-xl {
+  max-width: 36rem;
 }
 
 .-translate-y-1\/2 {
@@ -2222,6 +2254,22 @@ input:-webkit-autofill:focus {
 
 .gap-5 {
   gap: 1.25rem;
+}
+
+.gap-\[3rem\] {
+  gap: 3rem;
+}
+
+.gap-\[5rem\] {
+  gap: 5rem;
+}
+
+.gap-\[8rem\] {
+  gap: 8rem;
+}
+
+.gap-\[15rem\] {
+  gap: 15rem;
 }
 
 .overflow-hidden {
@@ -2582,6 +2630,11 @@ input:-webkit-autofill:focus {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .pt-4 {
@@ -2978,6 +3031,10 @@ display: block; */
     width: 50%;
   }
 
+  .sm\:w-\[10rem\] {
+    width: 10rem;
+  }
+
   .sm\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -2992,6 +3049,10 @@ display: block; */
 
   .sm\:gap-4 {
     gap: 1rem;
+  }
+
+  .sm\:gap-\[10rem\] {
+    gap: 10rem;
   }
 
   .sm\:py-\[0\.5rem\] {
@@ -3038,6 +3099,10 @@ display: block; */
 
   .md\:ml-0 {
     margin-left: 0px;
+  }
+
+  .md\:ml-8 {
+    margin-left: 2rem;
   }
 
   .md\:block {
@@ -3088,14 +3153,6 @@ display: block; */
     height: 17rem;
   }
 
-  .md\:h-\[16rem\] {
-    height: 16rem;
-  }
-
-  .md\:h-\[15rem\] {
-    height: 15rem;
-  }
-
   .md\:min-h-0 {
     min-height: 0px;
   }
@@ -3130,6 +3187,10 @@ display: block; */
 
   .md\:w-1\/5 {
     width: 20%;
+  }
+
+  .md\:w-1\/2 {
+    width: 50%;
   }
 
   .md\:grid-cols-3 {
@@ -3168,6 +3229,18 @@ display: block; */
     gap: 0px;
   }
 
+  .md\:gap-\[3rem\] {
+    gap: 3rem;
+  }
+
+  .md\:gap-\[2rem\] {
+    gap: 2rem;
+  }
+
+  .md\:gap-4 {
+    gap: 1rem;
+  }
+
   .md\:object-cover {
     -o-object-fit: cover;
        object-fit: cover;
@@ -3176,6 +3249,11 @@ display: block; */
   .md\:px-5 {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+  }
+
+  .md\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   .md\:pb-20 {
@@ -3206,6 +3284,10 @@ display: block; */
     bottom: -30%;
   }
 
+  .lg\:flex {
+    display: flex;
+  }
+
   .lg\:h-\[24rem\] {
     height: 24rem;
   }
@@ -3220,6 +3302,10 @@ display: block; */
 
   .lg\:w-\[28rem\] {
     width: 28rem;
+  }
+
+  .lg\:w-full {
+    width: 100%;
   }
 
   .lg\:grid-cols-5 {
