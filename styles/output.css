@@ -1009,6 +1009,7 @@ html{
 .director {
   font-size: 0.875rem;
   line-height: 1.25rem;
+  font-weight: 300;
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
@@ -1027,6 +1028,7 @@ html{
 .writer {
   font-size: 0.875rem;
   line-height: 1.25rem;
+  font-weight: 300;
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
@@ -1734,10 +1736,6 @@ input:-webkit-autofill:focus {
   left: -0px;
 }
 
-.top-0 {
-  top: 0px;
-}
-
 .left-0 {
   left: 0px;
 }
@@ -1764,6 +1762,10 @@ input:-webkit-autofill:focus {
 
 .top-20 {
   top: 5rem;
+}
+
+.top-0 {
+  top: 0px;
 }
 
 .top-\[9vh\] {
@@ -1982,6 +1984,10 @@ input:-webkit-autofill:focus {
   height: 15rem;
 }
 
+.h-3 {
+  height: 0.75rem;
+}
+
 .h-8 {
   height: 2rem;
 }
@@ -2074,6 +2080,14 @@ input:-webkit-autofill:focus {
   width: 1rem;
 }
 
+.w-3 {
+  width: 0.75rem;
+}
+
+.w-\[85\%\] {
+  width: 85%;
+}
+
 .w-\[0\.3rem\] {
   width: 0.3rem;
 }
@@ -2116,40 +2130,8 @@ input:-webkit-autofill:focus {
   width: 1.5rem;
 }
 
-.w-\[80\%\] {
-  width: 80%;
-}
-
-.w-\[60\%\] {
-  width: 60%;
-}
-
-.w-\[70\%\] {
-  width: 70%;
-}
-
-.w-\[90\%\] {
-  width: 90%;
-}
-
-.w-\[95\%\] {
-  width: 95%;
-}
-
-.w-\[85\%\] {
-  width: 85%;
-}
-
 .max-w-7xl {
   max-width: 80rem;
-}
-
-.max-w-md {
-  max-width: 28rem;
-}
-
-.max-w-xl {
-  max-width: 36rem;
 }
 
 .-translate-y-1\/2 {
@@ -2244,8 +2226,8 @@ input:-webkit-autofill:focus {
   gap: 0.75rem;
 }
 
-.gap-0 {
-  gap: 0px;
+.gap-\[15rem\] {
+  gap: 15rem;
 }
 
 .gap-\[3px\] {
@@ -2254,22 +2236,6 @@ input:-webkit-autofill:focus {
 
 .gap-5 {
   gap: 1.25rem;
-}
-
-.gap-\[3rem\] {
-  gap: 3rem;
-}
-
-.gap-\[5rem\] {
-  gap: 5rem;
-}
-
-.gap-\[8rem\] {
-  gap: 8rem;
-}
-
-.gap-\[15rem\] {
-  gap: 15rem;
 }
 
 .overflow-hidden {
@@ -2632,9 +2598,9 @@ input:-webkit-autofill:focus {
   padding-bottom: 1rem;
 }
 
-.px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem;
+.px-\[1\.1rem\] {
+  padding-left: 1.1rem;
+  padding-right: 1.1rem;
 }
 
 .pt-4 {
@@ -2704,10 +2670,6 @@ input:-webkit-autofill:focus {
   line-height: 2rem;
 }
 
-.text-\[0\.7rem\] {
-  font-size: 0.7rem;
-}
-
 .text-\[11px\] {
   font-size: 11px;
 }
@@ -2722,6 +2684,10 @@ input:-webkit-autofill:focus {
 
 .text-\[0\.65rem\] {
   font-size: 0.65rem;
+}
+
+.text-\[0\.6rem\] {
+  font-size: 0.6rem;
 }
 
 .font-medium {
@@ -2774,11 +2740,6 @@ input:-webkit-autofill:focus {
 .text-pink-700 {
   --tw-text-opacity: 1;
   color: rgb(190 24 93 / var(--tw-text-opacity));
-}
-
-.text-gray-200 {
-  --tw-text-opacity: 1;
-  color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 
 .text-\[\#F8F8F8\] {
@@ -3031,10 +2992,6 @@ display: block; */
     width: 50%;
   }
 
-  .sm\:w-\[10rem\] {
-    width: 10rem;
-  }
-
   .sm\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -3051,10 +3008,6 @@ display: block; */
     gap: 1rem;
   }
 
-  .sm\:gap-\[10rem\] {
-    gap: 10rem;
-  }
-
   .sm\:py-\[0\.5rem\] {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -3063,6 +3016,16 @@ display: block; */
   .sm\:px-\[1\.5rem\] {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .sm\:py-\[0\.3rem\] {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+  }
+
+  .sm\:px-\[1\.2rem\] {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
   }
 
   .sm\:text-left {
@@ -3077,6 +3040,11 @@ display: block; */
   .sm\:text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
+  }
+
+  .sm\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
@@ -3101,10 +3069,6 @@ display: block; */
     margin-left: 0px;
   }
 
-  .md\:ml-8 {
-    margin-left: 2rem;
-  }
-
   .md\:block {
     display: block;
   }
@@ -3117,12 +3081,12 @@ display: block; */
     display: flex;
   }
 
-  .md\:grid {
-    display: grid;
-  }
-
   .md\:hidden {
     display: none;
+  }
+
+  .md\:h-5 {
+    height: 1.25rem;
   }
 
   .md\:h-\[20rem\] {
@@ -3165,6 +3129,10 @@ display: block; */
     width: 75%;
   }
 
+  .md\:w-5 {
+    width: 1.25rem;
+  }
+
   .md\:w-\[24rem\] {
     width: 24rem;
   }
@@ -3189,16 +3157,8 @@ display: block; */
     width: 20%;
   }
 
-  .md\:w-1\/2 {
-    width: 50%;
-  }
-
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .md\:grid-cols-6 {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .md\:grid-cols-4 {
@@ -3217,6 +3177,14 @@ display: block; */
     gap: 1.75rem;
   }
 
+  .md\:gap-2 {
+    gap: 0.5rem;
+  }
+
+  .md\:gap-4 {
+    gap: 1rem;
+  }
+
   .md\:gap-6 {
     gap: 1.5rem;
   }
@@ -3229,18 +3197,6 @@ display: block; */
     gap: 0px;
   }
 
-  .md\:gap-\[3rem\] {
-    gap: 3rem;
-  }
-
-  .md\:gap-\[2rem\] {
-    gap: 2rem;
-  }
-
-  .md\:gap-4 {
-    gap: 1rem;
-  }
-
   .md\:object-cover {
     -o-object-fit: cover;
        object-fit: cover;
@@ -3251,9 +3207,14 @@ display: block; */
     padding-right: 1.25rem;
   }
 
-  .md\:px-8 {
-    padding-left: 2rem;
-    padding-right: 2rem;
+  .md\:py-\[0\.5rem\] {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .md\:px-\[1\.4rem\] {
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
   }
 
   .md\:pb-20 {
@@ -3273,6 +3234,16 @@ display: block; */
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
+
+  .md\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -3282,10 +3253,6 @@ display: block; */
 
   .lg\:-bottom-\[30\%\] {
     bottom: -30%;
-  }
-
-  .lg\:flex {
-    display: flex;
   }
 
   .lg\:h-\[24rem\] {
@@ -3302,10 +3269,6 @@ display: block; */
 
   .lg\:w-\[28rem\] {
     width: 28rem;
-  }
-
-  .lg\:w-full {
-    width: 100%;
   }
 
   .lg\:grid-cols-5 {

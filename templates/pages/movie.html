@@ -42,16 +42,20 @@
     </div>
 
     <div class="my-4">
+        <form action="{% url 'addwatchlist_2'  %}" method='post' class="addwatchlist-2">
+            {% csrf_token %}
+               <input type='hidden' name='movie_id' value="{{movie_data.id}}">
+        </form>
         <div class="flex gap-4 main  ">
            
             <a class="rounded-full bg-[#0f1c47d3] bubble-effect h-8 w-8 p-2 "> 
                 <i data-feather="bookmark" class="text-white w-full h-full   "></i>
             </a>
-            <a class="rounded-full bg-[#0f1c47d3] bubble-effect h-8 w-8 p-2 "> 
-                <i data-feather="list" class="text-white w-full h-full   "></i>
+            <a class="rounded-full bg-[#0f1c47d3] bubble-effect h-8 w-8 p-2 " href="javascript:{document.querySelector('.addwatchlist-2').submit()}"> 
+                <i data-feather="plus" class="text-white w-full h-full   "></i>
             </a>
             <a class="rounded-full   bg-[#0f1c47d3] bubble-effect h-8 w-8 p-2 "> 
-                <i data-feather="star" class="text-white w-full h-full  "></i>
+                <i data-feather="heart" class="text-white w-full h-full  "></i>
             </a>
             </div>
     </div>
@@ -61,11 +65,11 @@
         <h6 class="my-1 text-white text-sm  mb-2">Writers</h6>
         <div class="flex items-center flex-wrap gap-2 ">
 
-            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
-            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
-            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
-            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
-            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
+            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs  font-extralight  rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
+            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs  font-extralight rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
+            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs  font-extralight rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
+            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs  font-extralight rounded-md writer border-[1.5px] border-transparent md:block hidden">Nick Fury</a>
+           
          
         </div>
     </div>
@@ -74,10 +78,10 @@
         <h6 class="my-1 text-sm  text-white mb-2 ">Directors</h6>
         <div class="flex items-center flex-wrap gap-2  ">
 
-            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all">Nick Fury</a>
-            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all">Nick Fury</a>
-            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all">Nick Fury</a>
-            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all">Nick Fury</a>
+            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] font-extralight transition-all">Nick Fury</a>
+            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs  font-extralight rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all">Nick Fury</a>
+            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs  font-extralight rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all">Nick Fury</a>
+            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs  font-extralight rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all md:block hidden">Nick Fury</a>
            
         </div>
     </div>
@@ -108,7 +112,7 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
                 <source   src="{{movie_data.video_trailer.url}}">
             </video> -->
 
-            <!-- <iframe class="absolute inset-4 -left-0  block w-full lg:h-[22rem] md:h-[18rem] play-video object-fill    "  src="https://www.youtube.com/embed/KAE5ymVLmZg?controls=0" allowfullscreen ></iframe> -->
+    
             <iframe class="absolute inset-4 -left-0  block w-full lg:h-[22rem] md:h-[18rem] play-video object-fill    "   src={{movie_data.video_trailer}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
          
             <div class="absolute lg:-bottom-[30%] md:-bottom-[40%]  left-1/2 -translate-x-1/2  lg:h-[7.5rem]  md:h-[8rem] w-5 tv-bg z-[-1]"></div>
@@ -141,14 +145,7 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
     <h2 class="mb-2 text-4xl text-white heading uppercase">{{movie_data.title}} <span>( 2010 )</span></h2>
     <h5 class="my-1 text-lg text-white font-extralight heading">{{movie_data.movie_time}}</h5>
 
-    <!-- <div class="my-3 flex items-center gap-3 text-white font-thin heading">
-     
-        <a href='http://' class="movie-type-link"> Action</a>
-        <a href='http://' class="movie-type-link">Scific</a>
-        <a href='http://' class="movie-type-link">Adventure</a>
-    </div> -->
 
-    <!--Fav ,rating  -->
     <div>
 
     <div class="flex gap-6 items-center ">
@@ -188,16 +185,19 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
 </div>
 
 <div class="my-3">
+    <form action="{% url 'addwatchlist_2'  %}" method='post' class="addwatchlist-2">
+        {% csrf_token %}
+           <input type='hidden' name='movie_id' value="{{movie_data.id}}">
+    </form>
     <div class="flex gap-4 main  ">
-       
         <a class="rounded-full bg-[#64016d] bubble-effect "> 
             <i data-feather="bookmark" class="text-white w-10 h-10 p-3   "></i>
         </a>
         <a class="rounded-full bg-[#64016d] bubble-effect "> 
             <i data-feather="heart" class="text-white w-10 h-10 p-3  "></i>
         </a>
-        <a class="rounded-full   bg-[#64016d] bubble-effect "> 
-            <i data-feather="list" class="text-white w-10 h-10 p-3  "></i>
+        <a class="rounded-full   bg-[#64016d] bubble-effect "href="javascript:{document.querySelector('.addwatchlist-2').submit()}" > 
+            <i data-feather="plus" class="text-white w-10 h-10 p-3  "></i>
         </a>
         </div>
 </div>
@@ -245,7 +245,7 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
 
     <!-- TOP CASTS -->
 <section>
-    <h3 class="text-2xl  text-[#F8F8F8] my-8  ">Top Casts</h3>
+    <h3 class="md:text-2xl sm:text-xl text-lg  text-[#F8F8F8] my-8  ">Top Casts</h3>
 <div class="md:flex justify-between  items-start gap-6  ">
 
 
@@ -278,7 +278,7 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
 <!-- Bidgets and additional details -->
     <div class="md:w-1/4 mt-8 sm:mt-0 w-full additional-info h-auto md:h-[25rem]">
         <div class="my-4">
-            <h3 class="mb-3 text-white">Status</h3>
+            <h3 class="mb-3  text-white">Status</h3>
 
             {% if movie_data.released_status %}
 <p class="my-3 text-white text-sm font-thin text-[12px]">Released</p>
@@ -313,13 +313,13 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
 <!-- Thumbnails -->
 
 <section class="main-card-2">
-    <h3 class="text-2xl  text-[#F8F8F8] my-8  ">Movie Thumbnails</h3>
+    <h3 class="md:text-2xl sm:text-xl text-lg  text-[#F8F8F8] my-8  ">Movie Thumbnails</h3>
 
 
     <div class='grid lg:grid-cols-5 md:grid-cols-4 grid-cols-3 md:gap-6  gap-4 thumbnails-animation  '>
         {% if  movie_data.main_img %}
 
-        <a class=" md:h-[17rem]  h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative " href="/" >
+        <a class="   h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative " href="/" >
        <img src='{{movie_data.main_img.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
 
        <div class=" thumbnail-overlay"></div>
@@ -328,7 +328,7 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
         {% endif %}
 
         {% if  movie_data.img2 %}
-        <a class="  md:h-[17rem]  h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative  ">
+        <a class="    h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative  ">
        <img src='{{movie_data.img2.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
 
        <div class=" thumbnail-overlay"></div>
@@ -339,7 +339,7 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
       
     {% if  movie_data.img1 %}
 
-        <a class="  md:h-[17rem]  h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative   ">
+        <a class="    h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative   ">
        <img src='{{movie_data.img1.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
 
        <div class=" thumbnail-overlay"></div>
@@ -348,7 +348,7 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
         {% endif %}
     {% if  movie_data.img3 %}
 
-        <a class="  md:h-[17rem]  h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative   ">
+        <a class="    h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative   ">
        <img src='{{movie_data.img3.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
 
        <div class=" thumbnail-overlay"></div>
@@ -357,8 +357,8 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
         {% endif %}
     {% if  movie_data.img4 %}
 
-        <a class="  md:h-[17rem]  h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative   ">
-       <img src='{{movie_data.img3.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
+        <a class="    h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative   ">
+       <img src='{{movie_data.img4.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
 
        <div class=" thumbnail-overlay"></div>
 
@@ -366,20 +366,15 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
         {% endif %}
    
  
-        <!-- <a  href="/" class=" h-auto relative flex items-center justify-center bg-[#340d38e0]  rounded-lg" style="background-color:#1e0022e0 ;">
-<i data-feather="plus" class="w-[5rem] h-[5rem] text-white opacity-70"  style="opacity: 0.5;"></i>
-<div class="absolute left-1/2  -translate-x-1/2  text-3xl -translate-y-1/2 top-1/2 text-white opacity-20
- font-medium" style="font-size: 110px;opacity: 0.1;">24</div>
-        </a> -->
-       
+
     </div>
 
     <div class="flex justify-end my-6">
         <!-- <a href='http://' class="text-white py-2 border-gradient px-6 transition rounded-3xl ">See More</a> -->
-        <a class="shadow-lg inline-block text-white relative text-sm py-[1.7px] px-[1.7px] hover:scale-105 transition  " href="{% url 'register' %}">
-
+        <a class="shadow-lg inline-block text-white relative  py-[1.7px] px-[1.7px] transition hover:scale-105   " href="{% url 'register' %}">
+    
             <span class="block absolute inset-0 h-full w-full button-gradient rounded-3xl z-[1]   "></span>
-                 <span class="overflow-hidden block relative bg-[#130015] py-[0.5rem] px-[1.4rem] text-sm rounded-3xl   z-[2]">
+                 <span class=" block relative bg-[#130015] py-[0.2rem] px-[1rem] sm:py-[0.3rem] sm:px-[1.2rem] md:py-[0.5rem] md:px-[1.4rem]  rounded-3xl md:text-sm sm:text-xs text-[0.65rem]     z-[2]">
                     See More
                     </span>
         </a>
@@ -390,8 +385,8 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
 {% if user.is_authenticated %}
     <!-- REVIEWS -->
     <section class="my-8">
-        <div class="text-2xl  text-[#F8F8F8] my-8 flex justify-between items-center ">
-            <h2>
+        <div class="  text-[#F8F8F8] my-8 flex justify-between items-center ">
+            <h2 class="md:text-2xl sm:text-xl text-lg" >
                 Reviews
 
             </h2>
@@ -416,7 +411,7 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
             <div class=" bg-[#200724d7]   p-8  mx-auto shadow-xl rounded-md relative z-[140] w-1/2">
 <!-- <div class="w-full"> -->
     <div class="flex justify-between items-center mb-6">
-        <h2 class="font-semibold text-xl text-white">
+        <h2 class="font-semibold md:text-2xl sm:text-xl text-lg text-white">
          Review
         </h2>
         
@@ -629,10 +624,10 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
 
     <div class="flex justify-end my-6">
        
-        <a class="shadow-lg inline-block text-white relative text-sm py-[1.7px] px-[1.7px] hover:scale-105 transition  " href="{% url 'register' %}">
-
+        <a class="shadow-lg inline-block text-white relative  py-[1.7px] px-[1.7px] transition hover:scale-105   " href="{% url 'register' %}">
+    
             <span class="block absolute inset-0 h-full w-full button-gradient rounded-3xl z-[1]   "></span>
-                 <span class="overflow-hidden block relative bg-[#130015] py-[0.5rem] px-[1.4rem] text-sm rounded-3xl   z-[2]">
+                 <span class=" block relative bg-[#130015] py-[0.2rem] px-[1rem] sm:py-[0.3rem] sm:px-[1.2rem] md:py-[0.5rem] md:px-[1.4rem]  rounded-3xl md:text-sm sm:text-xs text-[0.65rem]     z-[2]">
                     See More
                     </span>
         </a>
@@ -650,7 +645,7 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
     <!-- rELATED MOVIES -->
     <section>
 
-        <h3 class="text-2xl my-8 text-[#F8F8F8] font-light  ">Related Movies</h3>
+        <h3 class="md:text-2xl sm:text-xl text-lg my-8 text-[#F8F8F8] font-light  ">Related Movies</h3>
 
         <div class="grid lg:grid-cols-5 gap-4 md:grid-cols-4 sm:grid-cols-3  grid-cols-2 related-movie-animation">
 
@@ -677,7 +672,7 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
       <div class="card-content py-1 ">
         <h3 class=" text-white text-center movie-title  ">{{movie.title}}</h3>
       <div class=" gap-1 items-center justify-between   movieLanguages relative  ">
-        <h3 class="text-xs text-center font-sans font-thin available-in">Available in</h3>
+        <h3 class="text-xs text-center font-extralight available-in">Available in</h3>
         <p class="desc text-center">{{movie.movie_languages}}</p>
       </div>
 
@@ -695,10 +690,10 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
   
   </a>
   
-  <h3>5</h3>
+  <h3 class="text-xs md:text-sm font-light">5</h3>
             </div>
 
-            <h4 class="font-thin font-sans">{{movie.movie_time}}</h4>
+            <h4 class="md:text-sm text-xs font-light">{{movie.movie_time}}</h4>
 </div>
 
 
@@ -707,7 +702,7 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
 <!-- <div class="flex  gap-2 items-center "> -->
   
   
-  <h6 class=" text-right font-sans font-thin text-sm">{{movie.released_date}}</h6>
+  <h6 class=" text-right   md:text-sm text-xs font-light">{{movie.released_date}}</h6>
             <!-- </div> -->
 <a href='/' class=""><i data-feather="info"  class="w-5 h-5" ></i></a>
 </div>
@@ -743,13 +738,20 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
         </div>
         <div class="flex justify-end my-6">
             <!-- <a href='http://' class="text-white py-2 border-gradient px-6 transition rounded-3xl ">See More</a> -->
-            <a class="shadow-lg inline-block text-white relative text-sm py-[1.7px] px-[1.7px] hover:scale-105 transition  " href="{% url 'register' %}">
+            <a class="shadow-lg inline-block text-white relative  py-[1.7px] px-[1.7px] transition hover:scale-105   " href="{% url 'register' %}">
     
                 <span class="block absolute inset-0 h-full w-full button-gradient rounded-3xl z-[1]   "></span>
-                     <span class="overflow-hidden block relative bg-[#130015] py-[0.5rem] px-[1.4rem] text-sm rounded-3xl   z-[2]">
+                     <span class=" block relative bg-[#130015] py-[0.2rem] px-[1rem] sm:py-[0.3rem] sm:px-[1.2rem] md:py-[0.5rem] md:px-[1.4rem]  rounded-3xl md:text-sm sm:text-xs text-[0.65rem]     z-[2]">
                         See More
                         </span>
             </a>
+            <!-- <a class="shadow-lg inline-block text-white relative text-sm py-[1.7px] px-[1.7px] hover:scale-105 transition  " href="{% url 'register' %}">
+    
+                <span class="block absolute inset-0 h-full w-full button-gradient rounded-3xl z-[1]   "></span>
+                     <span class="overflow-hidden block relative bg-[#130015] py-[0.5rem] px-[1.4rem] text-sm rounded-3xl   z-[2] md:text-sm text-[0.6rem]">
+                        See More
+                        </span>
+            </a> -->
         </div>
     </section>
 </div>
