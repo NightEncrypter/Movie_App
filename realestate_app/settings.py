@@ -180,6 +180,8 @@ STATIC_URL = 'static/'
 #     os.path.join(BASE_DIR, "styles"),
     
 # )
+
+#Eye in Location of static files
 STATICFILES_DIRS = [
     BASE_DIR / "modules_store",
     BASE_DIR / "realestate_app/static",

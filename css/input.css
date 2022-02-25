@@ -248,9 +248,8 @@ z-index: 30;
 
 /* border-radius:0 0 3px 3px; */
       background:#6b6b6b98;
-      padding:5px 2px;
      
-      @apply text-white w-7 h-7 md:h-9 md:w-9  sm:px-[5px] sm:py-[2px] md:pl-[1px] pl-0;
+      @apply text-white w-6 h-6 md:h-8 md:w-8 p-[0.3rem]  ;
   }
   
   
@@ -636,7 +635,7 @@ transition-duration:0.3s;
 /* CARDS */
 
 .additional-info{
-    @apply p-6 rounded-xl shadow-lg ;
+    @apply md:p-6 p-4 rounded-xl shadow-lg ;
     /* background: linear-gradient(273.51deg, #6A06A7 1.44%, #53035A 98.49%); */
     /* background: linear-gradient(98.53deg, #1086A0 -5.37%, #711EA4 97.25%); */
   

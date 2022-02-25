@@ -48,6 +48,9 @@ def addInWatchlist(request):
         else:
                 messages.error(request,"Please login and then try")
                 return redirect("login")
+    else:
+        messages.error(request,"Please login and then try")
+        return redirect("login")
         
 def addInWatchlist_2(request):
     # print(w_id)
@@ -75,6 +78,10 @@ def addInWatchlist_2(request):
         else:
                 messages.error(request,"Please login and then try")
                 return redirect("login")
+            
+    else:
+        messages.error(request,"Please login and then try")
+        return redirect("login")
         
 def getWatchlist():
     return 

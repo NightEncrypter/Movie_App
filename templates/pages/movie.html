@@ -32,43 +32,54 @@
 
 <div class="">
     <h4 class=" text-2xl my-2 text-white heading uppercase">{{movie_data.title}} <span>( 2010 )</span></h4>
-    <h6 class="my-2  text-white font-light heading">{{movie_data.movie_time}}</h6>
+    <h6 class="my-2 flex justify-between items-center   heading">
+        
+        <span class="text-white font-light">
+            {{movie_data.movie_time}}
+
+        </span>
+
+        <div>
+            <form action="{% url 'addwatchlist_2'  %}" method='post' class="addwatchlist-2">
+                {% csrf_token %}
+                   <input type='hidden' name='movie_id' value="{{movie_data.id}}">
+            </form>
+            <div class="flex gap-4 main  ">
+               
+                <a class="rounded-full bg-[#0f1c47d3] bubble-effect h-8 w-8 p-2 "> 
+                    <i data-feather="bookmark" class="text-white w-full h-full   "></i>
+                </a>
+                <a class="rounded-full bg-[#0f1c47d3] bubble-effect h-8 w-8 p-2 " href="javascript:{document.querySelector('.addwatchlist-2').submit()}"> 
+                    <i data-feather="plus" class="text-white w-full h-full   "></i>
+                </a>
+                <a class="rounded-full   bg-[#0f1c47d3] bubble-effect h-8 w-8 p-2 "> 
+                    <i data-feather="heart" class="text-white w-full h-full  "></i>
+                </a>
+                </div>
+        </div>
+
+
+
+    </h6>
 
     <div class="">
         <h6 class="text-white my-1 text-sm">Overview</h6>
-        <p class="text-xs text-white  font-light">
+        <p class="text-xs text-white  font-extralight  ">
             {{movie_data.overview}} 
         </p>
     </div>
 
-    <div class="my-4">
-        <form action="{% url 'addwatchlist_2'  %}" method='post' class="addwatchlist-2">
-            {% csrf_token %}
-               <input type='hidden' name='movie_id' value="{{movie_data.id}}">
-        </form>
-        <div class="flex gap-4 main  ">
-           
-            <a class="rounded-full bg-[#0f1c47d3] bubble-effect h-8 w-8 p-2 "> 
-                <i data-feather="bookmark" class="text-white w-full h-full   "></i>
-            </a>
-            <a class="rounded-full bg-[#0f1c47d3] bubble-effect h-8 w-8 p-2 " href="javascript:{document.querySelector('.addwatchlist-2').submit()}"> 
-                <i data-feather="plus" class="text-white w-full h-full   "></i>
-            </a>
-            <a class="rounded-full   bg-[#0f1c47d3] bubble-effect h-8 w-8 p-2 "> 
-                <i data-feather="heart" class="text-white w-full h-full  "></i>
-            </a>
-            </div>
-    </div>
+   
 
     <!-- WRITERS -->
     <div  class="mb-2">
         <h6 class="my-1 text-white text-sm  mb-2">Writers</h6>
         <div class="flex items-center flex-wrap gap-2 ">
 
-            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs  font-extralight  rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
-            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs  font-extralight rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
-            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs  font-extralight rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
-            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs  font-extralight rounded-md writer border-[1.5px] border-transparent md:block hidden">Nick Fury</a>
+            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs  font-light  rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
+            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs  font-light rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
+            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs  font-light rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
+            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs  font-light rounded-md writer border-[1.5px] border-transparent md:block hidden">Nick Fury</a>
            
          
         </div>
@@ -78,10 +89,10 @@
         <h6 class="my-1 text-sm  text-white mb-2 ">Directors</h6>
         <div class="flex items-center flex-wrap gap-2  ">
 
-            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] font-extralight transition-all">Nick Fury</a>
-            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs  font-extralight rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all">Nick Fury</a>
-            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs  font-extralight rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all">Nick Fury</a>
-            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs  font-extralight rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all md:block hidden">Nick Fury</a>
+            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] font-light transition-all">Nick Fury</a>
+            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs  font-light rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all">Nick Fury</a>
+            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs  font-light rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all">Nick Fury</a>
+            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs  font-light rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all md:block hidden">Nick Fury</a>
            
         </div>
     </div>
@@ -276,27 +287,27 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
 
     </div>
 <!-- Bidgets and additional details -->
-    <div class="md:w-1/4 mt-8 sm:mt-0 w-full additional-info h-auto md:h-[25rem]">
-        <div class="my-4">
-            <h3 class="mb-3  text-white">Status</h3>
+    <div class="md:w-1/4 mt-8 sm:mt-0 w-[60%] additional-info h-auto md:h-[25rem]">
+        <div >
+            <h3 class="md:mb-3 mb-1  text-white text-sm md:text-base">Status</h3>
 
             {% if movie_data.released_status %}
-<p class="my-3 text-white text-sm font-thin text-[12px]">Released</p>
+<p class="mb-3 text-white md:text-sm font-extralight text-[12px]">Released</p>
  {% else %}
- <p class="my-3 text-white text-sm font-thin text-[12px]">Release not yet</p>
+ <p class="mb-3 text-white md:text-sm font-extralight text-xs text-[12px]">Release not yet</p>
 {% endif %}
         </div>
-        <div class="my-4">
-            <h3 class="mb-3 text-white">Original Language</h3>
-<p class="my-3 text-white text-sm font-thin text-[12px]">English</p>
+        <div>
+            <h3 class="md:mb-3 mb-1 text-white text-sm md:text-base">Original Language</h3>
+<p class="mb-3 text-white md:text-sm text-sm font-extralight text-[12px]">English</p>
         </div>
-        <div class="my-4">
-            <h3 class="mb-3 text-white">Budget</h3>
-<p class="my-3 text-white text-sm font-thin text-[12px]">${{movie_data.budget}}</p>
+        <div >
+            <h3 class="md:mb-3 mb-1 text-white text-sm md:text-base">Budget</h3>
+<p class="mb-3 text-white md:text-sm text-xs font-extralight text-[12px]">${{movie_data.budget}}</p>
         </div>
-        <div class="my-4">
-            <h3 class="mb-3 text-white">Revenue</h3>
-<p class="my-3 text-white text-sm font-thin text-[12px]">{{movie_data.revenue}}</p>
+        <div >
+            <h3 class="md:mb-3 mb-1  text-white text-sm md:text-base">Revenue</h3>
+<p class="md:mb-3 text-white md:text-sm text-xs font-extralight text-[12px]">{{movie_data.revenue}}</p>
         </div>
        
 

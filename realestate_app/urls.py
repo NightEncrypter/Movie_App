@@ -29,6 +29,8 @@ path("watchlist/",include("watchlists.urls")),
 re_path(r'^media/(?P<path>.*)$',serve,{'document_root':settings.MEDIA_ROOT})
 ]
 
+
+
 # # urlpatterns += staticfiles_urlpatterns()
 #   urlpatterns += patterns('',
 #             (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes':True}),
