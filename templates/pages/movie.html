@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block title %}
 {{movie_data.title}}
 {% endblock %}
@@ -402,7 +401,7 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
 
             </h2>
 
-            <button class="inline-block text-white relative text-sm py-3 px-3  rounded-xl button-gradient add-review   " href="{% url 'login' %}">
+            <button class="inline-block text-white relative text-sm py-3 px-3  rounded-xl button-gradient add-review" href="{% url 'login' %}">
 <!--        
                 <span class="block absolute inset-0 h-full w-full button-gradient rounded-xl z-[1]   "> -->
                     <i data-feather="plus"></i>
@@ -519,8 +518,8 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
             
             
                 
-                <div class="rate-2">
-                    <input type='radio' name='rate' id='star1' value=1>
+                <div class="rate-2 flex items-center gap-1">
+                    <!-- <input type='radio' name='rate' id='star1' value=1>
                     <label for='star1'></label>
                     <input type='radio' name='rate' id='star2' value=2>
                     <label for='star2'></label>
@@ -529,15 +528,26 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
                     <input type='radio' name='rate' id='star4' value=4>
                     <label for='star4'></label>
                     <input type='radio' name='rate' id='star5' value=5>
-                    <label for='star5'></label>
+                    <label for='star5'></label> -->
+
+                    
+                    {% for x in ''|center:review.rating %} 
+
+
+                   
+                        <i data-feather="star" class="md:w-5 md:h-5 w-4 h-4  fill-purple-600 text-purple-500"></i>
+                    
+                        
+                          
+                    {% endfor %}
                 </div>
                </div>
-            <p class="text-xs my-2 text-white overflow-ellipsis overflow-hidden whitespace-nowrap">
+            <p class="text-xs my-2 text-white overflow-ellipsis overflow-hidden whitespace-nowrap review-message">
 
               {{review.message}}
               <div class="mt-2 flex items-center gap-6">
             </p>
-                <button  class="text-xs py-1 px-3 text-white bg-sky-600 rounded-full  cursor-pointer inline-block add-review-2">Edit</button>
+                <button  class="text-xs py-1 px-3 text-white bg-sky-600 rounded-full  cursor-pointer inline-block add-review-2 edit-button">Edit</button>
                 <a href='{% url "delete_review" %}?movie_id={{movie_data.id}}&review_id={{review.id}}' class="text-xs py-1 px-3 text-white bg-red-600 rounded-full">Delete</a>
                      </div>
 
@@ -595,7 +605,7 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
                     Message
                     </label>
                     <div class="input-gradient relative  rounded-lg pt-1  w-full flex justify-between gap-3 items-center px-2 py-0 ">
-                    <textarea class="input w-full" required  type='text' name='message' id='loginEmailInput' rows="5"
+                    <textarea class="input w-full review-message-textfield" required  type='text' name='message' id='loginEmailInput' rows="5"
                     
                     {% if review.message %}
                     

@@ -70,7 +70,7 @@ def movie(request,movie_id):
     
     reviews=Review.objects.filter(movie_id=movie_id)
     
-    print(reviews)
+    # print(reviews)
     
     # print(casts)
     
@@ -86,6 +86,7 @@ def movie(request,movie_id):
     search=True
     context={"search":search ,"movie_data":single_movie,"casts":casts ,"related_movies":related_movies,"tags":tags,"reviews":reviews,"login":login}
     
+    print(reviews[1],"reviews")
     return render(request,"pages/movie.html",context)
 
 def cat(request):

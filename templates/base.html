@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel='stylesheet' href="{% static 'output.css' %}" >
+
+
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'img/weblogo.png' %}">
+
     <script src='{% static "dist/feather.min.js" %}'></script>
  
  
@@ -94,52 +98,63 @@
       gsap.from(".description",{backgroundY:200, scaleY:0, opacity:0,duration:1})
       //gsap.from('.ellipse-m', { opacity: 0, duration: 2, y: -500 ,repeat:-1})
 
-const add_review=document.querySelector(".add-review")
-const review_overlay=document.querySelector(".review-overlay")
-const add_review_2=document.querySelector(".add-review-2")
-const review_overlay_2=document.querySelector(".review-overlay-2")
+      const reviewOverlay=document.querySelectorAll(".review-overlay-2")
+      const editbuttons = document.querySelectorAll(".edit-button")
+      const reviewMessages = document.querySelectorAll(".review-message")
+      const reviewTextField = document.querySelectorAll(".review-message-textfield")
+      const disable_model_2=document.querySelectorAll(".disable_model_2")
+
+      const add_review=document.querySelector(".add-review")
+      const review_overlay=document.querySelector(".review-overlay")
 const disable_model=document.querySelector(".disable_model")
-const disable_model_2=document.querySelector(".disable_model_2")
-
-add_review.addEventListener("click",()=>{
- review_overlay.classList.add("active")
- review_overlay.classList.add("disable_model")
- document.body.style.overflowY="hidden"
 
 
+      add_review.addEventListener("click",()=>{
+        review_overlay.classList.add("active")
+        document.body.style.overflowY="hidden"
+       
+       
+       });
 
 
-});
+       disable_model.addEventListener("click",()=>{
+        review_overlay.classList.remove("active")
+       
+      
+       document.body.style.overflowY="auto"
+      
+      
+      })
+
+      editbuttons.forEach((btn,i) => {
+        btn.addEventListener("click", () => {
+            let messageContent = reviewMessages[i].textContent.trim()
+        
+            reviewTextField[i].value = messageContent;
+         
+            document.body.style.overflowY="hidden"
+            reviewOverlay[i].classList.add(`active`)
+        })
+    })
 
 
-add_review_2.addEventListener("click",()=>{
- review_overlay_2.classList.add("active")
- review_overlay_2.classList.add("disable_model_2")
- document.body.style.overflowY="hidden"
+    disable_model_2.forEach((btn,i)=>{
+      btn.addEventListener("click",()=>{
+        document.body.style.overflowY="auto" 
+
+        reviewOverlay[i].classList.remove("active")
+      })
+    })
 
 
 
 
-})
 
 
-disable_model.addEventListener("click",()=>{
-  review_overlay.classList.remove("active")
-  review_overlay.classList.remove("disable_model")
-
- document.body.style.overflowY="auto"
 
 
-})
-
-disable_model_2.addEventListener("click",()=>{
-  review_overlay_2.classList.remove("active")
-  review_overlay_2.classList.remove("disable_model_2")
-
- document.body.style.overflowY="auto"
 
 
-})
 
 
 
