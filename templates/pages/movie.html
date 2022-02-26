@@ -545,11 +545,14 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
             <p class="text-xs my-2 text-white overflow-ellipsis overflow-hidden whitespace-nowrap review-message">
 
               {{review.message}}
-              <div class="mt-2 flex items-center gap-6">
             </p>
+            {% if request.user == review.user %}
+            <div class="mt-2 flex items-center gap-6">
+
                 <button  class="text-xs py-1 px-3 text-white bg-sky-600 rounded-full  cursor-pointer inline-block add-review-2 edit-button">Edit</button>
                 <a href='{% url "delete_review" %}?movie_id={{movie_data.id}}&review_id={{review.id}}' class="text-xs py-1 px-3 text-white bg-red-600 rounded-full">Delete</a>
                      </div>
+                     {% endif %}
 
                      <div class="review-overlay-2  h-full min-h-0 ">
 
