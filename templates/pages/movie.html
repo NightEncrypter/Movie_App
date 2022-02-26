@@ -401,10 +401,10 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
 
             </h2>
 
-            <button class="inline-block text-white relative text-sm py-3 px-3  rounded-xl button-gradient add-review" href="{% url 'login' %}">
+            <button class="inline-block text-white relative text-sm md:py-3 md:px-3 p-[1.5rem]  rounded-xl button-gradient add-review" href="{% url 'login' %}">
 <!--        
                 <span class="block absolute inset-0 h-full w-full button-gradient rounded-xl z-[1]   "> -->
-                    <i data-feather="plus"></i>
+                    <i data-feather="plus" class="w-5 h-5 md:w-auto md:h-auto"></i>
 
 
                 <!-- </span> -->
@@ -418,7 +418,7 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
 
         <div class="review-overlay  h-full min-h-0 ">
 
-            <div class=" bg-[#200724d7]   p-8  mx-auto shadow-xl rounded-md relative z-[140] w-1/2">
+            <div class=" bg-[#200724d7]   p-8  mx-auto shadow-xl rounded-md relative z-[140] md:w-1/2 sm:w-[70%] w-[80%]">
 <!-- <div class="w-full"> -->
     <div class="flex justify-between items-center mb-6">
         <h2 class="font-semibold md:text-2xl sm:text-xl text-lg text-white">
@@ -426,7 +426,7 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
         </h2>
         
         <button  class="disable_model">
-            <i data-feather="x"  class="text-red-500 w-5 h-5"></i>
+            <i data-feather="x"  class="text-red-500 md:w-5 md:h-5 w-4 h-4 "></i>
         </button>
         
         </div>
@@ -493,16 +493,16 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
 
 
          
-            <div class="flex items-center gap-2">
+            <div class="md:flex md:flex-row flex-col items-center md:gap-2">
 
-                <div class="w-10 h-10 ">
+                <div class="md:w-10 md:h-10 w-8 h-8 ">
                     <img src="{% static 'img/baby.jpg' %}" alt='' class="block rounded-full w-full h-full object-cover" srcset=''>
 
                 </div>
 
                 <div class="flex flex-col gap-[3px]">
-                    <h6 class="text-xs text-[#F8F8F8]">{{review.user.first_name}}</h6>
-                    <p class="text-xs font-sans font-thin flex gap-1 text-[#F8F8F8]"> <i data-feather="mail" class="w-4 h-4 inline"></i> {{review.user.email}}</p>
+                    <h6 class="text-xs text-[#F8F8F8] my-1">{{review.user.first_name}}</h6>
+                    <p class="text-xs my-1  font-extralight flex gap-1 text-[#F8F8F8]"> <i data-feather="mail" class="w-4 h-4 inline"></i> {{review.user.email}}</p>
 
                 </div>
 
@@ -512,7 +512,7 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
             </div> 
 
 
-            <div class="flex items-center gap-4 my-4">
+            <div class="flex items-center gap-4 md:my-2 my-1 ">
 
                 <h6 class=" text-white font-medium">Rating</h6>
             
@@ -556,7 +556,7 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
 
                      <div class="review-overlay-2  h-full min-h-0 ">
 
-                        <div class=" bg-[#200724d7]   p-8  mx-auto shadow-xl rounded-md relative z-[140] w-1/2">
+                        <div class=" bg-[#200724d7]   p-8  mx-auto shadow-xl rounded-md relative z-[140] md:w-1/2 sm:w-[70%] w-[80%] ">
                     <!-- <div class="w-full"> -->
                     <div class="flex justify-between items-center mb-6">
                     <h2 class="font-semibold text-xl text-white">
