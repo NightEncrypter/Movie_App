@@ -1,88 +1,79 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block title %} Movies {% endblock %} {% load static
+%} {% block content %}
+<div class="py-6 my-8">
+  <!-- <div > -->
 
+  <div class="container-7">
+    <section class="my-2">
+      <h2 class="text-xl text-white my-4">Hollywood Movies</h2>
 
-{% block title %}
-Movies
-{% endblock %}
-{% load static %}
-{% block content %}
-<div class="py-6  my-8">
-
-    <!-- <div > -->
-       
-        
-        <div class="  container-7">
-
-<section class=" my-2">
-
-    <h2 class="text-xl text-white my-4">Hollywood Movies</h2>
-
-    <div class="grid grid-cols-5    gap-6 main-card-2 ">
-
-
+      <div class="grid grid-cols-5 gap-6 main-card-2">
         <!-- CARDS ITERATE -->
         {% for movie in hollywood%}
 
+        <div
+          class="rounded-2xl list-card-gradient overflow-hidden pb-20 z-[1] related-movie shadow-2xl inline-block"
+          href="{% url 'movie' movie.id %}"
+        >
+          <div class="img-container z-20">
+            <img src="{{movie.main_img}}" alt="" class="img" srcset="" />
+            <div class="overlay"></div>
 
-        <div class="rounded-2xl list-card-gradient overflow-hidden pb-20 z-[1] related-movie  shadow-2xl inline-block   " href="{% url 'movie' movie.id %}">
-    
-
-    
-
-            <div class="img-container z-20  ">
-              <img src='{{movie.main_img.url}}' alt='' class="img" srcset=''>
-              <div class='overlay'>
-      
-              </div>
-      
-              <a href='http://' class="add-in-watchlist   ">
-               
-                <i data-feather="plus"></i>
-                <!-- <div class="relative -bottom-[1.20rem] -right-[1.4rem] w-8 triangle h-5 -rotate-45  "></div> -->
-                <!-- <div class="relative -bottom-[1rem] -left-[1.3rem] h-5 triangle w-5  bg-black rotate-45"></div> -->
-              </a>
-              <div class="card-content py-1 ">
-                <h3 class=" text-white text-center movie-title  ">{{movie.title}}</h3>
-              <div class=" gap-1 items-center justify-between   movieLanguages relative  ">
-                <h3 class="text-xs text-center font-sans font-thin available-in">Available in</h3>
+            <a href="http://" class="add-in-watchlist">
+              <i data-feather="plus"></i>
+              <!-- <div class="relative -bottom-[1.20rem] -right-[1.4rem] w-8 triangle h-5 -rotate-45  "></div> -->
+              <!-- <div class="relative -bottom-[1rem] -left-[1.3rem] h-5 triangle w-5  bg-black rotate-45"></div> -->
+            </a>
+            <div class="card-content py-1">
+              <h3 class="text-white text-center movie-title">
+                {{movie.title}}
+              </h3>
+              <div
+                class="gap-1 items-center justify-between movieLanguages relative"
+              >
+                <h3
+                  class="text-xs text-center font-sans font-thin available-in"
+                >
+                  Available in
+                </h3>
                 <p class="desc text-center">{{movie.movie_languages}}</p>
               </div>
-      
-       
-                <div class="flex justify-center items-center mt-4  ">
-                  <a href='{% url "movie" movie.id  %}' class="py-[3px] px-3 mx-auto border-2 border-white  text-white cursor-pointer inline-block text-center  rounded-lg hover:border-[aqua] transition duration-300 text-xs ">
-                    Watch Trailer
-                  </a>
-                </div>
-      <div class=" mt-6 flex justify-between items-center ">
-        <div class="flex  gap-2 items-center ">
-          <a class=" text-xs">
-           
-            <i data-feather="star" class="w-4 h-4"></i>
-          
-          </a>
-          
-          <h3>5</h3>
-                    </div>
-      
-                    <h4 class="font-thin font-sans">{{movie.movie_time}}</h4>
-      </div>
-      
-      
-      
-      <div class=" mt-4 flex justify-between items-center ">
-        <!-- <div class="flex  gap-2 items-center "> -->
-          
-          
-          <h6 class=" text-right font-sans font-thin text-sm">{{movie.released_date}}</h6>
-                    <!-- </div> -->
-        <a href='{% url "movie" movie.id %}' class=""><i data-feather="info"  class="w-5 h-5" ></i></a>
-      </div>
+
+              <div class="flex justify-center items-center mt-4">
+                <a
+                  href='{% url "movie" movie.id  %}'
+                  class="py-[3px] px-3 mx-auto border-2 border-white text-white cursor-pointer inline-block text-center rounded-lg hover:border-[aqua] transition duration-300 text-xs"
+                >
+                  Watch Trailer
+                </a>
               </div>
-      
+              <div class="mt-6 flex justify-between items-center">
+                <div class="flex gap-2 items-center">
+                  <a class="text-xs">
+                    <i data-feather="star" class="w-4 h-4"></i>
+                  </a>
+
+                  <h3>5</h3>
+                </div>
+
+                <h4 class="font-thin font-sans">{{movie.movie_time}}</h4>
+              </div>
+
+              <div class="mt-4 flex justify-between items-center">
+                <!-- <div class="flex  gap-2 items-center "> -->
+
+                <h6 class="text-right font-sans font-thin text-sm">
+                  {{movie.released_date}}
+                </h6>
+                <!-- </div> -->
+                <a href='{% url "movie" movie.id %}' class=""
+                  ><i data-feather="info" class="w-5 h-5"></i
+                ></a>
+              </div>
             </div>
-           
-      <!-- 
+          </div>
+
+          <!-- 
             <div class="relative">
               <span  class="text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 block bg-red-500 ">
                 22%
@@ -105,180 +96,215 @@ Movies
                 </svg>
             </div>
              -->
-              
-         
-      
-      
-        
-          </div>
+        </div>
 
         {% endfor %}
-      
-   </div>
+      </div>
 
-   <div class="flex justify-end my-6">
-  
-    <a class="shadow-lg inline-block text-white relative text-sm py-[1.7px] px-[1.7px] hover:scale-105 transition  " href="{% url 'index' %}?q=hollywood">
+      <div class="flex justify-end my-6">
+        <a
+          class="shadow-lg inline-block text-white relative text-sm py-[1.7px] px-[1.7px] hover:scale-105 transition"
+          href="{% url 'index' %}?q=hollywood"
+        >
+          <span
+            class="block absolute inset-0 h-full w-full button-gradient rounded-3xl z-[1]"
+          ></span>
+          <span
+            class="overflow-hidden block relative bg-[#130015] py-[0.5rem] px-[1.4rem] text-sm rounded-3xl z-[2]"
+          >
+            See More
+          </span>
+        </a>
+      </div>
+    </section>
 
-        <span class="block absolute inset-0 h-full w-full button-gradient rounded-3xl z-[1]   "></span>
-             <span class="overflow-hidden block relative bg-[#130015] py-[0.5rem] px-[1.4rem] text-sm rounded-3xl   z-[2]">
-                See More
-                </span>
-    </a>
-</div>
-</section>
+    <section class="my-2">
+      <h2 class="text-xl text-white my-6">Action Movies</h2>
 
+      <div class="grid grid-cols-3 gap-4 main-card-1">
+        <div class="gradient-cat1 p-6 text-white rounded-[42px]">
+          <div class="h-[15rem] rounded-[42px] relative">
+            <img
+              src='{% static "img/baby.jpg" %}'
+              class="img-animation1 cursor-pointer"
+              alt=""
+            />
+            <!-- <div class="scale-anim "></div> -->
+          </div>
 
-       
-      
-        <section class="my-2 ">
+          <div class="p-4">
+            <h2 class="my-1 text-center">Iron Man</h2>
 
+            <div class="flex justify-between items-center">
+              <h4 class="text-sm">
+                Available in
+                <span class="font-thin font-sans">English, Hindi</span>
+              </h4>
 
-            
-            <h2 class=" text-xl text-white my-6">Action Movies</h2>
-
-
-            <div class="grid grid-cols-3 gap-4 main-card-1">
-
-                <div class="  gradient-cat1 p-6  text-white rounded-[42px]">
-
-                    <div class="h-[15rem]  rounded-[42px] relative">
-                        <img src='{% static "img/baby.jpg" %}' class="img-animation1 cursor-pointer" alt=''>
-                        <!-- <div class="scale-anim "></div> -->
-                    </div>
-        
-                    <div class="p-4">
-                        <h2 class=" my-1 text-center">Iron Man</h2>
-        
-
-                        <div class="flex justify-between items-center">
-
-                           <h4 class="text-sm">Available in <span class="font-thin font-sans">English, Hindi</span></h4> 
-
-                           <h3 class="font-thin font-sans">223K <span class="font-light"> Votes</span> </h3>
-                        </div>
-
-                        <div class="flex justify-between items-center mt-3">
-
-                           <h4 class="text-xs">Released on <span class="font-thin font-sans">2 Aug, 2018</span></h4> 
-
-                           <h3 class="text-xs font-thin font-sans">Action, Adventure, Scific </h3>
-                        </div>
-
-                        <button class="block bg-purple-600 w-full rounded-[20px] text-sm transition shadow-md duration-200 mt-4 py-[0.3rem] btn-gradient-cat1">Show more</button>
-                    </div>
-                </div>
-                <div class="   gradient-cat1 p-6  text-white rounded-[42px]">
-
-                    <div class="h-[15rem]  rounded-[42px] relative">
-                        <img src='{% static "img/baby.jpg" %}' class="img-animation1 cursor-pointer" alt=''>
-                        <!-- <div class="scale-anim "></div> -->
-                    </div>
-        
-                    <div class="p-4">
-                        <h2 class=" my-1 text-center">Iron Man</h2>
-        
-
-                        <div class="flex justify-between items-center">
-
-                           <h4 class="text-sm">Available in <span class="font-thin font-sans">English, Hindi</span></h4> 
-
-                           <h3 class="font-thin font-sans">223K <span class="font-light"> Votes</span> </h3>
-                        </div>
-
-                        <div class="flex justify-between items-center mt-3">
-
-                           <h4 class="text-xs">Released on <span class="font-thin font-sans">2 Aug, 2018</span></h4> 
-
-                           <h3 class="text-xs font-thin font-sans">Action, Adventure, Scific </h3>
-                        </div>
-
-                        <button class="block bg-purple-600 w-full rounded-[20px] text-sm transition shadow-md duration-200 mt-4 py-[0.3rem] btn-gradient-cat1">Show more</button>
-                    </div>
-                </div>
-                <div class="  gradient-cat1 p-6  text-white rounded-[42px]">
-
-                    <div class="h-[15rem]  rounded-[42px] relative">
-                        <img src='{% static "img/baby.jpg" %}' class="img-animation1  " alt=''>
-                        <!-- <div class="scale-anim "></div> -->
-                    </div>
-        
-                    <div class="p-4">
-                        <h2 class=" my-1 text-center">Iron Man</h2>
-        
-
-                        <div class="flex justify-between items-center">
-
-                           <h4 class="text-sm">Available in <span class="font-thin font-sans">English, Hindi</span></h4> 
-
-                           <h3 class="font-thin font-sans">223K <span class="font-light"> Votes</span> </h3>
-                        </div>
-
-                        <div class="flex justify-between items-center mt-3">
-
-                           <h4 class="text-xs">Released on <span class="font-thin font-sans">2 Aug, 2018</span></h4> 
-
-                           <h3 class="text-xs font-thin font-sans">Action, Adventure, Scific </h3>
-                        </div>
-
-                        <button class="block bg-purple-600 w-full rounded-[20px] text-sm transition shadow-md duration-200 mt-4 py-[0.3rem] btn-gradient-cat1">Show more</button>
-                    </div>
-                </div>
-                <div class="   gradient-cat1 p-6  text-white rounded-[42px]">
-
-                    <div class="h-[15rem] overflow-hidden rounded-[42px] relative">
-                        <img src='{% static "img/baby.jpg" %}' class="img-animation1 overflow-hidden  " alt=''>
-                        <!-- <div class="scale-anim "></div> -->
-                    </div>
-        
-                    <div class="p-2">
-                        <h2 class=" my-1 text-lg text-center">Iron Man</h2>
-        
-
-                        <div class="my-2 text-center">
-
-                           <h4 class="text-sm">Available in <span class="font-thin font-sans">English, Hindi</span></h4> 
-                        
-                         
-                        </div>
-
-                        <div class=" flex items-center justify-between">
-
-                           <h4 class="text-xs">Released on <span class="font-thin font-sans">2 Aug, 2018</span></h4> 
-
-
-                           <h3 class="font-thin font-sans text-xs flex items-center gap-1">
-                             
-                            <i data-feather="heart" class="text-pink-700 w-5 h-5"></i> 
-                            223K <span class="font-light"> Votes</span> </h3>
-                          
-                        </div>
-                        <h3 class="my-2 text-center text-xs font-thin font-sans">Action, Adventure, Scific </h3>
-                        <button class="block bg-purple-600 w-full rounded-[20px] text-sm transition shadow-md duration-200 mt-4 py-[0.3rem] btn-gradient-cat1">Show more</button>
-                    </div>
-                </div>
-
+              <h3 class="font-thin font-sans">
+                223K <span class="font-light"> Votes</span>
+              </h3>
             </div>
 
-            <div class="flex justify-end my-6">
-  
-                <a class="shadow-lg inline-block text-white relative text-sm py-[1.7px] px-[1.7px] hover:scale-105 transition  " href="{% url 'index' %}?q=hollywood">
-            
-                    <span class="block absolute inset-0 h-full w-full button-gradient rounded-3xl z-[1]   "></span>
-                         <span class="overflow-hidden block relative bg-[#130015] py-[0.5rem] px-[1.4rem] text-sm rounded-3xl   z-[2]">
-                            See More
-                            </span>
-                </a>
+            <div class="flex justify-between items-center mt-3">
+              <h4 class="text-xs">
+                Released on <span class="font-thin font-sans">2 Aug, 2018</span>
+              </h4>
+
+              <h3 class="text-xs font-thin font-sans">
+                Action, Adventure, Scific
+              </h3>
             </div>
-        </section> 
-      
 
+            <button
+              class="block bg-purple-600 w-full rounded-[20px] text-sm transition shadow-md duration-200 mt-4 py-[0.3rem] btn-gradient-cat1"
+            >
+              Show more
+            </button>
+          </div>
+        </div>
+        <div class="gradient-cat1 p-6 text-white rounded-[42px]">
+          <div class="h-[15rem] rounded-[42px] relative">
+            <img
+              src='{% static "img/baby.jpg" %}'
+              class="img-animation1 cursor-pointer"
+              alt=""
+            />
+            <!-- <div class="scale-anim "></div> -->
+          </div>
 
-    </div>
+          <div class="p-4">
+            <h2 class="my-1 text-center">Iron Man</h2>
 
-       
+            <div class="flex justify-between items-center">
+              <h4 class="text-sm">
+                Available in
+                <span class="font-thin font-sans">English, Hindi</span>
+              </h4>
 
-    <!-- </div> -->
-    
+              <h3 class="font-thin font-sans">
+                223K <span class="font-light"> Votes</span>
+              </h3>
+            </div>
+
+            <div class="flex justify-between items-center mt-3">
+              <h4 class="text-xs">
+                Released on <span class="font-thin font-sans">2 Aug, 2018</span>
+              </h4>
+
+              <h3 class="text-xs font-thin font-sans">
+                Action, Adventure, Scific
+              </h3>
+            </div>
+
+            <button
+              class="block bg-purple-600 w-full rounded-[20px] text-sm transition shadow-md duration-200 mt-4 py-[0.3rem] btn-gradient-cat1"
+            >
+              Show more
+            </button>
+          </div>
+        </div>
+        <div class="gradient-cat1 p-6 text-white rounded-[42px]">
+          <div class="h-[15rem] rounded-[42px] relative">
+            <img
+              src='{% static "img/baby.jpg" %}'
+              class="img-animation1"
+              alt=""
+            />
+            <!-- <div class="scale-anim "></div> -->
+          </div>
+
+          <div class="p-4">
+            <h2 class="my-1 text-center">Iron Man</h2>
+
+            <div class="flex justify-between items-center">
+              <h4 class="text-sm">
+                Available in
+                <span class="font-thin font-sans">English, Hindi</span>
+              </h4>
+
+              <h3 class="font-thin font-sans">
+                223K <span class="font-light"> Votes</span>
+              </h3>
+            </div>
+
+            <div class="flex justify-between items-center mt-3">
+              <h4 class="text-xs">
+                Released on <span class="font-thin font-sans">2 Aug, 2018</span>
+              </h4>
+
+              <h3 class="text-xs font-thin font-sans">
+                Action, Adventure, Scific
+              </h3>
+            </div>
+
+            <button
+              class="block bg-purple-600 w-full rounded-[20px] text-sm transition shadow-md duration-200 mt-4 py-[0.3rem] btn-gradient-cat1"
+            >
+              Show more
+            </button>
+          </div>
+        </div>
+        <div class="gradient-cat1 p-6 text-white rounded-[42px]">
+          <div class="h-[15rem] overflow-hidden rounded-[42px] relative">
+            <img
+              src='{% static "img/baby.jpg" %}'
+              class="img-animation1 overflow-hidden"
+              alt=""
+            />
+            <!-- <div class="scale-anim "></div> -->
+          </div>
+
+          <div class="p-2">
+            <h2 class="my-1 text-lg text-center">Iron Man</h2>
+
+            <div class="my-2 text-center">
+              <h4 class="text-sm">
+                Available in
+                <span class="font-thin font-sans">English, Hindi</span>
+              </h4>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <h4 class="text-xs">
+                Released on <span class="font-thin font-sans">2 Aug, 2018</span>
+              </h4>
+
+              <h3 class="font-thin font-sans text-xs flex items-center gap-1">
+                <i data-feather="heart" class="text-pink-700 w-5 h-5"></i>
+                223K <span class="font-light"> Votes</span>
+              </h3>
+            </div>
+            <h3 class="my-2 text-center text-xs font-thin font-sans">
+              Action, Adventure, Scific
+            </h3>
+            <button
+              class="block bg-purple-600 w-full rounded-[20px] text-sm transition shadow-md duration-200 mt-4 py-[0.3rem] btn-gradient-cat1"
+            >
+              Show more
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-end my-6">
+        <a
+          class="shadow-lg inline-block text-white relative text-sm py-[1.7px] px-[1.7px] hover:scale-105 transition"
+          href="{% url 'index' %}?q=hollywood"
+        >
+          <span
+            class="block absolute inset-0 h-full w-full button-gradient rounded-3xl z-[1]"
+          ></span>
+          <span
+            class="overflow-hidden block relative bg-[#130015] py-[0.5rem] px-[1.4rem] text-sm rounded-3xl z-[2]"
+          >
+            See More
+          </span>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- </div> -->
 </div>
 {% endblock %}
