@@ -212,7 +212,7 @@ function discardedAlert() {
     alertContainer.style.transform="translateY(70px)";
     alertContainer.remove()
   }
-    , 3000)
+    , 1000)
   
 
 }

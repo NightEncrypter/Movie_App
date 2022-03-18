@@ -1,8 +1,6 @@
 {% extends "base.html" %} {% block title %} Movies {% endblock %} {% load static
-%} {% block content %}
+%}{% block content %}
 <div class="py-6 my-8">
-  <!-- <div > -->
-
   <div class="container-7">
     <section class="my-2">
       <h2 class="text-xl text-white my-4">Hollywood Movies</h2>
@@ -15,14 +13,13 @@
           class="rounded-2xl list-card-gradient overflow-hidden pb-20 z-[1] related-movie shadow-2xl inline-block"
           href="{% url 'movie' movie.id %}"
         >
+          {% load static %}
           <div class="img-container z-20">
             <img src="{{movie.main_img}}" alt="" class="img" srcset="" />
             <div class="overlay"></div>
 
             <a href="http://" class="add-in-watchlist">
               <i data-feather="plus"></i>
-              <!-- <div class="relative -bottom-[1.20rem] -right-[1.4rem] w-8 triangle h-5 -rotate-45  "></div> -->
-              <!-- <div class="relative -bottom-[1rem] -left-[1.3rem] h-5 triangle w-5  bg-black rotate-45"></div> -->
             </a>
             <div class="card-content py-1">
               <h3 class="text-white text-center movie-title">
@@ -72,30 +69,6 @@
               </div>
             </div>
           </div>
-
-          <!-- 
-            <div class="relative">
-              <span  class="text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 block bg-red-500 ">
-                22%
-              </span>
-              <svg width="64" height="64" class="  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 " viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        
-                <circle cx="32" cy="32" r="32" fill="url(#paint0_linear_188_256)"/>
-                <circle cx="31.5" cy="31.5" r="23.5" fill="black"/>
-              
-               
-        
-                <defs>
-                <linearGradient id="paint0_linear_188_256" x1="31.7333" y1="63.8239" x2="31.7333" y2="0.465628" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#EB00FF"/>
-                <stop offset="1" stop-color="#00D0FF"/>
-                </linearGradient>
-                </defs>
-        
-             
-                </svg>
-            </div>
-             -->
         </div>
 
         {% endfor %}
@@ -125,11 +98,10 @@
         <div class="gradient-cat1 p-6 text-white rounded-[42px]">
           <div class="h-[15rem] rounded-[42px] relative">
             <img
-              src='{% static "img/baby.jpg" %}'
+              src="https://i.postimg.cc/k5gRxj93/iron.jpg"
               class="img-animation1 cursor-pointer"
               alt=""
             />
-            <!-- <div class="scale-anim "></div> -->
           </div>
 
           <div class="p-4">
@@ -163,14 +135,14 @@
             </button>
           </div>
         </div>
+
         <div class="gradient-cat1 p-6 text-white rounded-[42px]">
           <div class="h-[15rem] rounded-[42px] relative">
             <img
-              src='{% static "img/baby.jpg" %}'
+              src="https://i.postimg.cc/k5gRxj93/iron.jpg"
               class="img-animation1 cursor-pointer"
               alt=""
             />
-            <!-- <div class="scale-anim "></div> -->
           </div>
 
           <div class="p-4">
@@ -204,14 +176,14 @@
             </button>
           </div>
         </div>
+
         <div class="gradient-cat1 p-6 text-white rounded-[42px]">
           <div class="h-[15rem] rounded-[42px] relative">
             <img
-              src='{% static "img/baby.jpg" %}'
+              src="https://i.postimg.cc/k5gRxj93/iron.jpg"
               class="img-animation1"
               alt=""
             />
-            <!-- <div class="scale-anim "></div> -->
           </div>
 
           <div class="p-4">
@@ -245,14 +217,13 @@
             </button>
           </div>
         </div>
-        <div class="gradient-cat1 p-6 text-white rounded-[42px]">
+        <!-- <div class="gradient-cat1 p-6 text-white rounded-[42px]">
           <div class="h-[15rem] overflow-hidden rounded-[42px] relative">
             <img
               src='{% static "img/baby.jpg" %}'
               class="img-animation1 overflow-hidden"
               alt=""
             />
-            <!-- <div class="scale-anim "></div> -->
           </div>
 
           <div class="p-2">
@@ -284,7 +255,7 @@
               Show more
             </button>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <div class="flex justify-end my-6">
@@ -304,7 +275,5 @@
       </div>
     </section>
   </div>
-
-  <!-- </div> -->
 </div>
 {% endblock %}
