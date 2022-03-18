@@ -1,525 +1,622 @@
-{% extends "base.html" %}
-{% load static %}
-{% block title %}
-{{movie_data.title}}
-{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block title %}
+{{movie_data.title}} {% endblock %} {% block content %}
 
 <div class="py-6">
-
-    <div class="absolute   bg inset-0 z-[-1]" style="background-image: url({{movie_data.main_img.url}}) ;filter: blur(4px);
+  <div
+    class="absolute bg inset-0 z-[-1]"
+    style="background-image: url({{movie_data.main_img}}) ;filter: blur(4px);
     background-attachment: fixed;
-    ;">
+    ;"
+  ></div>
 
-    </div>
+  <div class="bg-[rgba(11,2,19,0.9)] absolute bg inset-0 -bottom-2 z-[1]"></div>
 
-    <div class="bg-[rgba(11,2,19,0.9)] absolute   bg inset-0 -bottom-2  z-[1]"></div>
+  {% include "partials/_alert.html" %}
 
-    {% include "partials/_alert.html" %}
-
-    
-    <div class="md:hidden pb-6 px-6 relative z-20 ">
-
-        <!-- <video class="  rounded-lg  block w-full object-cover h-[15rem] play-video    "  controls   >
+  <div class="md:hidden pb-6 px-6 relative z-20">
+    <!-- <video class="  rounded-lg  block w-full object-cover h-[15rem] play-video    "  controls   >
 
             <source   src="{{movie_data.video_trailer.url}}">
         </video> -->
 
-        <iframe class="  rounded-lg  block w-full object-cover h-[15rem] play-video    "   src={{movie_data.video_trailer}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-<div class="">
-    <h4 class=" text-2xl my-2 text-white heading uppercase">{{movie_data.title}} <span>( 2010 )</span></h4>
-    <h6 class="my-2 flex justify-between items-center   heading">
-        
-        <span class="text-white font-light">
-            {{movie_data.movie_time}}
-
-        </span>
-
-        <div>
-            <form action="{% url 'addwatchlist_2'  %}" method='post' class="addwatchlist-2">
-                {% csrf_token %}
-                   <input type='hidden' name='movie_id' value="{{movie_data.id}}">
-            </form>
-            <div class="flex gap-4 main  ">
-               
-                <a class="rounded-full bg-[#0f1c47d3] bubble-effect h-8 w-8 p-2 "> 
-                    <i data-feather="bookmark" class="text-white w-full h-full   "></i>
-                </a>
-                <a class="rounded-full bg-[#0f1c47d3] bubble-effect h-8 w-8 p-2 " href="javascript:{document.querySelector('.addwatchlist-2').submit()}"> 
-                    <i data-feather="plus" class="text-white w-full h-full   "></i>
-                </a>
-                <a class="rounded-full   bg-[#0f1c47d3] bubble-effect h-8 w-8 p-2 "> 
-                    <i data-feather="heart" class="text-white w-full h-full  "></i>
-                </a>
-                </div>
-        </div>
-
-
-
-    </h6>
+    <iframe
+      class="rounded-lg block w-full object-cover h-[15rem] play-video"
+      src="{{movie_data.video_trailer}}"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
 
     <div class="">
+      <h4 class="text-2xl my-2 text-white heading uppercase">
+        {{movie_data.title}} <span>( 2010 )</span>
+      </h4>
+      <h6 class="my-2 flex justify-between items-center heading">
+        <span class="text-white font-light"> {{movie_data.movie_time}} </span>
+
+        <div>
+          <form
+            action="{% url 'addwatchlist_2'  %}"
+            method="post"
+            class="addwatchlist-2"
+          >
+            {% csrf_token %}
+            <input type="hidden" name="movie_id" value="{{movie_data.id}}" />
+          </form>
+          <div class="flex gap-4 main">
+            <a class="rounded-full bg-[#0f1c47d3] bubble-effect h-8 w-8 p-2">
+              <i data-feather="bookmark" class="text-white w-full h-full"></i>
+            </a>
+            <a
+              class="rounded-full bg-[#0f1c47d3] bubble-effect h-8 w-8 p-2"
+              href="javascript:{document.querySelector('.addwatchlist-2').submit()}"
+            >
+              <i data-feather="plus" class="text-white w-full h-full"></i>
+            </a>
+            <a class="rounded-full bg-[#0f1c47d3] bubble-effect h-8 w-8 p-2">
+              <i data-feather="heart" class="text-white w-full h-full"></i>
+            </a>
+          </div>
+        </div>
+      </h6>
+
+      <div class="">
         <h6 class="text-white my-1 text-sm">Overview</h6>
-        <p class="text-xs text-white  font-extralight  ">
-            {{movie_data.overview}} 
+        <p class="text-xs text-white font-extralight">
+          {{movie_data.overview}}
         </p>
-    </div>
+      </div>
 
-   
-
-    <!-- WRITERS -->
-    <div  class="mb-2">
-        <h6 class="my-1 text-white text-sm  mb-2">Writers</h6>
-        <div class="flex items-center flex-wrap gap-2 ">
-
-            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs  font-light  rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
-            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs  font-light rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
-            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs  font-light rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
-            <a href='' class=" px-2 py-1 bg-[#300034] text-white text-xs  font-light rounded-md writer border-[1.5px] border-transparent md:block hidden">Nick Fury</a>
-           
-         
+      <!-- WRITERS -->
+      <div class="mb-2">
+        <h6 class="my-1 text-white text-sm mb-2">Writers</h6>
+        <div class="flex items-center flex-wrap gap-2">
+          <a
+            href=""
+            class="px-2 py-1 bg-[#300034] text-white text-xs font-light rounded-md writer border-[1.5px] border-transparent"
+            >Nick Fury</a
+          >
+          <a
+            href=""
+            class="px-2 py-1 bg-[#300034] text-white text-xs font-light rounded-md writer border-[1.5px] border-transparent"
+            >Nick Fury</a
+          >
+          <a
+            href=""
+            class="px-2 py-1 bg-[#300034] text-white text-xs font-light rounded-md writer border-[1.5px] border-transparent"
+            >Nick Fury</a
+          >
+          <a
+            href=""
+            class="px-2 py-1 bg-[#300034] text-white text-xs font-light rounded-md writer border-[1.5px] border-transparent md:block hidden"
+            >Nick Fury</a
+          >
         </div>
-    </div>
+      </div>
 
-    <div class="mb-2">
-        <h6 class="my-1 text-sm  text-white mb-2 ">Directors</h6>
-        <div class="flex items-center flex-wrap gap-2  ">
-
-            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] font-light transition-all">Nick Fury</a>
-            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs  font-light rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all">Nick Fury</a>
-            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs  font-light rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all">Nick Fury</a>
-            <a href='' class="px-2 py-1 bg-[#003438da] text-white text-xs  font-light rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all md:block hidden">Nick Fury</a>
-           
+      <div class="mb-2">
+        <h6 class="my-1 text-sm text-white mb-2">Directors</h6>
+        <div class="flex items-center flex-wrap gap-2">
+          <a
+            href=""
+            class="px-2 py-1 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] font-light transition-all"
+            >Nick Fury</a
+          >
+          <a
+            href=""
+            class="px-2 py-1 bg-[#003438da] text-white text-xs font-light rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all"
+            >Nick Fury</a
+          >
+          <a
+            href=""
+            class="px-2 py-1 bg-[#003438da] text-white text-xs font-light rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all"
+            >Nick Fury</a
+          >
+          <a
+            href=""
+            class="px-2 py-1 bg-[#003438da] text-white text-xs font-light rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all md:block hidden"
+            >Nick Fury</a
+          >
         </div>
+      </div>
     </div>
-</div>
-    </div>
-    <div 
-    
-class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[85%] justify-between " 
-    
-    >
-<!-- <div class="absolute   bg inset-[0.19rem] z-[-1]" style="background-image: url('https://images.unsplash.com/photo-1469521669194-babb45599def?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8d2FsbHBhcGVyLGxhbmRzY2FwZXx8fHx8fDE2NDQ1MTM1Njc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920');">
+  </div>
+  <div
+    class="relative h-[88vh] md:flex md:gap-4 gap-[15rem] hidden w-[85%] justify-between"
+  >
+    <!-- <div class="absolute   bg inset-[0.19rem] z-[-1]" style="background-image: url('https://images.unsplash.com/photo-1469521669194-babb45599def?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8d2FsbHBhcGVyLGxhbmRzY2FwZXx8fHx8fDE2NDQ1MTM1Njc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920');">
 
 </div> -->
-     
 
-
-
-<div class="  md:col-span-3  hidden md:block relative w-full    ">
-
-
-
-
-    <div class="relative lg:left-[10%] md:left-[8%]  z-[20]  tv-anim">
-        <div class="lg:w-[28rem] lg:h-[24rem] md:w-[24rem] md:h-[20rem] absolute tv-bg rounded-xl top-2 z-[20]  " >
-
-            <!-- <video class="absolute inset-4 -left-0  block w-full object-cover lg:h-[22rem] md:h-[18rem] play-video    "  controls   >
+    <div class="md:col-span-3 hidden md:block relative w-full">
+      <div class="relative lg:left-[10%] md:left-[8%] z-[20] tv-anim">
+        <div
+          class="lg:w-[28rem] lg:h-[24rem] md:w-[24rem] md:h-[20rem] absolute tv-bg rounded-xl top-2 z-[20]"
+        >
+          <!-- <video class="absolute inset-4 -left-0  block w-full object-cover lg:h-[22rem] md:h-[18rem] play-video    "  controls   >
 
                 <source   src="{{movie_data.video_trailer.url}}">
             </video> -->
 
-    
-            <iframe class="absolute inset-4 -left-0  block w-full lg:h-[22rem] md:h-[18rem] play-video object-fill    "   src={{movie_data.video_trailer}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-         
-            <div class="absolute lg:-bottom-[30%] md:-bottom-[40%]  left-1/2 -translate-x-1/2  lg:h-[7.5rem]  md:h-[8rem] w-5 tv-bg z-[-1]"></div>
-<div class="absolute w-full h-5 tv-bg lg:-bottom-[30%] md:-bottom-[45%] left-0 rounded-md z-[-1]">
-    <div class=" relative left-1/4 top-2 w-[0.3rem] h-[0.3rem] bg-red-700 rounded-full  z-[-1]"></div>
-</div>
+          <iframe
+            class="absolute inset-4 -left-0 block w-full lg:h-[22rem] md:h-[18rem] play-video object-fill"
+            src="{{movie_data.video_trailer}}"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+
+          <div
+            class="absolute lg:-bottom-[30%] md:-bottom-[40%] left-1/2 -translate-x-1/2 lg:h-[7.5rem] md:h-[8rem] w-5 tv-bg z-[-1]"
+          ></div>
+          <div
+            class="absolute w-full h-5 tv-bg lg:-bottom-[30%] md:-bottom-[45%] left-0 rounded-md z-[-1]"
+          >
+            <div
+              class="relative left-1/4 top-2 w-[0.3rem] h-[0.3rem] bg-red-700 rounded-full z-[-1]"
+            ></div>
+          </div>
         </div>
+      </div>
 
-      
-    </div>
-
-    <!-- TAGS -->
-    <!-- <div class="absolute  z-10 bottom-[1rem] left-[10%] flex-wrap md:flex items-center  gap-3 text-white font-thin heading  md:w-[70%] hidden  ">
+      <!-- TAGS -->
+      <!-- <div class="absolute  z-10 bottom-[1rem] left-[10%] flex-wrap md:flex items-center  gap-3 text-white font-thin heading  md:w-[70%] hidden  ">
         {% for tag in tags %}
         <a href='/?q={{tag}}' class="movie-type-link text-[11px]   opacity-90"> {{tag}}</a>
       {% endfor %}
        
      
     </div> -->
-</div>
-        
-<div class=" md:col-span-3  w-full  sm:block hidden movie-data relative z-[30]">
+    </div>
 
-    <div class="flex items-center gap-4 mb-2">
+    <div
+      class="md:col-span-3 w-full sm:block hidden movie-data relative z-[30]"
+    >
+      <div class="flex items-center gap-4 mb-2">
         <!-- <button  class=" play-pause-btn   bg-purple-800 rounded-md  "  onclick="onPlayPause()" >
             <i data-feather="play" class="text-xs text-white"></i>
         </button> -->
         <h2 class="text-white">Watch Trailer</h2>
+      </div>
+      <h2 class="mb-2 text-4xl text-white heading uppercase">
+        {{movie_data.title}} <span>( 2010 )</span>
+      </h2>
+      <h5 class="my-1 text-lg text-white font-extralight heading">
+        {{movie_data.movie_time}}
+      </h5>
+
+      <div>
+        <div class="flex gap-6 items-center">
+          <div>
+            <h3 class="my-1 text-white font-medium">Rating</h3>
+            <div class="bubble flex gap-2 items-center">
+              <i data-feather="star" class="text-white w-5 h-5"></i>
+              <span class="inline-block text-sm ml-1 text-white">5</span>
+            </div>
+          </div>
         </div>
-    <h2 class="mb-2 text-4xl text-white heading uppercase">{{movie_data.title}} <span>( 2010 )</span></h2>
-    <h5 class="my-1 text-lg text-white font-extralight heading">{{movie_data.movie_time}}</h5>
+      </div>
 
-
-    <div>
-
-    <div class="flex gap-6 items-center ">
-
-<div>
-    <h3 class="my-1 text-white  font-medium">Rating</h3>
-    <div class="bubble flex gap-2 items-center"  ><i data-feather="star" class="text-white w-5 h-5 "></i>
-        <span class="inline-block text-sm ml-1 text-white">5</span>
-    </div>
-
-    
-     
-</div>
-        
-        
-      
+      <div class="my-2">
+        <div
+          class="rounded-full w-[5rem] relative border-[4px] border-[#73268db9] after:rounded-full after:w-18 after:h-18 after:bg-transparent h-[5rem] after:absolute after:inset-2 after:z-[8] bg-transparent"
+        >
+          <div class="absolute z-10 left-[20%] top-[12%] text-white">
+            <span class="text-sm"
+              >{{movie_data.user_watched}}<span class="text-[8px]"
+                >%</span
+              ></span
+            >
+            <span class="text-[8px] leading-none inline-block"
+              >Users watched</span
+            >
+          </div>
         </div>
+      </div>
 
-       
-</div>
-
-
-<div class="my-2">
-
-
-
-        <div class="rounded-full w-[5rem] relative border-[4px] border-[#73268db9] after:rounded-full  after:w-18 after:h-18 after:bg-transparent h-[5rem] after:absolute after:inset-2 after:z-[8] bg-transparent">
-
-    <div class="absolute z-10 left-[20%] top-[12%]   text-white ">
-        <span  class="text-sm" >{{movie_data.user_watched}}<span class="text-[8px]">%</span></span>
-        <span class="text-[8px] leading-none inline-block">Users watched</span>
-    
-    </div>
+      <div class="my-3">
+        <form
+          action="{% url 'addwatchlist_2'  %}"
+          method="post"
+          class="addwatchlist-2"
+        >
+          {% csrf_token %}
+          <input type="hidden" name="movie_id" value="{{movie_data.id}}" />
+        </form>
+        <div class="flex gap-4 main">
+          <a class="rounded-full bg-[#64016d] bubble-effect">
+            <i data-feather="bookmark" class="text-white w-10 h-10 p-3"></i>
+          </a>
+          <a class="rounded-full bg-[#64016d] bubble-effect">
+            <i data-feather="heart" class="text-white w-10 h-10 p-3"></i>
+          </a>
+          <a
+            class="rounded-full bg-[#64016d] bubble-effect"
+            href="javascript:{document.querySelector('.addwatchlist-2').submit()}"
+          >
+            <i data-feather="plus" class="text-white w-10 h-10 p-3"></i>
+          </a>
         </div>
+      </div>
 
-
-</div>
-
-<div class="my-3">
-    <form action="{% url 'addwatchlist_2'  %}" method='post' class="addwatchlist-2">
-        {% csrf_token %}
-           <input type='hidden' name='movie_id' value="{{movie_data.id}}">
-    </form>
-    <div class="flex gap-4 main  ">
-        <a class="rounded-full bg-[#64016d] bubble-effect "> 
-            <i data-feather="bookmark" class="text-white w-10 h-10 p-3   "></i>
-        </a>
-        <a class="rounded-full bg-[#64016d] bubble-effect "> 
-            <i data-feather="heart" class="text-white w-10 h-10 p-3  "></i>
-        </a>
-        <a class="rounded-full   bg-[#64016d] bubble-effect "href="javascript:{document.querySelector('.addwatchlist-2').submit()}" > 
-            <i data-feather="plus" class="text-white w-10 h-10 p-3  "></i>
-        </a>
-        </div>
-</div>
-
-
-
-    <!-- OVERVIEW -->
-    <div  class="my-4 md:block hidden">
-
-        <h3 class="my-3 text-white  font-medium">Overview</h3>
-        <p class="text-xs  font-thin my-3 text-white l-spacing description ">{{movie_data.overview}}</p>
-    </div>
-<!-- WRITERS -->
-    <div  class="md:block hidden">
-        <h6 class="my-1 text-white  font-medium">Writers</h6>
+      <!-- OVERVIEW -->
+      <div class="my-4 md:block hidden">
+        <h3 class="my-3 text-white font-medium">Overview</h3>
+        <p class="text-xs font-thin my-3 text-white l-spacing description">
+          {{movie_data.overview}}
+        </p>
+      </div>
+      <!-- WRITERS -->
+      <div class="md:block hidden">
+        <h6 class="my-1 text-white font-medium">Writers</h6>
         <div class="flex items-center flex-wrap gap-4 my-4">
-
-            <a href='' class="px-4 py-2 bg-[#5c0081b7] text-white text-xs rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
-            <a href='' class="px-4 py-2 bg-[#5c0081b7] text-white text-xs rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
-            <a href='' class="px-4 py-2 bg-[#5c0081b7] text-white text-xs rounded-md writer border-[1.5px] border-transparent">Nick Fury</a>
-            <a href='' class="px-4 py-2 bg-[#5c0081b7] text-white text-xs rounded-md writer border-[1.5px] border-transparent ">Nick Fury</a>
+          <a
+            href=""
+            class="px-4 py-2 bg-[#5c0081b7] text-white text-xs rounded-md writer border-[1.5px] border-transparent"
+            >Nick Fury</a
+          >
+          <a
+            href=""
+            class="px-4 py-2 bg-[#5c0081b7] text-white text-xs rounded-md writer border-[1.5px] border-transparent"
+            >Nick Fury</a
+          >
+          <a
+            href=""
+            class="px-4 py-2 bg-[#5c0081b7] text-white text-xs rounded-md writer border-[1.5px] border-transparent"
+            >Nick Fury</a
+          >
+          <a
+            href=""
+            class="px-4 py-2 bg-[#5c0081b7] text-white text-xs rounded-md writer border-[1.5px] border-transparent"
+            >Nick Fury</a
+          >
         </div>
-    </div>
-<!-- DIRECTORS -->
-    <div class="md:block hidden">
+      </div>
+      <!-- DIRECTORS -->
+      <div class="md:block hidden">
         <h6 class="mt-1 text-white font-medium">Directors</h6>
         <div class="flex items-center flex-wrap gap-4 my-4">
-
-            <a href='' class="px-4 py-2 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all">Nick Fury</a>
-            <a href='' class="px-4 py-2 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] ">Nick Fury</a>
-            <a href='' class="px-4 py-2 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] ">Nick Fury</a>
-            <a href='' class="px-4 py-2 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0]  ">Nick Fury</a>
+          <a
+            href=""
+            class="px-4 py-2 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0] transition-all"
+            >Nick Fury</a
+          >
+          <a
+            href=""
+            class="px-4 py-2 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0]"
+            >Nick Fury</a
+          >
+          <a
+            href=""
+            class="px-4 py-2 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0]"
+            >Nick Fury</a
+          >
+          <a
+            href=""
+            class="px-4 py-2 bg-[#003438da] text-white text-xs rounded-md director border-[1.5px] border-transparent hover:border-[#00cecee0]"
+            >Nick Fury</a
+          >
         </div>
+      </div>
     </div>
+  </div>
 
-</div>
-    </div>
-
-
-
-
-
-<div class="container-7">
-
-
+  <div class="container-7">
     <!-- TOP CASTS -->
-<section>
-    <h3 class="md:text-2xl sm:text-xl text-lg  text-[#F8F8F8] my-8  ">Top Casts</h3>
-<div class="md:flex justify-between  items-start gap-6  ">
+    <section>
+      <h3 class="md:text-2xl sm:text-xl text-lg text-[#F8F8F8] my-8">
+        Top Casts
+      </h3>
+      <div class="md:flex justify-between items-start gap-6">
+        <div
+          class="md:w-3/4 w-full grid lg:grid-cols-4 md:grid-cols-4 top-casts-animation sm:grid-cols-3 grid-cols-3 gap-4 overflow-x-auto md:h-[25rem] sm:h-[20rem] md:min-h-0 min-h-[17rem] md:pr-6"
+        >
+          <!-- CARD -->
 
+          {% for cast in casts %}
+          <div class="topcast-card md:h-[19rem] sm:h-[18rem] h-[15rem]">
+            <div class="relative cast overflow-hidden">
+              <div class="cast-overlay"></div>
+              <img
+                src="{{cast.cast_img.url}}"
+                class="block w-full sm:h-[12rem] h-[9rem] md:h-[13rem] rounded-md md:object-cover object-fill cast-img movie-overlay"
+                style="box-shadow: inset 0px 0px 100px rgba(0, 0, 0, 0.49)"
+                alt=""
+              />
+            </div>
 
-    <div class="md:w-3/4 w-full grid lg:grid-cols-4 md:grid-cols-4 top-casts-animation sm:grid-cols-3 grid-cols-3   gap-4 overflow-x-auto md:h-[25rem] sm:h-[20rem] md:min-h-0 min-h-[17rem]   md:pr-6 ">
+            <div class="text-white">
+              <h4 class="my-1 text-xs">{{cast.cast_name}}</h4>
+              <p class="font-medium font-sans text-xs mb-1">
+                {{cast.cast_movie_name}}
+              </p>
+              <h6 class="font-sans font-thin text-xs">
+                Age<span class="font-semibold ml-2 inline-block"
+                  >{{cast.cast_age}}</span
+                >
+              </h6>
+            </div>
+          </div>
 
-
-  <!-- CARD -->
-
-  {% for cast in casts %}
-  <div class ="topcast-card md:h-[19rem] sm:h-[18rem] h-[15rem]">
-
-    <div class="relative cast overflow-hidden ">
-       <div class=" cast-overlay"></div>
-       <img src='{{cast.cast_img.url}}' class=" block w-full sm:h-[12rem] h-[9rem] md:h-[13rem] rounded-md md:object-cover object-fill cast-img movie-overlay" style=" box-shadow: inset 0px 0px 100px rgba(0, 0, 0, 0.49);" alt=''>
-    </div>
- 
-
-    <div class="text-white">
-        <h4 class=" my-1 text-xs">{{cast.cast_name}}</h4>
-        <p class="font-medium font-sans text-xs mb-1">{{cast.cast_movie_name}} </p>
-        <h6 class="font-sans font-thin text-xs    ">Age<span class="font-semibold ml-2 inline-block">{{cast.cast_age}}</span></h6>
-    </div>
-</div>
-
-{% endfor %}
-
-
-
-    </div>
-<!-- Bidgets and additional details -->
-    <div class="md:w-1/4 mt-8 sm:mt-0 w-[60%] additional-info h-auto md:h-[25rem]">
-        <div >
-            <h3 class="md:mb-3 mb-1  text-white text-sm md:text-base">Status</h3>
+          {% endfor %}
+        </div>
+        <!-- Bidgets and additional details -->
+        <div
+          class="md:w-1/4 mt-8 sm:mt-0 w-[60%] additional-info h-auto md:h-[25rem]"
+        >
+          <div>
+            <h3 class="md:mb-3 mb-1 text-white text-sm md:text-base">Status</h3>
 
             {% if movie_data.released_status %}
-<p class="mb-3 text-white md:text-sm font-extralight text-[12px]">Released</p>
- {% else %}
- <p class="mb-3 text-white md:text-sm font-extralight text-xs text-[12px]">Release not yet</p>
-{% endif %}
-        </div>
-        <div>
-            <h3 class="md:mb-3 mb-1 text-white text-sm md:text-base">Original Language</h3>
-<p class="mb-3 text-white md:text-sm text-sm font-extralight text-[12px]">English</p>
-        </div>
-        <div >
+            <p class="mb-3 text-white md:text-sm font-extralight text-[12px]">
+              Released
+            </p>
+            {% else %}
+            <p
+              class="mb-3 text-white md:text-sm font-extralight text-xs text-[12px]"
+            >
+              Release not yet
+            </p>
+            {% endif %}
+          </div>
+          <div>
+            <h3 class="md:mb-3 mb-1 text-white text-sm md:text-base">
+              Original Language
+            </h3>
+            <p
+              class="mb-3 text-white md:text-sm text-sm font-extralight text-[12px]"
+            >
+              English
+            </p>
+          </div>
+          <div>
             <h3 class="md:mb-3 mb-1 text-white text-sm md:text-base">Budget</h3>
-<p class="mb-3 text-white md:text-sm text-xs font-extralight text-[12px]">${{movie_data.budget}}</p>
+            <p
+              class="mb-3 text-white md:text-sm text-xs font-extralight text-[12px]"
+            >
+              ${{movie_data.budget}}
+            </p>
+          </div>
+          <div>
+            <h3 class="md:mb-3 mb-1 text-white text-sm md:text-base">
+              Revenue
+            </h3>
+            <p
+              class="md:mb-3 text-white md:text-sm text-xs font-extralight text-[12px]"
+            >
+              {{movie_data.revenue}}
+            </p>
+          </div>
         </div>
-        <div >
-            <h3 class="md:mb-3 mb-1  text-white text-sm md:text-base">Revenue</h3>
-<p class="md:mb-3 text-white md:text-sm text-xs font-extralight text-[12px]">{{movie_data.revenue}}</p>
-        </div>
-       
+      </div>
+    </section>
 
-    </div>
-</div>
+    <!-- Thumbnails -->
 
+    <section class="main-card-2">
+      <h3 class="md:text-2xl sm:text-xl text-lg text-[#F8F8F8] my-8">
+        Movie Thumbnails
+      </h3>
 
+      <div
+        class="grid lg:grid-cols-5 md:grid-cols-4 grid-cols-3 md:gap-6 gap-4 thumbnails-animation"
+      >
+        {% if movie_data.main_img %}
 
-</section>
+        <a
+          class="h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative"
+          href="/"
+        >
+          <img
+            src="{{movie_data.main_img.url}}"
+            class="w-full h-full rounded-[15px] object-fill thumbnail-img"
+            alt=""
+          />
 
+          <div class="thumbnail-overlay"></div>
+        </a>
+        {% endif %} {% if movie_data.img2 %}
+        <a
+          class="h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative"
+        >
+          <img
+            src="{{movie_data.img2.url}}"
+            class="w-full h-full rounded-[15px] object-fill thumbnail-img"
+            alt=""
+          />
 
+          <div class="thumbnail-overlay"></div>
+        </a>
+        {% endif %} {% if movie_data.img1 %}
 
+        <a
+          class="h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative"
+        >
+          <img
+            src="{{movie_data.img1.url}}"
+            class="w-full h-full rounded-[15px] object-fill thumbnail-img"
+            alt=""
+          />
 
-<!-- Thumbnails -->
+          <div class="thumbnail-overlay"></div>
+        </a>
+        {% endif %} {% if movie_data.img3 %}
 
-<section class="main-card-2">
-    <h3 class="md:text-2xl sm:text-xl text-lg  text-[#F8F8F8] my-8  ">Movie Thumbnails</h3>
+        <a
+          class="h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative"
+        >
+          <img
+            src="{{movie_data.img3.url}}"
+            class="w-full h-full rounded-[15px] object-fill thumbnail-img"
+            alt=""
+          />
 
+          <div class="thumbnail-overlay"></div>
+        </a>
+        {% endif %} {% if movie_data.img4 %}
 
-    <div class='grid lg:grid-cols-5 md:grid-cols-4 grid-cols-3 md:gap-6  gap-4 thumbnails-animation  '>
-        {% if  movie_data.main_img %}
+        <a
+          class="h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative"
+        >
+          <img
+            src="{{movie_data.img4.url}}"
+            class="w-full h-full rounded-[15px] object-fill thumbnail-img"
+            alt=""
+          />
 
-        <a class="   h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative " href="/" >
-       <img src='{{movie_data.main_img.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
-
-       <div class=" thumbnail-overlay"></div>
-
+          <div class="thumbnail-overlay"></div>
         </a>
         {% endif %}
+      </div>
 
-        {% if  movie_data.img2 %}
-        <a class="    h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative  ">
-       <img src='{{movie_data.img2.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
-
-       <div class=" thumbnail-overlay"></div>
-
-        </a>
-        {% endif %}
-
-      
-    {% if  movie_data.img1 %}
-
-        <a class="    h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative   ">
-       <img src='{{movie_data.img1.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
-
-       <div class=" thumbnail-overlay"></div>
-
-        </a>
-        {% endif %}
-    {% if  movie_data.img3 %}
-
-        <a class="    h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative   ">
-       <img src='{{movie_data.img3.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
-
-       <div class=" thumbnail-overlay"></div>
-
-        </a>
-        {% endif %}
-    {% if  movie_data.img4 %}
-
-        <a class="    h-auto block overflow-hidden rounded-[15px] shadow-lg thumbnail relative   ">
-       <img src='{{movie_data.img4.url}}' class="w-full h-full rounded-[15px] object-fill   thumbnail-img "   alt=''>
-
-       <div class=" thumbnail-overlay"></div>
-
-        </a>
-        {% endif %}
-   
- 
-
-    </div>
-
-    <div class="flex justify-end my-6">
+      <div class="flex justify-end my-6">
         <!-- <a href='http://' class="text-white py-2 border-gradient px-6 transition rounded-3xl ">See More</a> -->
-        <a class="shadow-lg inline-block text-white relative  py-[1.7px] px-[1.7px] transition hover:scale-105   " href="{% url 'register' %}">
-    
-            <span class="block absolute inset-0 h-full w-full button-gradient rounded-3xl z-[1]   "></span>
-                 <span class=" block relative bg-[#130015] py-[0.2rem] px-[1rem] sm:py-[0.3rem] sm:px-[1.2rem] md:py-[0.5rem] md:px-[1.4rem]  rounded-3xl md:text-sm sm:text-xs text-[0.65rem]     z-[2]">
-                    See More
-                    </span>
+        <a
+          class="shadow-lg inline-block text-white relative py-[1.7px] px-[1.7px] transition hover:scale-105"
+          href="{% url 'register' %}"
+        >
+          <span
+            class="block absolute inset-0 h-full w-full button-gradient rounded-3xl z-[1]"
+          ></span>
+          <span
+            class="block relative bg-[#130015] py-[0.2rem] px-[1rem] sm:py-[0.3rem] sm:px-[1.2rem] md:py-[0.5rem] md:px-[1.4rem] rounded-3xl md:text-sm sm:text-xs text-[0.65rem] z-[2]"
+          >
+            See More
+          </span>
         </a>
-    </div>
-</section>
+      </div>
+    </section>
 
-
-{% if user.is_authenticated %}
+    {% if user.is_authenticated %}
     <!-- REVIEWS -->
     <section class="my-8">
-        <div class="  text-[#F8F8F8] my-8 flex justify-between items-center ">
-            <h2 class="md:text-2xl sm:text-xl text-lg" >
-                Reviews
+      <div class="text-[#F8F8F8] my-8 flex justify-between items-center">
+        <h2 class="md:text-2xl sm:text-xl text-lg">Reviews</h2>
 
+        <button
+          class="inline-block text-white relative text-sm md:py-3 md:px-3 p-[1.5rem] rounded-xl button-gradient add-review"
+          href="{% url 'login' %}"
+        >
+          <!--        
+                <span class="block absolute inset-0 h-full w-full button-gradient rounded-xl z-[1]   "> -->
+          <i data-feather="plus" class="w-5 h-5 md:w-auto md:h-auto"></i>
+
+          <!-- </span> -->
+          <!-- <span class="block relative bg-[#18061aea] py-[0.5rem] px-[1.5rem] text-xs   rounded-md   z-[2]">
+                        </span> -->
+        </button>
+      </div>
+
+      <div class="review-overlay h-full min-h-0">
+        <div
+          class="bg-[#200724d7] p-8 mx-auto shadow-xl rounded-md relative z-[140] md:w-1/2 sm:w-[70%] w-[80%]"
+        >
+          <!-- <div class="w-full"> -->
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="font-semibold md:text-2xl sm:text-xl text-lg text-white">
+              Review
             </h2>
 
-            <button class="inline-block text-white relative text-sm md:py-3 md:px-3 p-[1.5rem]  rounded-xl button-gradient add-review" href="{% url 'login' %}">
-<!--        
-                <span class="block absolute inset-0 h-full w-full button-gradient rounded-xl z-[1]   "> -->
-                    <i data-feather="plus" class="w-5 h-5 md:w-auto md:h-auto"></i>
-
-
-                <!-- </span> -->
-                     <!-- <span class="block relative bg-[#18061aea] py-[0.5rem] px-[1.5rem] text-xs   rounded-md   z-[2]">
-                        </span> -->
+            <button class="disable_model">
+              <i
+                data-feather="x"
+                class="text-red-500 md:w-5 md:h-5 w-4 h-4"
+              ></i>
             </button>
-        
+          </div>
 
-           
-        </div>
+          <!-- Form -->
+          <form action="{% url 'review_submit' %}" class="w-full" method="post">
+            {% csrf_token %}
+            <!-- EMAIL -->
 
-        <div class="review-overlay  h-full min-h-0 ">
+            <div class="flex items-center gap-4 mb-2">
+              <h2 class="text-white font-medium">Rating</h2>
 
-            <div class=" bg-[#200724d7]   p-8  mx-auto shadow-xl rounded-md relative z-[140] md:w-1/2 sm:w-[70%] w-[80%]">
-<!-- <div class="w-full"> -->
-    <div class="flex justify-between items-center mb-6">
-        <h2 class="font-semibold md:text-2xl sm:text-xl text-lg text-white">
-         Review
-        </h2>
-        
-        <button  class="disable_model">
-            <i data-feather="x"  class="text-red-500 md:w-5 md:h-5 w-4 h-4 "></i>
-        </button>
-        
-        </div>
-        
-        <!-- Form -->
-                     <form action="{% url 'review_submit' %}"  class="w-full" method="post">
-{% csrf_token %}
-   <!-- EMAIL -->
-
-
-   <div class="flex items-center gap-4 mb-2">
-
-    <h2 class=" text-white font-medium">Rating</h2>
-
-
-    
-    <div class="rate-2">
-        <input type='radio' name='rate' id='star11' value=1>
-        <label for='star11'></label>
-        <input type='radio' name='rate' id='star22' value=2>
-        <label for='star22'></label>
-        <input type='radio' name='rate' id='star33' value=3>
-        <label for='star33'></label>
-        <input type='radio' name='rate' id='star44' value=4>
-        <label for='star44'></label>
-        <input type='radio' name='rate' id='star55' value=5>
-        <label for='star55'></label>
-    </div>
-   </div>
-
-
-   <label for='' class="my-3 block text-white font-medium">
-    Message
-</label>
-   <div class="input-gradient relative  rounded-lg pt-1  w-full flex justify-between gap-3 items-center px-2 py-0 ">
-       <textarea class="input w-full" required  type='text' name='message' id='loginEmailInput' rows="5" value=""   onchange="checkInputVal()"></textarea>
-             
-
-    <input type='hidden' name="m_id" value="{{movie_data.id}}">
-    <!-- <input type='hidden' name="" value="{{request.user.email}}"> -->
-
-    <!-- <span  class="label-review">Enter your review</span> -->
-    <i data-feather="mail" class="opacity-40 text-white inputfield_icon "></i>
-
-   
-</div>
-<button type='submit' class="mt-[2rem]  block py-3 text-sm text-white px-6 rounded-2xl w-full review-submit-btn ">
-    Submit
-</button>
-                     </form>
-<!-- </div> -->
+              <div class="rate-2">
+                <input type="radio" name="rate" id="star11" value="1" />
+                <label for="star11"></label>
+                <input type="radio" name="rate" id="star22" value="2" />
+                <label for="star22"></label>
+                <input type="radio" name="rate" id="star33" value="3" />
+                <label for="star33"></label>
+                <input type="radio" name="rate" id="star44" value="4" />
+                <label for="star44"></label>
+                <input type="radio" name="rate" id="star55" value="5" />
+                <label for="star55"></label>
+              </div>
             </div>
+
+            <label for="" class="my-3 block text-white font-medium">
+              Message
+            </label>
+            <div
+              class="input-gradient relative rounded-lg pt-1 w-full flex justify-between gap-3 items-center px-2 py-0"
+            >
+              <textarea
+                class="input w-full"
+                required
+                type="text"
+                name="message"
+                id="loginEmailInput"
+                rows="5"
+                value=""
+                onchange="checkInputVal()"
+              ></textarea>
+
+              <input type="hidden" name="m_id" value="{{movie_data.id}}" />
+              <!-- <input type='hidden' name="" value="{{request.user.email}}"> -->
+
+              <!-- <span  class="label-review">Enter your review</span> -->
+              <i
+                data-feather="mail"
+                class="opacity-40 text-white inputfield_icon"
+              ></i>
+            </div>
+            <button
+              type="submit"
+              class="mt-[2rem] block py-3 text-sm text-white px-6 rounded-2xl w-full review-submit-btn"
+            >
+              Submit
+            </button>
+          </form>
+          <!-- </div> -->
         </div>
+      </div>
 
+      <div
+        class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3 md:gap-5 reviews-collection"
+      >
+        {% for review in reviews %}
+        <div class="movie-card review shadow-xl block" href="/">
+          <div class="md:flex md:flex-row flex-col items-center md:gap-2">
+            <div class="md:w-10 md:h-10 w-8 h-8">
+              <img
+                src="{% static 'img/baby.jpg' %}"
+                alt=""
+                class="block rounded-full w-full h-full object-cover"
+                srcset=""
+              />
+            </div>
 
-    <div class="grid  lg:grid-cols-4 md:grid-cols-3 grid-cols-2  gap-3 md:gap-5 reviews-collection ">
+            <div class="flex flex-col gap-[3px]">
+              <h6 class="text-xs text-[#F8F8F8] my-1">
+                {{review.user.first_name}}
+              </h6>
+              <p class="text-xs my-1 font-extralight flex gap-1 text-[#F8F8F8]">
+                <i data-feather="mail" class="w-4 h-4 inline"></i>
+                {{review.user.email}}
+              </p>
+            </div>
+          </div>
 
+          <div class="flex items-center gap-4 md:my-2 my-1">
+            <h6 class="text-white font-medium">Rating</h6>
 
-
-
-{% for review in reviews %}
-        <div class="movie-card review shadow-xl block " href="/">
-
-
-
-         
-            <div class="md:flex md:flex-row flex-col items-center md:gap-2">
-
-                <div class="md:w-10 md:h-10 w-8 h-8 ">
-                    <img src="{% static 'img/baby.jpg' %}" alt='' class="block rounded-full w-full h-full object-cover" srcset=''>
-
-                </div>
-
-                <div class="flex flex-col gap-[3px]">
-                    <h6 class="text-xs text-[#F8F8F8] my-1">{{review.user.first_name}}</h6>
-                    <p class="text-xs my-1  font-extralight flex gap-1 text-[#F8F8F8]"> <i data-feather="mail" class="w-4 h-4 inline"></i> {{review.user.email}}</p>
-
-                </div>
-
-              
-                
-               
-            </div> 
-
-
-            <div class="flex items-center gap-4 md:my-2 my-1 ">
-
-                <h6 class=" text-white font-medium">Rating</h6>
-            
-            
-                
-                <div class="rate-2 flex items-center gap-1">
-                    <!-- <input type='radio' name='rate' id='star1' value=1>
+            <div class="rate-2 flex items-center gap-1">
+              <!-- <input type='radio' name='rate' id='star1' value=1>
                     <label for='star1'></label>
                     <input type='radio' name='rate' id='star2' value=2>
                     <label for='star2'></label>
@@ -530,222 +627,241 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
                     <input type='radio' name='rate' id='star5' value=5>
                     <label for='star5'></label> -->
 
-                    
-                    {% for x in ''|center:review.rating %} 
+              {% for x in ''|center:review.rating %}
 
+              <i
+                data-feather="star"
+                class="md:w-5 md:h-5 w-4 h-4 fill-purple-600 text-purple-500"
+              ></i>
 
-                   
-                        <i data-feather="star" class="md:w-5 md:h-5 w-4 h-4  fill-purple-600 text-purple-500"></i>
-                    
-                        
-                          
-                    {% endfor %}
+              {% endfor %}
+            </div>
+          </div>
+          <p
+            class="text-xs my-2 text-white overflow-ellipsis overflow-hidden whitespace-nowrap review-message"
+          >
+            {{review.message}}
+          </p>
+          {% if request.user == review.user %}
+          <div class="mt-2 flex items-center gap-6">
+            <button
+              class="text-xs py-1 px-3 text-white bg-sky-600 rounded-full cursor-pointer inline-block add-review-2 edit-button"
+            >
+              Edit
+            </button>
+            <a
+              href='{% url "delete_review" %}?movie_id={{movie_data.id}}&review_id={{review.id}}'
+              class="text-xs py-1 px-3 text-white bg-red-600 rounded-full"
+              >Delete</a
+            >
+          </div>
+          {% endif %}
+
+          <div class="review-overlay-2 h-full min-h-0">
+            <div
+              class="bg-[#200724d7] p-8 mx-auto shadow-xl rounded-md relative z-[140] md:w-1/2 sm:w-[70%] w-[80%]"
+            >
+              <!-- <div class="w-full"> -->
+              <div class="flex justify-between items-center mb-6">
+                <h2 class="font-semibold text-xl text-white">Review</h2>
+
+                <button class="disable_model_2">
+                  <i data-feather="x" class="text-red-500 w-5 h-5"></i>
+                </button>
+              </div>
+
+              <!-- Form -->
+              <form
+                action="{% url 'review_submit' %}"
+                class="w-full"
+                method="post"
+              >
+                {% csrf_token %}
+                <!-- EMAIL -->
+
+                <div>
+                  <h2 class="mb-2 text-white font-medium">Rating</h2>
+                  <div class="flex items-center gap-1">
+                    <button>
+                      <i
+                        data-feather="star"
+                        class="text-purple-500 w-4 h-4"
+                      ></i>
+                    </button>
+                    <button>
+                      <i
+                        data-feather="star"
+                        class="text-purple-500 w-4 h-4"
+                      ></i>
+                    </button>
+                    <button>
+                      <i
+                        data-feather="star"
+                        class="text-purple-500 w-4 h-4"
+                      ></i>
+                    </button>
+                    <button>
+                      <i
+                        data-feather="star"
+                        class="text-purple-500 w-4 h-4"
+                      ></i>
+                    </button>
+                    <button>
+                      <i
+                        data-feather="star"
+                        class="text-purple-500 w-4 h-4"
+                      ></i>
+                    </button>
+                  </div>
                 </div>
-               </div>
-            <p class="text-xs my-2 text-white overflow-ellipsis overflow-hidden whitespace-nowrap review-message">
 
-              {{review.message}}
-            </p>
-            {% if request.user == review.user %}
-            <div class="mt-2 flex items-center gap-6">
+                <label for="" class="my-3 block text-white font-medium">
+                  Message
+                </label>
+                <div
+                  class="input-gradient relative rounded-lg pt-1 w-full flex justify-between gap-3 items-center px-2 py-0"
+                >
+                  <textarea
+                    class="input w-full review-message-textfield"
+                    required
+                    type="text"
+                    name="message"
+                    id="loginEmailInput"
+                    rows="5"
+                    {%
+                    if
+                    review.message
+                    %}
+                    value="{{review.message}}"
+                    {%
+                    else
+                    %}
+                    value=""
+                    {%
+                    endif
+                    %}
+                  ></textarea>
 
-                <button  class="text-xs py-1 px-3 text-white bg-sky-600 rounded-full  cursor-pointer inline-block add-review-2 edit-button">Edit</button>
-                <a href='{% url "delete_review" %}?movie_id={{movie_data.id}}&review_id={{review.id}}' class="text-xs py-1 px-3 text-white bg-red-600 rounded-full">Delete</a>
-                     </div>
-                     {% endif %}
+                  <input type="hidden" name="m_id" value="{{movie_data.id}}" />
+                  <!-- <input type='hidden' name="" value="{{request.user.email}}"> -->
 
-                     <div class="review-overlay-2  h-full min-h-0 ">
-
-                        <div class=" bg-[#200724d7]   p-8  mx-auto shadow-xl rounded-md relative z-[140] md:w-1/2 sm:w-[70%] w-[80%] ">
-                    <!-- <div class="w-full"> -->
-                    <div class="flex justify-between items-center mb-6">
-                    <h2 class="font-semibold text-xl text-white">
-                     Review
-                    </h2>
-                    
-                    <button  class="disable_model_2">
-                        <i data-feather="x"  class="text-red-500 w-5 h-5"></i>
-                    </button>
-                    
-                    </div>
-                    
-                    <!-- Form -->
-                                 <form action="{% url 'review_submit' %}"  class="w-full" method="post">
-                    {% csrf_token %}
-                    <!-- EMAIL -->
-                    
-                    
-                    <div>
-                    
-                    <h2 class="mb-2 text-white font-medium">Rating</h2>
-                    <div class="flex items-center gap-1">
-                    
-                    <button>
-                    
-                        <i data-feather="star" class="text-purple-500 w-4 h-4"></i>
-                    </button>
-                    <button>
-                    
-                        <i data-feather="star" class="text-purple-500 w-4 h-4"></i>
-                    </button>
-                    <button>
-                    
-                        <i data-feather="star" class="text-purple-500 w-4 h-4"></i>
-                    </button>
-                    <button>
-                    
-                        <i data-feather="star" class="text-purple-500 w-4 h-4"></i>
-                    </button>
-                    <button>
-                    
-                        <i data-feather="star" class="text-purple-500 w-4 h-4"></i>
-                    </button>
-                    </div>
-                    </div>
-                    
-                    
-                    <label for='' class="my-3 block text-white font-medium">
-                    Message
-                    </label>
-                    <div class="input-gradient relative  rounded-lg pt-1  w-full flex justify-between gap-3 items-center px-2 py-0 ">
-                    <textarea class="input w-full review-message-textfield" required  type='text' name='message' id='loginEmailInput' rows="5"
-                    
-                    {% if review.message %}
-                    
-                    value="{{review.message}}" 
-                    {% else %}
-                    value=""  
-                    {% endif %}
-                    ></textarea>
-                         
-                    
-                    <input type='hidden' name="m_id" value="{{movie_data.id}}">
-                    <!-- <input type='hidden' name="" value="{{request.user.email}}"> -->
-                    
-                    <!-- <span  class="label-review">Enter your review</span> -->
-                    <i data-feather="mail" class="opacity-40 text-white inputfield_icon "></i>
-                    
-                    
-                    </div>
-                    <button type='submit' class="mt-[2rem]  block py-3 text-sm text-white px-6 rounded-2xl w-full review-submit-btn ">
-                    Submit
-                    </button>
-                                 </form>
-                    <!-- </div> -->
-                        </div>
-                    </div>
-
-
-                   
+                  <!-- <span  class="label-review">Enter your review</span> -->
+                  <i
+                    data-feather="mail"
+                    class="opacity-40 text-white inputfield_icon"
+                  ></i>
+                </div>
+                <button
+                  type="submit"
+                  class="mt-[2rem] block py-3 text-sm text-white px-6 rounded-2xl w-full review-submit-btn"
+                >
+                  Submit
+                </button>
+              </form>
+              <!-- </div> -->
+            </div>
+          </div>
         </div>
-{% endfor reviews %} 
-<!-- REVIEW MODEL -->
+        {% endfor reviews %}
+        <!-- REVIEW MODEL -->
+      </div>
 
-
-
-        
-    </div>
-
-    <div class="flex justify-end my-6">
-       
-        <a class="shadow-lg inline-block text-white relative  py-[1.7px] px-[1.7px] transition hover:scale-105   " href="{% url 'register' %}">
-    
-            <span class="block absolute inset-0 h-full w-full button-gradient rounded-3xl z-[1]   "></span>
-                 <span class=" block relative bg-[#130015] py-[0.2rem] px-[1rem] sm:py-[0.3rem] sm:px-[1.2rem] md:py-[0.5rem] md:px-[1.4rem]  rounded-3xl md:text-sm sm:text-xs text-[0.65rem]     z-[2]">
-                    See More
-                    </span>
+      <div class="flex justify-end my-6">
+        <a
+          class="shadow-lg inline-block text-white relative py-[1.7px] px-[1.7px] transition hover:scale-105"
+          href="{% url 'register' %}"
+        >
+          <span
+            class="block absolute inset-0 h-full w-full button-gradient rounded-3xl z-[1]"
+          ></span>
+          <span
+            class="block relative bg-[#130015] py-[0.2rem] px-[1rem] sm:py-[0.3rem] sm:px-[1.2rem] md:py-[0.5rem] md:px-[1.4rem] rounded-3xl md:text-sm sm:text-xs text-[0.65rem] z-[2]"
+          >
+            See More
+          </span>
         </a>
-    </div>
+      </div>
     </section>
-{% endif %}
-
-
-
-
-
-
-
+    {% endif %}
 
     <!-- rELATED MOVIES -->
     <section>
+      <h3 class="md:text-2xl sm:text-xl text-lg my-8 text-[#F8F8F8] font-light">
+        Related Movies
+      </h3>
 
-        <h3 class="md:text-2xl sm:text-xl text-lg my-8 text-[#F8F8F8] font-light  ">Related Movies</h3>
+      <div
+        class="grid lg:grid-cols-5 gap-4 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 related-movie-animation"
+      >
+        {% for movie in related_movies %}
 
-        <div class="grid lg:grid-cols-5 gap-4 md:grid-cols-4 sm:grid-cols-3  grid-cols-2 related-movie-animation">
+        <!-- Card -->
+        <div
+          class="rounded-2xl list-card-gradient overflow-hidden pb-20 z-[1] shadow-2xl related-movie-sec"
+        >
+          <div class="img-container z-20">
+            <img src="{{movie.main_img.url}}" alt="" class="img" srcset="" />
+            <div class="overlay"></div>
 
-{% for movie in related_movies %}
+            <a href="" class="add-in-watchlist">
+              <i data-feather="plus"></i>
+              <!-- <div class="relative -bottom-[1.20rem] -right-[1.4rem] w-8 triangle h-5 -rotate-45  "></div> -->
+              <!-- <div class="relative -bottom-[1rem] -left-[1.3rem] h-5 triangle w-5  bg-black rotate-45"></div> -->
+            </a>
+            <div class="card-content py-1">
+              <h3 class="text-white text-center movie-title">
+                {{movie.title}}
+              </h3>
+              <div
+                class="gap-1 items-center justify-between movieLanguages relative"
+              >
+                <h3 class="text-xs text-center font-extralight available-in">
+                  Available in
+                </h3>
+                <p class="desc text-center">{{movie.movie_languages}}</p>
+              </div>
 
-  <!-- Card -->
-  <div class="rounded-2xl list-card-gradient overflow-hidden pb-20 z-[1]  shadow-2xl  related-movie-sec  ">
-    
+              <div class="flex justify-center items-center mt-4">
+                <a
+                  href='{% url "movie" movie_data.id  %}'
+                  class="py-[3px] px-3 mx-auto border-2 border-white text-white cursor-pointer inline-block text-center rounded-lg hover:border-[aqua] transition duration-300 text-xs"
+                >
+                  Watch Trailer
+                </a>
+              </div>
+              <div class="mt-6 flex justify-between items-center">
+                <div class="flex gap-2 items-center">
+                  <a class="text-xs">
+                    <i data-feather="star" class="w-4 h-4"></i>
+                  </a>
 
-    
+                  <h3 class="text-xs md:text-sm font-light">5</h3>
+                </div>
 
-    <div class="img-container z-20  ">
-      <img src='{{movie.main_img.url}}'  alt='' class="img" srcset=''>
-      <div class='overlay'>
+                <h4 class="md:text-sm text-xs font-light">
+                  {{movie.movie_time}}
+                </h4>
+              </div>
 
-      </div>
+              <div class="mt-4 flex justify-between items-center">
+                <!-- <div class="flex  gap-2 items-center "> -->
 
-      <a href='' class="add-in-watchlist   ">
-       
-        <i data-feather="plus"></i>
-        <!-- <div class="relative -bottom-[1.20rem] -right-[1.4rem] w-8 triangle h-5 -rotate-45  "></div> -->
-        <!-- <div class="relative -bottom-[1rem] -left-[1.3rem] h-5 triangle w-5  bg-black rotate-45"></div> -->
-      </a>
-      <div class="card-content py-1 ">
-        <h3 class=" text-white text-center movie-title  ">{{movie.title}}</h3>
-      <div class=" gap-1 items-center justify-between   movieLanguages relative  ">
-        <h3 class="text-xs text-center font-extralight available-in">Available in</h3>
-        <p class="desc text-center">{{movie.movie_languages}}</p>
-      </div>
-
-
-        <div class="flex justify-center items-center mt-4  ">
-          <a href='{% url "movie" movie_data.id  %}' class="py-[3px] px-3 mx-auto border-2 border-white  text-white cursor-pointer inline-block text-center  rounded-lg hover:border-[aqua] transition duration-300 text-xs ">
-            Watch Trailer
-          </a>
-        </div>
-<div class=" mt-6 flex justify-between items-center ">
-<div class="flex  gap-2 items-center ">
-  <a class=" text-xs">
-   
-    <i data-feather="star" class="w-4 h-4"></i>
-  
-  </a>
-  
-  <h3 class="text-xs md:text-sm font-light">5</h3>
+                <h6 class="text-right md:text-sm text-xs font-light">
+                  {{movie.released_date}}
+                </h6>
+                <!-- </div> -->
+                <a href="/" class=""
+                  ><i data-feather="info" class="w-5 h-5"></i
+                ></a>
+              </div>
             </div>
+          </div>
+        </div>
 
-            <h4 class="md:text-sm text-xs font-light">{{movie.movie_time}}</h4>
-</div>
+        {% endfor %}
 
-
-
-<div class=" mt-4 flex justify-between items-center ">
-<!-- <div class="flex  gap-2 items-center "> -->
-  
-  
-  <h6 class=" text-right   md:text-sm text-xs font-light">{{movie.released_date}}</h6>
-            <!-- </div> -->
-<a href='/' class=""><i data-feather="info"  class="w-5 h-5" ></i></a>
-</div>
-      </div>
-
-    </div>
-   
-
-      
- 
-
-
-
-  </div>
-
-{% endfor %}
-
-            <!-- CARD -->
-            <!-- <div class ="related-card">
+        <!-- CARD -->
+        <!-- <div class ="related-card">
 
                 <div class="relative">
                     <img src='{% static "img/baby.jpg" %}' class="related-img block w-full h-[15rem] rounded-md object-cover" alt=''>
@@ -758,27 +874,31 @@ class="  relative  h-[88vh]    md:flex md:gap-4       gap-[15rem]     hidden w-[
                     <p class="font-medium font-sans text-xs my-2">Available in <span class="font-extralight">English, Hindi</span></p>
                 </div>
             </div> -->
-
-        </div>
-        <div class="flex justify-end my-6">
-            <!-- <a href='http://' class="text-white py-2 border-gradient px-6 transition rounded-3xl ">See More</a> -->
-            <a class="shadow-lg inline-block text-white relative  py-[1.7px] px-[1.7px] transition hover:scale-105   " href="{% url 'register' %}">
-    
-                <span class="block absolute inset-0 h-full w-full button-gradient rounded-3xl z-[1]   "></span>
-                     <span class=" block relative bg-[#130015] py-[0.2rem] px-[1rem] sm:py-[0.3rem] sm:px-[1.2rem] md:py-[0.5rem] md:px-[1.4rem]  rounded-3xl md:text-sm sm:text-xs text-[0.65rem]     z-[2]">
-                        See More
-                        </span>
-            </a>
-            <!-- <a class="shadow-lg inline-block text-white relative text-sm py-[1.7px] px-[1.7px] hover:scale-105 transition  " href="{% url 'register' %}">
+      </div>
+      <div class="flex justify-end my-6">
+        <!-- <a href='http://' class="text-white py-2 border-gradient px-6 transition rounded-3xl ">See More</a> -->
+        <a
+          class="shadow-lg inline-block text-white relative py-[1.7px] px-[1.7px] transition hover:scale-105"
+          href="{% url 'register' %}"
+        >
+          <span
+            class="block absolute inset-0 h-full w-full button-gradient rounded-3xl z-[1]"
+          ></span>
+          <span
+            class="block relative bg-[#130015] py-[0.2rem] px-[1rem] sm:py-[0.3rem] sm:px-[1.2rem] md:py-[0.5rem] md:px-[1.4rem] rounded-3xl md:text-sm sm:text-xs text-[0.65rem] z-[2]"
+          >
+            See More
+          </span>
+        </a>
+        <!-- <a class="shadow-lg inline-block text-white relative text-sm py-[1.7px] px-[1.7px] hover:scale-105 transition  " href="{% url 'register' %}">
     
                 <span class="block absolute inset-0 h-full w-full button-gradient rounded-3xl z-[1]   "></span>
                      <span class="overflow-hidden block relative bg-[#130015] py-[0.5rem] px-[1.4rem] text-sm rounded-3xl   z-[2] md:text-sm text-[0.6rem]">
                         See More
                         </span>
             </a> -->
-        </div>
+      </div>
     </section>
-</div>
-
+  </div>
 </div>
 {% endblock %}
